@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { Anchor, Waves, UtensilsCrossed, ShoppingBag, HeartPulse, Trees, Building2, Phone, MessageCircle } from "lucide-react";
+import { Anchor, Waves, UtensilsCrossed, ShoppingBag, HeartPulse, Trees, Building2, GraduationCap, Phone, MessageCircle, Leaf, Sun, Bike, Fish } from "lucide-react";
 import { GalleryModal } from "@/components/GalleryModal";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { waHref } from "@/lib/whatsapp";
@@ -16,6 +16,7 @@ const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png`;
 const MARINA_IMG = `${IMG_BASE}/marina-club.png`;
 const POOL_IMG = `${IMG_BASE}/amenities-pool.png`;
 const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png`;
+const CORAL_IMG = `${IMG_BASE}/coral-villa.png`;
 
 const WA_MESSAGE = "Hi Binayah! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -235,19 +236,19 @@ function FrondComparison() {
       {/* One grid keeps the two palms, the 2×, the ground line and the labels
           perfectly aligned across shared columns. */}
       <div
-        className="relative mx-auto grid items-end justify-center gap-x-8 sm:gap-x-16"
-        style={{ gridTemplateColumns: "clamp(90px, 19vw, 140px) auto clamp(170px, 38vw, 264px)" }}
+        className="relative mx-auto grid items-end justify-center gap-x-3 sm:gap-x-14"
+        style={{ gridTemplateColumns: "clamp(66px, 16vw, 140px) auto clamp(124px, 34vw, 264px)" }}
       >
         {/* row 1 — silhouettes, both sitting on the same ground line */}
         <PalmSilhouette fronds={8} draw={visible} tone="muted" animate={animate} className="w-full h-auto" />
         {/* 2× — boxed to the SMALL palm's height and bottom-aligned to the ground
             line, so it sits at the small palm's vertical centre, reading "×2". */}
         <div
-          className="self-end flex flex-col items-center justify-center px-1 sm:px-2"
-          style={{ height: "clamp(119px, 25vw, 185px)" }}
+          className="self-end flex flex-col items-center justify-center px-0.5 sm:px-2"
+          style={{ height: "clamp(87px, 21vw, 185px)" }}
         >
-          <span className="font-serif italic text-4xl sm:text-6xl leading-none bg-gradient-to-b from-[#E7C989] to-[#A8814A] bg-clip-text text-transparent">2×</span>
-          <span className="mt-2 text-[9px] sm:text-[10px] uppercase tracking-[0.28em] text-white/40 whitespace-nowrap">the size</span>
+          <span className="font-serif italic text-3xl sm:text-6xl leading-none bg-gradient-to-b from-[#E7C989] to-[#A8814A] bg-clip-text text-transparent">2×</span>
+          <span className="mt-1.5 sm:mt-2 text-[8px] sm:text-[10px] uppercase tracking-[0.16em] sm:tracking-[0.28em] text-white/40 whitespace-nowrap">the size</span>
         </div>
         <PalmSilhouette fronds={11} draw={visible} tone="gold" animate={animate} className="w-full h-auto" />
 
@@ -255,17 +256,17 @@ function FrondComparison() {
         <div className="col-span-3 mt-7 sm:mt-9 h-px bg-gradient-to-r from-transparent via-[#C9A26A]/30 to-transparent" />
 
         {/* row 3 — labels on a common baseline (matched km sizes) */}
-        <div className="mt-6 text-center">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-white/45">Palm Jumeirah</p>
-          <p className="mt-2 font-serif text-3xl sm:text-4xl text-white/60 leading-none">
-            <CountUp target={56} /> <span className="text-sm align-top">km</span>
+        <div className="mt-5 sm:mt-6 text-center">
+          <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-white/45 leading-snug">Palm Jumeirah</p>
+          <p className="mt-1.5 sm:mt-2 font-serif text-2xl sm:text-4xl text-white/60 leading-none">
+            <CountUp target={56} /> <span className="text-xs sm:text-sm align-top">km</span>
           </p>
         </div>
         <div />
-        <div className="mt-6 text-center">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-[#C9A26A]">Palm Jebel Ali · 16 fronds</p>
-          <p className="mt-2 font-serif text-3xl sm:text-4xl text-white leading-none">
-            <CountUp target={110} /> <span className="text-sm align-top text-[#C9A26A]">km</span>
+        <div className="mt-5 sm:mt-6 text-center">
+          <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-[#C9A26A] leading-snug">Palm Jebel Ali · 16 fronds</p>
+          <p className="mt-1.5 sm:mt-2 font-serif text-2xl sm:text-4xl text-white leading-none">
+            <CountUp target={110} /> <span className="text-xs sm:text-sm align-top text-[#C9A26A]">km</span>
           </p>
         </div>
       </div>
@@ -277,9 +278,10 @@ function FrondComparison() {
 
 const NAV_LINKS = [
   { href: "#residences", label: "Residences" },
+  { href: "#amenities", label: "Amenities" },
   { href: "#gallery", label: "Gallery" },
   { href: "#location", label: "Location" },
-  { href: "#payment-plan", label: "Payment Plan" },
+  { href: "#investment", label: "Invest" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -369,40 +371,143 @@ function SiteFooter({ waLink }: { waLink: string }) {
 // ── content data ────────────────────────────────────────────────────────────
 
 const FAQS: FaqItem[] = [
-  { question: "What is Palm Jebel Ali?", answer: "A new palm-shaped island development by Nakheel off Dubai's southern coast, roughly twice the size of Palm Jumeirah, comprising 16 fronds across 7 islands." },
-  { question: "How much does it cost to buy at Palm Jebel Ali?", answer: "Beachfront villas start from AED 18.5 million; apartments and townhouses at Palm Central start from AED 2.7 million, depending on release phase and unit." },
-  { question: "What is the payment plan?", answer: "Launch inventory has typically followed an 80/20 structure, 20% on booking, 60% during construction, 20% on handover, though terms vary by release." },
-  { question: "When is handover?", answer: "Villas are phased in across multiple fronds under active construction. Palm Central apartments and townhouses are scheduled from 2028, with later phases through 2030." },
-  { question: "Is Palm Jebel Ali really bigger than Palm Jumeirah?", answer: "Yes, the master plan is roughly double the footprint, adding around 110km of new coastline to Dubai." },
-  { question: "Can foreign buyers own freehold here?", answer: "Yes, Palm Jebel Ali falls within Dubai's designated freehold zones, open to foreign ownership like Palm Jumeirah and other Nakheel master communities." },
+  {
+    question: "What is Palm Jebel Ali?",
+    answer:
+      "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans roughly 13.4 km² across 7 islands and 16 fronds — about twice the footprint of Palm Jumeirah — and is designed to add around 110km of new coastline to the city.",
+  },
+  {
+    question: "What types of homes are available at Palm Jebel Ali?",
+    answer:
+      "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500–8,500 sqft across eight architectural signatures. The Coral Collection is the ultra-premium tier — 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1–5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
+  },
+  {
+    question: "How much does it cost to buy at Palm Jebel Ali?",
+    answer:
+      "Beach Collection villas start from around AED 18.5 million and Coral Collection mansions from roughly AED 30 million. Palm Central Private Residences start from about AED 2.5 million. Pricing moves with each release phase, unit type and frond position.",
+  },
+  {
+    question: "What is the payment plan at Palm Jebel Ali?",
+    answer:
+      "Launch inventory has typically followed an 80/20 structure: 20% on booking, 60% spread across construction milestones, and the final 20% on handover. Exact terms vary by collection and release, so confirm against the current release schedule before reserving.",
+  },
+  {
+    question: "When is handover at Palm Jebel Ali?",
+    answer:
+      "Handover is phased. Villa fronds are already under construction with deliveries staged from around 2027 for earlier Coral phases and toward 2029 for Beach Collection phases. Palm Central Private Residences are scheduled from 2028, with later phases running toward 2030.",
+  },
+  {
+    question: "Is Palm Jebel Ali bigger than Palm Jumeirah?",
+    answer:
+      "Yes — substantially. The master plan is roughly double Palm Jumeirah's footprint, with 16 fronds instead of Palm Jumeirah's tighter frond layout, and capacity planned for a far larger resident population.",
+  },
+  {
+    question: "Can foreigners buy property at Palm Jebel Ali?",
+    answer:
+      "Yes. Palm Jebel Ali sits within Dubai's designated freehold zone, so buyers of any nationality can own outright, with title registered at the Dubai Land Department — the same ownership basis as Palm Jumeirah.",
+  },
+  {
+    question: "Does buying at Palm Jebel Ali qualify for the UAE Golden Visa?",
+    answer:
+      "Property purchases at or above AED 2 million meet the current investment threshold for the UAE's 10-year renewable Golden Visa. Every Palm Jebel Ali collection clears that threshold, though eligibility is assessed on your individual application.",
+  },
+  {
+    question: "Where is Palm Jebel Ali and how do you get there?",
+    answer:
+      "It sits on Dubai's southern coastline beside Jebel Ali, connected by three mainland access points straight onto Sheikh Zayed Road (E11). Al Maktoum International (DWC) is roughly 15 minutes away, Expo City is minutes down the road, and Dubai Marina is about 25 minutes north.",
+  },
+  {
+    question: "What amenities will Palm Jebel Ali have?",
+    answer:
+      "The master plan includes private beaches and beach clubs, full-service marinas, more than 80 hotels and resorts, waterfront dining and retail districts, landscaped parks and promenades, wellness and fitness facilities, and everyday essentials such as schools, clinics and mosques — with island-wide cycling and pedestrian routes.",
+  },
+  {
+    question: "Is Palm Jebel Ali a good investment?",
+    answer:
+      "The case rests on scarcity and timing: freehold beachfront on a limited-supply island, bought at launch-phase pricing before the hotel, retail and marina phases mature, in the growth corridor Dubai is actively building around Al Maktoum International and Expo City. As with any off-plan purchase, returns depend on entry price, release phase and holding period.",
+  },
 ];
 
 const GALLERY_IMAGES = [VILLA_EXT_IMG, VILLA_INT_IMG, BEDROOM_IMG, MARINA_IMG, POOL_IMG, MASTERPLAN_IMG];
 
 const AMENITIES = [
-  { icon: Waves, label: "Private beach frontage on every frond" },
-  { icon: Anchor, label: "Marina & yacht club" },
-  { icon: UtensilsCrossed, label: "Beach clubs & fine dining" },
-  { icon: ShoppingBag, label: "Boutique retail districts" },
-  { icon: HeartPulse, label: "Wellness centres & spas" },
-  { icon: Trees, label: "Parks & waterfront promenades" },
-  { icon: Building2, label: "Up to 80 hotels & resorts island-wide" },
+  {
+    icon: Waves,
+    title: "Private beaches & beach clubs",
+    body: "Swimmable frontage on every frond, a dedicated family beach club, and a sunset promenade tracing the island's western edge.",
+  },
+  {
+    icon: Anchor,
+    title: "Marinas & yachting",
+    body: "Full-service marinas and berthing built into the crescent — the Gulf starts a few steps from the door, not a drive away.",
+  },
+  {
+    icon: Building2,
+    title: "80+ hotels & resorts",
+    body: "Beachfront five-stars, eco-retreats, serviced apartments and boutique stays, phased across the island's outer edges.",
+  },
+  {
+    icon: UtensilsCrossed,
+    title: "Waterfront dining",
+    body: "Restaurant and café precincts wrapped around the marinas — built for long evenings rather than quick meals.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Retail & lifestyle districts",
+    body: "Boutique retail clusters and lifestyle centres scaled for people who live here, not for tour buses.",
+  },
+  {
+    icon: Trees,
+    title: "Parks, play & promenades",
+    body: "Landscaped parks, water features and shaded playgrounds threaded between the fronds and along the shore.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Wellness & fitness",
+    body: "Spas, wellness centres and open-air fitness zones, with cycling and pedestrian routes running the length of the island.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Everyday essentials",
+    body: "Schools, clinics, mosques and community retail planned in from day one — so the island works on a Tuesday, not just a Saturday.",
+  },
+];
+
+const SUSTAINABILITY = [
+  { icon: Sun, stat: "30%", title: "Renewable energy", body: "Public facilities across the island are targeted to run on renewable power." },
+  { icon: Bike, stat: "Island-wide", title: "Car-light by design", body: "Continuous cycling and pedestrian routes make short journeys walkable rather than drivable." },
+  { icon: Fish, stat: "Protected", title: "Marine habitat", body: "Breakwaters and shallows designed to support marine life rather than simply hold back the sea." },
+  { icon: Leaf, stat: "Native", title: "Low-water landscaping", body: "Planting chosen for the Gulf climate, cutting irrigation demand across parks and promenades." },
+];
+
+const INVESTMENT = [
+  { title: "Freehold for all nationalities", body: "Palm Jebel Ali sits inside Dubai's designated freehold zone — full ownership, registered with the Dubai Land Department." },
+  { title: "Golden Visa eligible", body: "Property purchases at or above AED 2 million meet the threshold for the UAE's 10-year renewable Golden Visa." },
+  { title: "Launch-phase pricing", body: "Early releases are priced ahead of the island's amenity and hotel phases coming online — the classic off-plan entry window." },
+  { title: "Dubai's southern corridor", body: "Anchored beside Al Maktoum International and Expo City, the growth axis the city is actively building toward." },
 ];
 
 const RESIDENCES = [
   {
     img: VILLA_EXT_IMG,
-    tag: "Beachfront Villas",
-    meta: "5 · 6 · 7 bedroom · direct beach",
+    tag: "The Beach Collection",
+    meta: "5 & 6 bedroom villas · 7,500–8,500 sqft",
     price: "18.5M",
-    facts: ["Frond-front plots with private beach access", "544 villas under construction across six fronds"],
+    facts: ["Frond-front plots with private beach access", "Eight architectural signatures across the collection"],
+  },
+  {
+    img: CORAL_IMG,
+    tag: "The Coral Collection",
+    meta: "7 bedroom signature villas · outer fronds",
+    price: "30M",
+    facts: ["Ultra-premium mansions designed by SAOTA & Naga Architects", "The rarest addresses on the island"],
   },
   {
     img: MARINA_IMG,
-    tag: "Palm Central Residences",
-    meta: "1–4 bed apartments · 4–5 bed townhouses",
-    price: "2.7M",
-    facts: ["Sea-facing, resort-style low-rise blocks", "Handover phased toward 2030"],
+    tag: "Palm Central Private Residences",
+    meta: "1–5 bed apartments · townhouses · penthouses",
+    price: "2.5M",
+    facts: ["Beachfront resort living between Fronds M & N", "212 connected residences across three buildings"],
   },
 ];
 
@@ -464,12 +569,12 @@ export default function PalmJebelAliClient() {
           <div ref={heroImgRef} className="absolute inset-x-0 -top-[8%] h-[128%] will-change-transform">
             {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN hero */}
             <img src={HERO_IMG} alt="Aerial view of Palm Jebel Ali, Dubai's second palm island" className="ken-burns w-full h-full object-cover" fetchPriority="high" />
-            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(5,24,32,0.25) 0%, transparent 32%, rgba(5,24,32,0.55) 72%, #06232E 100%)" }} />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(5,24,32,0.32) 0%, rgba(5,24,32,0.08) 26%, rgba(5,24,32,0.62) 60%, rgba(5,24,32,0.88) 84%, #06232E 100%)" }} />
             <div className="absolute inset-0" style={{ background: "radial-gradient(120% 80% at 50% 40%, transparent 55%, rgba(5,24,32,0.5) 100%)" }} />
           </div>
         </div>
 
-        <div ref={heroTextRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 pb-[12vh] w-full will-change-transform">
+        <div ref={heroTextRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 pb-[17vh] sm:pb-[12vh] w-full will-change-transform">
           <motion.div variants={reduceMotion ? undefined : heroStagger} initial={reduceMotion ? undefined : "hidden"} animate={reduceMotion ? undefined : "show"} className="max-w-3xl">
             <motion.div variants={reduceMotion ? undefined : heroItem}>
               <Eyebrow>Nakheel · Dubai&apos;s Second Palm</Eyebrow>
@@ -563,7 +668,7 @@ export default function PalmJebelAliClient() {
           <Reveal className="mb-16 sm:mb-20 max-w-2xl">
             <Eyebrow>The residences</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
-              Two ways to own the <em className="italic text-[#E7C989]">water</em>.
+              Three collections. One <em className="italic text-[#E7C989]">coastline</em>.
             </h2>
           </Reveal>
 
@@ -631,25 +736,64 @@ export default function PalmJebelAliClient() {
       </section>
       <GalleryModal open={galleryOpen} onClose={() => setGalleryOpen(false)} images={GALLERY_IMAGES} activeIndex={galleryIndex} onChange={setGalleryIndex} title="Palm Jebel Ali" />
 
-      {/* ── AMENITIES (numbered index) ── */}
-      <section className="bg-[#F0E6D2] py-24 sm:py-32">
-        <div className="max-w-4xl mx-auto px-5 sm:px-8">
-          <Reveal className="mb-14">
+      {/* ── AMENITIES ── */}
+      <section id="amenities" className="bg-[#F0E6D2] py-24 sm:py-32">
+        <div className="max-w-5xl mx-auto px-5 sm:px-8">
+          <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow dark>Island lifestyle</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#06232E] tracking-[-0.02em] leading-[1.02]">
-              Everything the island needs, <em className="italic text-[#A8814A]">nothing</em> it doesn&apos;t.
+              A whole city&apos;s worth of <em className="italic text-[#A8814A]">everyday</em>.
             </h2>
+            <p className="mt-6 text-[#06232E]/65 text-base sm:text-lg leading-relaxed">
+              Islands fail when they are only beautiful. Palm Jebel Ali is planned as somewhere you can actually live — the marinas and beach clubs, yes, but also the schools, clinics and corner retail that make a Tuesday work.
+            </p>
           </Reveal>
 
-          <div className="border-t border-[#06232E]/10">
-            {AMENITIES.map(({ icon: Icon, label }, i) => (
-              <Reveal key={label} delay={i * 40}>
-                <div className="group flex items-center gap-5 sm:gap-8 py-5 sm:py-6 border-b border-[#06232E]/10 transition-colors hover:bg-[#06232E]/[0.03] -mx-4 px-4 rounded-lg">
-                  <span className="font-serif text-2xl sm:text-3xl text-[#A8814A] w-10 sm:w-14 flex-shrink-0 tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <Icon className="h-5 w-5 text-[#A8814A] flex-shrink-0" />
-                  <span className="text-[#06232E] text-lg sm:text-2xl font-medium">{label}</span>
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-[#06232E]/10">
+            {AMENITIES.map(({ icon: Icon, title, body }, i) => (
+              <Reveal key={title} delay={(i % 2) * 60}>
+                <div className="flex gap-5 py-7 sm:py-8 border-b border-[#06232E]/10 h-full">
+                  <div className="flex-shrink-0 flex flex-col items-center gap-3 pt-1">
+                    <span className="font-serif text-xl text-[#A8814A] tabular-nums leading-none">{String(i + 1).padStart(2, "0")}</span>
+                    <Icon className="h-4 w-4 text-[#A8814A]" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-2xl sm:text-[28px] text-[#06232E] leading-tight mb-2">{title}</h3>
+                    <p className="text-[#06232E]/60 text-sm sm:text-base leading-relaxed">{body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SUSTAINABILITY ── */}
+      <section id="sustainability" className="relative bg-[#051820] py-24 sm:py-32 overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-32 top-1/2 -translate-y-1/2 w-[560px] h-[560px]"
+          style={{ background: "radial-gradient(closest-side, rgba(201,162,106,0.07), transparent)" }}
+        />
+        <div className="relative max-w-5xl mx-auto px-5 sm:px-8">
+          <Reveal className="mb-14 sm:mb-20 max-w-2xl">
+            <Eyebrow>Built to last</Eyebrow>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
+              An island engineered to <em className="italic text-[#E7C989]">age well</em>.
+            </h2>
+            <p className="mt-6 text-white/60 text-base sm:text-lg leading-relaxed">
+              Reclaiming land is the easy part. Making it liveable in forty years is the discipline — and it shows up in the energy plan, the movement plan and what happens under the waterline.
+            </p>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+            {SUSTAINABILITY.map(({ icon: Icon, stat, title, body }, i) => (
+              <Reveal key={title} delay={i * 60}>
+                <div className="border-t border-[#C9A26A]/25 pt-6 h-full">
+                  <Icon className="h-5 w-5 text-[#C9A26A] mb-4" />
+                  <p className="font-serif text-3xl sm:text-4xl text-white leading-none mb-3">{stat}</p>
+                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A26A] mb-3">{title}</h3>
+                  <p className="text-white/55 text-sm leading-relaxed">{body}</p>
                 </div>
               </Reveal>
             ))}
@@ -737,16 +881,38 @@ export default function PalmJebelAliClient() {
         </div>
       </section>
 
-      {/* ── WHY BINAYAH ── */}
-      <section className="bg-[#06232E] py-24 sm:py-32">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 text-center">
-          <Reveal>
-            <div className="flex justify-center"><Eyebrow>Off-plan access, without the guesswork</Eyebrow></div>
-            <h2 className="font-serif font-medium text-3xl sm:text-5xl text-white tracking-[-0.02em] leading-[1.08] mb-7">
-              Early releases move fast, and allocations are <em className="italic text-[#E7C989]">tightly held</em>.
+      {/* ── INVESTMENT CASE ── */}
+      <section id="investment" className="bg-[#06232E] py-24 sm:py-32">
+        <div className="max-w-5xl mx-auto px-5 sm:px-8">
+          <Reveal className="mb-14 sm:mb-20 max-w-2xl">
+            <Eyebrow>The investment case</Eyebrow>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
+              Why buyers move <em className="italic text-[#E7C989]">early</em> here.
             </h2>
-            <p className="text-white/65 text-base sm:text-lg leading-relaxed">
-              Binayah tracks Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches — with full DLD-registered transaction support from reservation to handover.
+            <p className="mt-6 text-white/60 text-base sm:text-lg leading-relaxed">
+              Beachfront on a finite island is the one thing Dubai cannot produce more of on demand. The rest is timing.
+            </p>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-white/10">
+            {INVESTMENT.map(({ title, body }, i) => (
+              <Reveal key={title} delay={(i % 2) * 60}>
+                <div className="flex gap-5 py-7 sm:py-9 border-b border-white/10 h-full">
+                  <span className="font-serif text-xl text-[#C9A26A] tabular-nums leading-none pt-1.5 flex-shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-2xl sm:text-[28px] text-white leading-tight mb-2">{title}</h3>
+                    <p className="text-white/55 text-sm sm:text-base leading-relaxed">{body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-14 sm:mt-16 max-w-2xl">
+            <p className="text-white/50 text-sm sm:text-base leading-relaxed">
+              Early releases move fast and allocations are tightly held. Binayah tracks Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches — with full DLD-registered transaction support from reservation through to handover.
             </p>
           </Reveal>
         </div>
