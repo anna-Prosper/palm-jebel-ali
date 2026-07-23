@@ -5,3 +5,31 @@
 html {
   scroll-behavior: auto;
 }
+
+/* Cinematic slow zoom on the hero image (transform on the <img> only — GPU-safe). */
+@keyframes kenburns {
+  from { transform: scale(1.09); }
+  to   { transform: scale(1); }
+}
+.ken-burns { animation: kenburns 14s ease-out forwards; }
+
+/* Gentle opacity pulse for the scroll cue. */
+@keyframes scrollpulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+.scroll-pulse { animation: scrollpulse 2.4s ease-in-out infinite; }
+
+/* Soft downward travel of the scroll-cue line. */
+@keyframes scrolltravel {
+  0%   { transform: translateY(-40%); opacity: 0; }
+  40%  { opacity: 1; }
+  100% { transform: translateY(120%); opacity: 0; }
+}
+.scroll-travel { animation: scrolltravel 2.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns,
+  .scroll-pulse,
+  .scroll-travel { animation: none; }
+}
