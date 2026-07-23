@@ -8,7 +8,8 @@ import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { waHref } from "@/lib/whatsapp";
 
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
-const HERO_IMG = `${IMG_BASE}/hero-aerial.png`;
+// 2× AI-upscaled hero (2688×1536) — crisp on large displays.
+const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
 const MASTERPLAN_IMG = `${IMG_BASE}/masterplan-aerial.png`;
 const VILLA_EXT_IMG = `${IMG_BASE}/villa-exterior.png`;
 const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png`;
