@@ -48,35 +48,6 @@ function Marquee() {
   );
 }
 
-// Subtle cursor-driven 3D tilt for the residence panels — kept to a few
-// degrees so it reads as tactile polish rather than a gimmick.
-function TiltCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduceMotion = useReducedMotion();
-
-  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (reduceMotion || !ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    ref.current.style.transform = `perspective(1200px) rotateY(${px * 4}deg) rotateX(${-py * 4}deg) scale(1.015)`;
-  };
-  const reset = () => {
-    if (ref.current) ref.current.style.transform = "";
-  };
-
-  return (
-    <div
-      ref={ref}
-      onMouseMove={handleMove}
-      onMouseLeave={reset}
-      className={`transition-transform duration-300 ease-out will-change-transform ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
 const NAV_LINKS = [
   { href: "#residences", label: "Residences" },
   { href: "#gallery", label: "Gallery" },
@@ -256,21 +227,34 @@ function useRevealOnScroll<T extends HTMLElement>() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    // Reveal immediately (no hidden state) when we can't observe or motion is off.
+    if (
+      typeof window === "undefined" ||
+      !("IntersectionObserver" in window) ||
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ) {
       setVisible(true);
       return;
     }
     const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
           setVisible(true);
           obs.disconnect();
         }
       },
-      { threshold: 0.25 }
+      // Fire as the element begins to enter from the bottom, and immediately
+      // if it's already on-screen at mount.
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.01 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    // Safety net: nothing should ever stay invisible. If the observer never
+    // fires (edge cases / fast scroll before hydration), reveal after a beat.
+    const fallback = window.setTimeout(() => setVisible(true), 1500);
+    return () => {
+      obs.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
   return { ref, visible };
 }
@@ -305,19 +289,20 @@ function CountUp({ target, suffix = "", duration = 1400 }: { target: number; suf
   );
 }
 
+// Scroll-reveal driven by the same proven IntersectionObserver hook as the
+// stat counters (a plain CSS transition, not framer-motion's whileInView, which
+// proved unreliable here — content could get stuck at opacity 0).
 function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const reduceMotion = useReducedMotion();
-  if (reduceMotion) return <div className={className}>{children}</div>;
+  const { ref, visible } = useRevealOnScroll<HTMLDivElement>();
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+    <div
+      ref={ref}
+      className={`transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"
+      } ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -328,11 +313,6 @@ const heroStagger: Variants = {
 const heroItem: Variants = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-};
-const galleryStagger: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
-const galleryItem: Variants = {
-  hidden: { opacity: 0, y: 20, scale: 0.96 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
 export default function PalmJebelAliClient() {
@@ -532,7 +512,7 @@ export default function PalmJebelAliClient() {
             facts: ["1–4 bedroom apartments & 4–5 bedroom townhouses", "Sea-facing, resort-style low-rise blocks", "Handover phased toward 2030"],
           },
         ].map((r) => (
-          <TiltCard key={r.label} className="relative min-h-[70vh] group overflow-hidden">
+          <div key={r.label} className="relative min-h-[70vh] group overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN */}
             <img src={r.img} alt={r.label} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
@@ -547,7 +527,7 @@ export default function PalmJebelAliClient() {
                 ))}
               </ul>
             </div>
-          </TiltCard>
+          </div>
         ))}
       </section>
 
@@ -560,27 +540,20 @@ export default function PalmJebelAliClient() {
           </h2>
         </Reveal>
 
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
-          initial={reduceMotion ? undefined : "hidden"}
-          whileInView={reduceMotion ? undefined : "show"}
-          viewport={{ once: true, margin: "-80px" }}
-          variants={reduceMotion ? undefined : galleryStagger}
-        >
+        <Reveal className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
           {GALLERY_IMAGES.map((img, i) => (
-            <motion.button
+            <button
               key={img}
-              variants={reduceMotion ? undefined : galleryItem}
               onClick={() => { setGalleryIndex(i); setGalleryOpen(true); }}
               className={`relative overflow-hidden rounded-xl group ${i === 0 ? "col-span-2 row-span-2" : ""}`}
-              style={{ aspectRatio: i === 0 ? "1 / 1" : "1 / 1" }}
+              style={{ aspectRatio: "1 / 1" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN */}
               <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </Reveal>
       </section>
       <GalleryModal open={galleryOpen} onClose={() => setGalleryOpen(false)} images={GALLERY_IMAGES} activeIndex={galleryIndex} onChange={setGalleryIndex} title="Palm Jebel Ali" />
 
