@@ -123,8 +123,8 @@ const SCHEMA = {
       dateModified: "2026-07-23",
       about: { "@id": `${SITE}/#place` },
       isPartOf: { "@id": `${SITE}/#website` },
-      author: { "@type": "Organization", name: "Binayah Properties", url: "https://www.binayah.ae" },
-      publisher: { "@type": "Organization", name: "Binayah Properties", url: "https://www.binayah.ae" },
+      author: { "@type": "Organization", name: "Palm Jebel Ali", url: SITE },
+      publisher: { "@type": "Organization", name: "Palm Jebel Ali", url: SITE },
     },
     {
       "@type": "FAQPage",

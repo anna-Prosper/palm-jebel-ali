@@ -18,7 +18,7 @@ const POOL_IMG = `${IMG_BASE}/amenities-pool.png`;
 const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png`;
 const CORAL_IMG = `${IMG_BASE}/coral-villa.png`;
 
-const WA_MESSAGE = "Hi Binayah! I'd like the current release schedule and pricing for Palm Jebel Ali.";
+const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
 const TICKER_ITEMS = [
   "Dubai's Second Palm",
@@ -358,8 +358,7 @@ function SiteFooter({ waLink }: { waLink: string }) {
         </div>
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
           <p className="text-white/35 text-xs leading-relaxed max-w-2xl">
-            Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery, not official developer material. Marketed by{" "}
-            <a href="https://www.binayah.ae" className="underline hover:text-white/60">Binayah Properties</a>, RERA ORN 1162, an independent brokerage, not affiliated with or endorsed by Nakheel.
+            Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery, not official developer material. This is an independent showcase, not affiliated with or endorsed by Nakheel.
           </p>
           <p className="text-white/35 text-xs whitespace-nowrap">© 2026 Palm Jebel Ali Showcase</p>
         </div>
@@ -912,7 +911,7 @@ export default function PalmJebelAliClient() {
 
           <Reveal className="mt-14 sm:mt-16 max-w-2xl">
             <p className="text-white/50 text-sm sm:text-base leading-relaxed">
-              Early releases move fast and allocations are tightly held. Binayah tracks Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches — with full DLD-registered transaction support from reservation through to handover.
+              Early releases move fast and allocations are tightly held. We track Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches — with full DLD-registered transaction support from reservation through to handover.
             </p>
           </Reveal>
         </div>
