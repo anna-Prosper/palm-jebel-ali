@@ -228,31 +228,43 @@ function FrondComparison() {
       {/* soft gold glow behind the spectacle */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[420px] max-w-none"
-        style={{ background: "radial-gradient(closest-side, rgba(201,162,106,0.12), transparent)" }}
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[380px] max-w-none"
+        style={{ background: "radial-gradient(closest-side, rgba(201,162,106,0.11), transparent)" }}
       />
-      <div className="relative flex items-end justify-center gap-6 sm:gap-14">
-        {/* Palm Jumeirah — half scale */}
-        <div className="flex flex-col items-center" style={{ width: "clamp(84px, 22vw, 150px)" }}>
-          <PalmSilhouette fronds={8} draw={visible} tone="muted" animate={animate} className="w-full h-auto" />
-          <p className="mt-5 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-white/45 text-center">Palm Jumeirah</p>
-          <p className="mt-1 font-serif text-2xl sm:text-3xl text-white/70">
-            <CountUp target={56} /> <span className="text-base align-top">km</span>
+      {/* One grid keeps the two palms, the 2×, the ground line and the labels
+          perfectly aligned across shared columns. */}
+      <div
+        className="relative mx-auto grid items-end justify-center gap-x-8 sm:gap-x-16"
+        style={{ gridTemplateColumns: "clamp(90px, 19vw, 140px) auto clamp(170px, 38vw, 264px)" }}
+      >
+        {/* row 1 — silhouettes, both sitting on the same ground line */}
+        <PalmSilhouette fronds={8} draw={visible} tone="muted" animate={animate} className="w-full h-auto" />
+        {/* 2× — boxed to the SMALL palm's height and bottom-aligned to the ground
+            line, so it sits at the small palm's vertical centre, reading "×2". */}
+        <div
+          className="self-end flex flex-col items-center justify-center px-1 sm:px-2"
+          style={{ height: "clamp(119px, 25vw, 185px)" }}
+        >
+          <span className="font-serif italic text-4xl sm:text-6xl leading-none bg-gradient-to-b from-[#E7C989] to-[#A8814A] bg-clip-text text-transparent">2×</span>
+          <span className="mt-2 text-[9px] sm:text-[10px] uppercase tracking-[0.28em] text-white/40 whitespace-nowrap">the size</span>
+        </div>
+        <PalmSilhouette fronds={11} draw={visible} tone="gold" animate={animate} className="w-full h-auto" />
+
+        {/* row 2 — the shared ground line */}
+        <div className="col-span-3 mt-7 sm:mt-9 h-px bg-gradient-to-r from-transparent via-[#C9A26A]/30 to-transparent" />
+
+        {/* row 3 — labels on a common baseline (matched km sizes) */}
+        <div className="mt-6 text-center">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/45">Palm Jumeirah</p>
+          <p className="mt-2 font-serif text-3xl sm:text-4xl text-white/60 leading-none">
+            <CountUp target={56} /> <span className="text-sm align-top">km</span>
           </p>
         </div>
-
-        {/* 2× */}
-        <div className="flex flex-col items-center pb-10 sm:pb-16">
-          <span className="font-serif italic text-5xl sm:text-7xl leading-none bg-gradient-to-b from-[#E7C989] to-[#A8814A] bg-clip-text text-transparent">2×</span>
-          <span className="mt-2 text-[10px] uppercase tracking-[0.3em] text-white/40">the size</span>
-        </div>
-
-        {/* Palm Jebel Ali — full scale */}
-        <div className="flex flex-col items-center" style={{ width: "clamp(168px, 44vw, 300px)" }}>
-          <PalmSilhouette fronds={11} draw={visible} tone="gold" animate={animate} className="w-full h-auto" />
-          <p className="mt-5 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#C9A26A] text-center">Palm Jebel Ali · 16 fronds</p>
-          <p className="mt-1 font-serif text-3xl sm:text-5xl text-white">
-            <CountUp target={110} /> <span className="text-lg align-top text-[#C9A26A]">km</span>
+        <div />
+        <div className="mt-6 text-center">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-[#C9A26A]">Palm Jebel Ali · 16 fronds</p>
+          <p className="mt-2 font-serif text-3xl sm:text-4xl text-white leading-none">
+            <CountUp target={110} /> <span className="text-sm align-top text-[#C9A26A]">km</span>
           </p>
         </div>
       </div>
@@ -525,10 +537,10 @@ export default function PalmJebelAliClient() {
       <Marquee />
 
       {/* ── FRONDS / SIGNATURE COMPARISON ── */}
-      <section className="relative bg-[#0E3B45] py-24 sm:py-36 overflow-hidden">
+      <section className="relative bg-[#0E3B45] py-20 sm:py-28 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <Reveal className="mb-16 sm:mb-24 max-w-2xl">
-            <Eyebrow>One trunk, sixteen fronds</Eyebrow>
+          <Reveal className="mb-10 sm:mb-14 max-w-2xl text-center mx-auto">
+            <div className="flex justify-center"><Eyebrow>One trunk, sixteen fronds</Eyebrow></div>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
               A coastline, <em className="italic text-[#E7C989]">drawn</em> from the sea.
             </h2>
@@ -536,7 +548,7 @@ export default function PalmJebelAliClient() {
 
           <FrondComparison />
 
-          <Reveal className="mt-16 sm:mt-24 max-w-2xl mx-auto text-center" delay={120}>
+          <Reveal className="mt-14 sm:mt-20 max-w-2xl mx-auto text-center" delay={120}>
             <p className="text-white/65 text-base sm:text-lg leading-relaxed">
               Seven islands, sixteen fronds, and more shoreline than most countries add in a decade — all connected by three mainland access points straight onto Sheikh Zayed Road.
             </p>
