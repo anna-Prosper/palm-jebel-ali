@@ -1008,7 +1008,7 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── INVESTMENT CASE ── */}
-      <section id="investment" className="relative overflow-hidden bg-[#EAE1D0] py-24 sm:py-32">
+      <section id="investment" className="relative overflow-hidden bg-[#E7ECEC] py-24 sm:py-32">
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow dark>The investment case</Eyebrow>
