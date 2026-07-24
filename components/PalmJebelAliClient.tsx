@@ -12,14 +12,15 @@ const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.a
 const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
 const HERO_MP4 = `${IMG_BASE}/hero-loop.mp4`;
 const HERO_WEBM = `${IMG_BASE}/hero-loop.webm`;
-const MASTERPLAN_IMG = `${IMG_BASE}/masterplan-aerial.png`;
-const VILLA_EXT_IMG = `${IMG_BASE}/villa-exterior.png`;
 const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png`;
 const MARINA_IMG = `${IMG_BASE}/marina-club.png`;
 const POOL_IMG = `${IMG_BASE}/amenities-pool.png`;
 const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png`;
 const CORAL_IMG = `${IMG_BASE}/coral-villa.png`;
-const BEACH_IMG = `${IMG_BASE}/beach-villa.png`;
+// Real Nakheel renders (Beach Collection villa, Palm Central resort) + a hi-res palm aerial.
+const BEACH_IMG = `${IMG_BASE}/beach-collection.jpg`;
+const PALM_CENTRAL_IMG = `${IMG_BASE}/palm-central.jpg`;
+const GALLERY_AERIAL_IMG = `${IMG_BASE}/gallery-aerial.png`;
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -441,7 +442,7 @@ function SiteFooter({ waLink }: { waLink: string }) {
         </div>
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
           <p className="text-white/35 text-xs leading-relaxed max-w-2xl">
-            Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery, not official developer material. This is an independent showcase, not affiliated with or endorsed by Nakheel.
+            Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery and subject to change. This is an independent showcase, not affiliated with or endorsed by Nakheel.
           </p>
           <p className="text-white/35 text-xs whitespace-nowrap">© 2026 Palm Jebel Ali Showcase</p>
         </div>
@@ -510,7 +511,7 @@ const FAQS: FaqItem[] = [
   },
 ];
 
-const GALLERY_IMAGES = [VILLA_EXT_IMG, VILLA_INT_IMG, BEDROOM_IMG, MARINA_IMG, POOL_IMG, MASTERPLAN_IMG];
+const GALLERY_IMAGES = [GALLERY_AERIAL_IMG, VILLA_INT_IMG, BEDROOM_IMG, POOL_IMG, MARINA_IMG, CORAL_IMG];
 
 const AMENITIES = [
   {
@@ -585,7 +586,7 @@ const RESIDENCES = [
     facts: ["Ultra-premium mansions designed by SAOTA & Naga Architects", "The rarest addresses on the island"],
   },
   {
-    img: MARINA_IMG,
+    img: PALM_CENTRAL_IMG,
     tag: "Palm Central Private Residences",
     meta: "1-5 bed apartments · townhouses · penthouses",
     price: "2.5M",
