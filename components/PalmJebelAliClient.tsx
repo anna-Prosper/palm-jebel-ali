@@ -20,6 +20,11 @@ const CORAL_IMG = `${IMG_BASE}/coral-villa.png?v=6`;
 const BEACH_IMG = `${IMG_BASE}/beach-collection.jpg`;
 const PALM_CENTRAL_IMG = `${IMG_BASE}/palm-central.jpg`;
 const GALLERY_AERIAL_IMG = `${IMG_BASE}/gallery-aerial.png`;
+// Subtle AI-generated warm-ivory watercolour paper texture, laid faintly behind
+// the Amenities section for a refined "paradise brochure" surface.
+const AMENITIES_TEX = `${IMG_BASE}/amenities-texture.jpg`;
+// Airy AI-generated shoreline (pale sand meeting soft foam) behind the Payment section.
+const BEACH_FOAM_IMG = `${IMG_BASE}/beach-foam.jpg`;
 // Dedicated dark, moody twilight backdrop for the final CTA (its own image so it
 // stays dramatic behind the headline, independent of the bright gallery pool).
 const CTA_IMG = `${IMG_BASE}/cta-bg.png?v=2`;
@@ -846,8 +851,12 @@ export default function PalmJebelAliClient() {
       <GalleryModal open={galleryOpen} onClose={() => setGalleryOpen(false)} images={GALLERY_IMAGES} activeIndex={galleryIndex} onChange={setGalleryIndex} title="Palm Jebel Ali" />
 
       {/* ── AMENITIES ── */}
-      <section id="amenities" className="bg-[#EAE1D0] py-24 sm:py-32">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
+      <section id="amenities" className="relative overflow-hidden bg-[#EFE8DA] py-24 sm:py-32">
+        {/* faint AI-generated watercolour paper texture for a refined brochure surface */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN texture */}
+        <img aria-hidden src={AMENITIES_TEX} alt="" className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-90" loading="lazy" />
+        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(239,232,218,0.35), rgba(239,232,218,0))" }} />
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow dark>Island lifestyle</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#06232E] tracking-[-0.02em] leading-[1.02]">
@@ -912,7 +921,10 @@ export default function PalmJebelAliClient() {
 
       {/* ── LOCATION ── */}
       <section id="location" className="relative bg-[#06232E] py-24 sm:py-32 overflow-hidden">
-        <SectionBg src={BG_COAST} opacity={0.68} top={0.6} bottom={0.5} />
+        <SectionBg src={BG_COAST} opacity={0.95} top={0.42} bottom={0.28} />
+        {/* left-anchored scrim keeps the white copy legible while the water image
+            breathes brightly on the right */}
+        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(6,35,46,0.72) 0%, rgba(6,35,46,0.32) 42%, transparent 72%)" }} />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-40 top-0 w-[600px] h-[600px]"
@@ -947,6 +959,10 @@ export default function PalmJebelAliClient() {
 
       {/* ── PAYMENT PLAN ── */}
       <section id="payment-plan" className="relative overflow-hidden bg-[#F4EEE2] py-24 sm:py-32">
+        {/* airy generated shoreline, softly washed so the teal copy stays legible */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN image */}
+        <img aria-hidden src={BEACH_FOAM_IMG} alt="" className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-80" loading="lazy" />
+        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(244,238,226,0.72) 0%, rgba(244,238,226,0.5) 45%, rgba(244,238,226,0.68) 100%)" }} />
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-16 sm:mb-24 text-center">
             <div className="flex justify-center"><Eyebrow dark>Payment plan</Eyebrow></div>
