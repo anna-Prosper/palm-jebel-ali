@@ -23,11 +23,9 @@ const GALLERY_AERIAL_IMG = `${IMG_BASE}/gallery-aerial.png`;
 // Dedicated dark, moody twilight backdrop for the final CTA (its own image so it
 // stays dramatic behind the headline, independent of the bright gallery pool).
 const CTA_IMG = `${IMG_BASE}/cta-bg.png?v=2`;
-// Faint, very-dark atmospheric backdrops behind the text sections (always heavily
-// overlaid so copy stays fully legible — they add depth, not distraction).
+// Dark, moody backdrop kept only behind the night-aerial Location feature — the
+// rest of the body is now a light palette and needs no dark scrim images.
 const BG_COAST = `${IMG_BASE}/bg-coast.png`;
-const BG_WATER = `${IMG_BASE}/bg-water.png`;
-const BG_SUSTAIN = `${IMG_BASE}/bg-sustain.png`;
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -216,7 +214,7 @@ function Marquee() {
   const loop = [...TICKER_ITEMS, ...TICKER_ITEMS];
   return (
     <div
-      className="overflow-hidden border-y border-[#C9A26A]/15 bg-[#051820] py-5 sm:py-6"
+      className="overflow-hidden border-y border-[#C9A26A]/20 bg-[#0C2E35] py-5 sm:py-6"
       style={{ maskImage: "linear-gradient(to right, transparent, black 7%, black 93%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 7%, black 93%, transparent)" }}
     >
       <motion.div
@@ -260,7 +258,7 @@ function PalmSilhouette({ fronds, draw, tone, animate, className }: {
   className?: string;
 }) {
   const paths = palmPaths(fronds);
-  const stroke = tone === "gold" ? "#C9A26A" : "rgba(201,162,106,0.4)";
+  const stroke = tone === "gold" ? "#A8814A" : "rgba(12,46,53,0.28)";
   const width = tone === "gold" ? 2 : 1.4;
   return (
     <svg viewBox="0 0 200 264" fill="none" className={className} aria-hidden>
@@ -309,8 +307,8 @@ function FrondComparison() {
           className="self-end flex flex-col items-center justify-center px-0.5 sm:px-2"
           style={{ height: "clamp(87px, 21vw, 185px)" }}
         >
-          <span className="font-serif italic text-3xl sm:text-6xl leading-none bg-gradient-to-b from-[#E7C989] to-[#A8814A] bg-clip-text text-transparent">2×</span>
-          <span className="mt-1.5 sm:mt-2 text-[8px] sm:text-[10px] uppercase tracking-[0.16em] sm:tracking-[0.28em] text-white/40 whitespace-nowrap">the size</span>
+          <span className="font-serif italic text-3xl sm:text-6xl leading-none bg-gradient-to-b from-[#C9A26A] to-[#A8814A] bg-clip-text text-transparent">2×</span>
+          <span className="mt-1.5 sm:mt-2 text-[8px] sm:text-[10px] uppercase tracking-[0.16em] sm:tracking-[0.28em] text-[#0C2E35]/45 whitespace-nowrap">the size</span>
         </div>
         <PalmSilhouette fronds={11} draw={visible} tone="gold" animate={animate} className="w-full h-auto" />
 
@@ -319,16 +317,16 @@ function FrondComparison() {
 
         {/* row 3, labels on a common baseline (matched km sizes) */}
         <div className="mt-5 sm:mt-6 text-center">
-          <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-white/45 leading-snug">Palm Jumeirah</p>
-          <p className="mt-1.5 sm:mt-2 font-serif text-2xl sm:text-4xl text-white/60 leading-none">
+          <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-[#0C2E35]/50 leading-snug">Palm Jumeirah</p>
+          <p className="mt-1.5 sm:mt-2 font-serif text-2xl sm:text-4xl text-[#0C2E35]/55 leading-none">
             <CountUp target={56} /> <span className="text-xs sm:text-sm align-top">km</span>
           </p>
         </div>
         <div />
         <div className="mt-5 sm:mt-6 text-center">
-          <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-[#C9A26A] leading-snug">Palm Jebel Ali · 16 fronds</p>
-          <p className="mt-1.5 sm:mt-2 font-serif text-2xl sm:text-4xl text-white leading-none">
-            <CountUp target={110} /> <span className="text-xs sm:text-sm align-top text-[#C9A26A]">km</span>
+          <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-[#A8814A] leading-snug">Palm Jebel Ali · 16 fronds</p>
+          <p className="mt-1.5 sm:mt-2 font-serif text-2xl sm:text-4xl text-[#0C2E35] leading-none">
+            <CountUp target={110} /> <span className="text-xs sm:text-sm align-top text-[#A8814A]">km</span>
           </p>
         </div>
       </div>
@@ -367,7 +365,7 @@ function SiteHeader({ waLink }: { waLink: string }) {
   }, []);
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#06232E]/85 backdrop-blur-md border-b border-white/10 py-3" : "py-5"}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#F4EEE2]/90 backdrop-blur-md border-b border-[#0C2E35]/10 py-3" : "py-5"}`}>
       {/* Top scrim so the transparent-header links stay legible over a bright sky. */}
       {!scrolled && (
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-28" style={{ background: "linear-gradient(180deg, rgba(5,24,32,0.55), transparent)" }} />
@@ -378,7 +376,7 @@ function SiteHeader({ waLink }: { waLink: string }) {
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
           className="flex items-baseline gap-2"
         >
-          <span className={`font-serif text-lg sm:text-xl text-white leading-none ${scrolled ? "" : "[text-shadow:0_1px_10px_rgba(0,0,0,0.45)]"}`}>Palm Jebel Ali</span>
+          <span className={`font-serif text-lg sm:text-xl leading-none transition-colors ${scrolled ? "text-[#0C2E35]" : "text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]"}`}>Palm Jebel Ali</span>
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
@@ -386,7 +384,7 @@ function SiteHeader({ waLink }: { waLink: string }) {
               key={l.href}
               href={l.href}
               onClick={(e) => scrollToAnchor(e, l.href)}
-              className={`text-white/90 hover:text-white text-[11px] uppercase tracking-[0.15em] transition-colors ${scrolled ? "" : "[text-shadow:0_1px_8px_rgba(0,0,0,0.5)]"}`}
+              className={`text-[11px] uppercase tracking-[0.15em] transition-colors ${scrolled ? "text-[#0C2E35]/70 hover:text-[#0C2E35]" : "text-white/90 hover:text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]"}`}
             >
               {l.label}
             </a>
@@ -656,7 +654,7 @@ export default function PalmJebelAliClient() {
   }, []);
 
   return (
-    <div id="top" className="bg-[#06232E]">
+    <div id="top" className="bg-[#F4EEE2]">
       <SiteHeader waLink={waLink} />
 
       {/* ── HERO ── */}
@@ -707,8 +705,8 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="border-b border-white/10 bg-[#051820]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16 grid grid-cols-2 sm:grid-cols-4 gap-y-10 sm:gap-4 sm:divide-x sm:divide-white/10">
+      <section className="border-b border-[#0C2E35]/10 bg-[#EAE1D0]">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16 grid grid-cols-2 sm:grid-cols-4 gap-y-10 sm:gap-4 sm:divide-x sm:divide-[#0C2E35]/10">
           {[
             { value: 110, suffix: "km", label: "New coastline" },
             { value: 2, suffix: "×", label: "Size of Palm Jumeirah" },
@@ -716,10 +714,10 @@ export default function PalmJebelAliClient() {
             { value: 80, suffix: "/20", label: "Launch payment plan" },
           ].map((s) => (
             <div key={s.label} className="text-center sm:px-4">
-              <div className="font-serif text-4xl sm:text-6xl text-white mb-2 leading-none">
+              <div className="font-serif text-4xl sm:text-6xl text-[#0C2E35] mb-2 leading-none">
                 <CountUp target={s.value} suffix={s.suffix} />
               </div>
-              <p className="text-white/45 text-[11px] sm:text-xs uppercase tracking-[0.18em]">{s.label}</p>
+              <p className="text-[#0C2E35]/50 text-[11px] sm:text-xs uppercase tracking-[0.18em]">{s.label}</p>
             </div>
           ))}
         </div>
@@ -729,8 +727,8 @@ export default function PalmJebelAliClient() {
       <section className="relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-5 sm:px-8 py-24 sm:py-36 text-center">
           <Reveal>
-            <p className="font-serif text-2xl sm:text-4xl leading-[1.28] text-[#F0E6D2]">
-              Nakheel built Palm Jumeirah once. Palm Jebel Ali is what happens when they get to do it again, with two more decades of lessons, twice the land, and room for a community of <span className="italic text-[#E7C989]">240,000 residents</span>.
+            <p className="font-serif text-2xl sm:text-4xl leading-[1.28] text-[#0C2E35]">
+              Nakheel built Palm Jumeirah once. Palm Jebel Ali is what happens when they get to do it again, with two more decades of lessons, twice the land, and room for a community of <span className="italic text-[#A8814A]">240,000 residents</span>.
             </p>
           </Reveal>
         </div>
@@ -739,19 +737,19 @@ export default function PalmJebelAliClient() {
       <Marquee />
 
       {/* ── FRONDS / SIGNATURE COMPARISON ── */}
-      <section className="relative bg-[#0E3B45] py-20 sm:py-28 overflow-hidden">
+      <section className="relative bg-[#E4EDEB] py-20 sm:py-28 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-10 sm:mb-14 max-w-2xl text-center mx-auto">
-            <div className="flex justify-center"><Eyebrow>One trunk, sixteen fronds</Eyebrow></div>
-            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
-              A coastline, <em className="italic text-[#E7C989]">drawn</em> from the sea.
+            <div className="flex justify-center"><Eyebrow dark>One trunk, sixteen fronds</Eyebrow></div>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
+              A coastline, <em className="italic text-[#A8814A]">drawn</em> from the sea.
             </h2>
           </Reveal>
 
           <FrondComparison />
 
           <Reveal className="mt-14 sm:mt-20 max-w-2xl mx-auto text-center" delay={120}>
-            <p className="text-white/65 text-base sm:text-lg leading-relaxed">
+            <p className="text-[#0C2E35]/70 text-base sm:text-lg leading-relaxed">
               Seven islands, sixteen fronds, and more shoreline than most countries add in a decade, all connected by three mainland access points straight onto Sheikh Zayed Road.
             </p>
           </Reveal>
@@ -759,12 +757,12 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── RESIDENCES (editorial asymmetric) ── */}
-      <section id="residences" className="bg-[#06232E] py-24 sm:py-32">
+      <section id="residences" className="bg-[#F4EEE2] py-24 sm:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-16 sm:mb-20 max-w-2xl">
-            <Eyebrow>The residences</Eyebrow>
-            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
-              Three collections. One <em className="italic text-[#E7C989]">coastline</em>.
+            <Eyebrow dark>The residences</Eyebrow>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
+              Three collections. One <em className="italic text-[#A8814A]">coastline</em>.
             </h2>
           </Reveal>
 
@@ -783,27 +781,27 @@ export default function PalmJebelAliClient() {
 
                   <div className="lg:col-span-2">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="h-px w-7 bg-[#C9A26A]" />
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#C9A26A]">Collection 0{idx + 1}</span>
+                      <span className="h-px w-7 bg-[#A8814A]" />
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#A8814A]">Collection 0{idx + 1}</span>
                     </div>
 
                     {/* the collection TITLE, now a prominent serif display heading */}
-                    <h3 className="font-serif font-medium text-white text-4xl sm:text-[46px] leading-[1.02] tracking-[-0.01em] mb-6">
+                    <h3 className="font-serif font-medium text-[#0C2E35] text-4xl sm:text-[46px] leading-[1.02] tracking-[-0.01em] mb-6">
                       {r.tag}
                     </h3>
 
                     <div className="flex items-baseline gap-2.5 mb-6">
-                      <span className="text-white/45 text-sm uppercase tracking-[0.16em]">From AED</span>
-                      <span className="font-serif text-4xl sm:text-5xl leading-none bg-gradient-to-b from-[#F0D9A0] to-[#B8922F] bg-clip-text text-transparent">{r.price}</span>
+                      <span className="text-[#0C2E35]/50 text-sm uppercase tracking-[0.16em]">From AED</span>
+                      <span className="font-serif text-4xl sm:text-5xl leading-none bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">{r.price}</span>
                     </div>
 
-                    <div className="h-px w-full bg-white/10 mb-6" />
-                    <p className="text-white/55 text-sm uppercase tracking-[0.14em] mb-6">{r.meta}</p>
+                    <div className="h-px w-full bg-[#0C2E35]/12 mb-6" />
+                    <p className="text-[#0C2E35]/60 text-sm uppercase tracking-[0.14em] mb-6">{r.meta}</p>
 
                     <ul className="space-y-3">
                       {r.facts.map((f) => (
-                        <li key={f} className="flex gap-3 text-white/70 text-sm sm:text-[15px] leading-relaxed">
-                          <span className="mt-[9px] h-1 w-1 rounded-full bg-[#C9A26A] flex-shrink-0" />
+                        <li key={f} className="flex gap-3 text-[#0C2E35]/70 text-sm sm:text-[15px] leading-relaxed">
+                          <span className="mt-[9px] h-1 w-1 rounded-full bg-[#A8814A] flex-shrink-0" />
                           {f}
                         </li>
                       ))}
@@ -819,9 +817,9 @@ export default function PalmJebelAliClient() {
       {/* ── GALLERY (editorial mosaic) ── */}
       <section id="gallery" className="max-w-6xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
         <Reveal className="mb-12 sm:mb-16">
-          <Eyebrow>Built for a life lived outdoors</Eyebrow>
-          <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02] max-w-3xl">
-            Private beaches. A working marina. Everyday texture as considered as the <em className="italic text-[#E7C989]">villas</em>.
+          <Eyebrow dark>Built for a life lived outdoors</Eyebrow>
+          <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02] max-w-3xl">
+            Private beaches. A working marina. Everyday texture as considered as the <em className="italic text-[#A8814A]">villas</em>.
           </h2>
         </Reveal>
 
@@ -848,7 +846,7 @@ export default function PalmJebelAliClient() {
       <GalleryModal open={galleryOpen} onClose={() => setGalleryOpen(false)} images={GALLERY_IMAGES} activeIndex={galleryIndex} onChange={setGalleryIndex} title="Palm Jebel Ali" />
 
       {/* ── AMENITIES ── */}
-      <section id="amenities" className="bg-[#F0E6D2] py-24 sm:py-32">
+      <section id="amenities" className="bg-[#EAE1D0] py-24 sm:py-32">
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow dark>Island lifestyle</Eyebrow>
@@ -880,20 +878,19 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── SUSTAINABILITY ── */}
-      <section id="sustainability" className="relative bg-[#051820] py-24 sm:py-32 overflow-hidden">
-        <SectionBg src={BG_SUSTAIN} opacity={0.6} />
+      <section id="sustainability" className="relative bg-[#E4EDEB] py-24 sm:py-32 overflow-hidden">
         <div
           aria-hidden
           className="pointer-events-none absolute -left-32 top-1/2 -translate-y-1/2 w-[560px] h-[560px]"
-          style={{ background: "radial-gradient(closest-side, rgba(201,162,106,0.07), transparent)" }}
+          style={{ background: "radial-gradient(closest-side, rgba(168,129,74,0.10), transparent)" }}
         />
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
-            <Eyebrow>Built to last</Eyebrow>
-            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
-              An island engineered to <em className="italic text-[#E7C989]">age well</em>.
+            <Eyebrow dark>Built to last</Eyebrow>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
+              An island engineered to <em className="italic text-[#A8814A]">age well</em>.
             </h2>
-            <p className="mt-6 text-white/60 text-base sm:text-lg leading-relaxed">
+            <p className="mt-6 text-[#0C2E35]/65 text-base sm:text-lg leading-relaxed">
               Reclaiming land is the easy part. Making it liveable in forty years is the discipline, and it shows up in the energy plan, the movement plan and what happens under the waterline.
             </p>
           </Reveal>
@@ -901,11 +898,11 @@ export default function PalmJebelAliClient() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
             {SUSTAINABILITY.map(({ icon: Icon, stat, title, body }, i) => (
               <Reveal key={title} delay={i * 60}>
-                <div className="group border-t border-[#C9A26A]/30 pt-6 h-full transition-colors">
-                  <Icon className="h-6 w-6 text-[#C9A26A] mb-5 transition-transform duration-500 group-hover:-translate-y-0.5" />
-                  <p className="font-serif text-4xl sm:text-5xl leading-none mb-3 bg-gradient-to-b from-[#F0D9A0] to-[#A8814A] bg-clip-text text-transparent">{stat}</p>
-                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-white/85 mb-3">{title}</h3>
-                  <p className="text-white/55 text-sm leading-relaxed">{body}</p>
+                <div className="group border-t border-[#0C2E35]/15 pt-6 h-full transition-colors">
+                  <Icon className="h-6 w-6 text-[#A8814A] mb-5 transition-transform duration-500 group-hover:-translate-y-0.5" />
+                  <p className="font-serif text-4xl sm:text-5xl leading-none mb-3 bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">{stat}</p>
+                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#0C2E35]/85 mb-3">{title}</h3>
+                  <p className="text-[#0C2E35]/60 text-sm leading-relaxed">{body}</p>
                 </div>
               </Reveal>
             ))}
@@ -949,22 +946,21 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── PAYMENT PLAN ── */}
-      <section id="payment-plan" className="relative overflow-hidden bg-[#0E3B45] py-24 sm:py-32">
-        <SectionBg src={BG_WATER} opacity={0.62} />
+      <section id="payment-plan" className="relative overflow-hidden bg-[#F4EEE2] py-24 sm:py-32">
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-16 sm:mb-24 text-center">
-            <div className="flex justify-center"><Eyebrow>Payment plan</Eyebrow></div>
-            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.04]">
-              Capital that isn&apos;t <em className="italic text-[#E7C989]">locked up</em> early.
+            <div className="flex justify-center"><Eyebrow dark>Payment plan</Eyebrow></div>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.04]">
+              Capital that isn&apos;t <em className="italic text-[#A8814A]">locked up</em> early.
             </h2>
           </Reveal>
 
           <div ref={payment.ref} className="relative flex justify-between items-start">
             {/* base rail */}
-            <div className="absolute top-3 left-0 right-0 h-px bg-white/12" />
+            <div className="absolute top-3 left-0 right-0 h-px bg-[#0C2E35]/12" />
             {/* gold rail draws left→right */}
             <div
-              className="absolute top-3 left-0 h-px origin-left bg-gradient-to-r from-[#E7C989] to-[#A8814A] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="absolute top-3 left-0 h-px origin-left bg-gradient-to-r from-[#C9A26A] to-[#8A6A34] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{ right: 0, transform: payment.visible ? "scaleX(1)" : "scaleX(0)" }}
             />
             {[
@@ -976,19 +972,19 @@ export default function PalmJebelAliClient() {
                 <span
                   className="w-3 h-3 rounded-full transition-all duration-500"
                   style={{
-                    background: payment.visible ? (s.emphasize ? "#C9A26A" : "#F0E6D2") : "rgba(255,255,255,0.2)",
+                    background: payment.visible ? (s.emphasize ? "#A8814A" : "#0C2E35") : "rgba(12,46,53,0.15)",
                     transitionDelay: `${600 + i * 260}ms`,
-                    boxShadow: s.emphasize && payment.visible ? "0 0 0 6px rgba(201,162,106,0.18)" : "none",
+                    boxShadow: s.emphasize && payment.visible ? "0 0 0 6px rgba(168,129,74,0.18)" : "none",
                   }}
                 />
-                <p className={`font-serif text-3xl sm:text-5xl ${s.emphasize ? "text-[#C9A26A]" : "text-white"}`}>{s.pct}</p>
-                <p className="text-white/45 text-xs sm:text-sm uppercase tracking-[0.14em] text-center">{s.label}</p>
+                <p className={`font-serif text-3xl sm:text-5xl ${s.emphasize ? "text-[#A8814A]" : "text-[#0C2E35]"}`}>{s.pct}</p>
+                <p className="text-[#0C2E35]/50 text-xs sm:text-sm uppercase tracking-[0.14em] text-center">{s.label}</p>
               </div>
             ))}
           </div>
 
           <Reveal>
-            <p className="text-white/55 text-sm sm:text-base text-center mt-16 sm:mt-24 max-w-xl mx-auto leading-relaxed">
+            <p className="text-[#0C2E35]/60 text-sm sm:text-base text-center mt-16 sm:mt-24 max-w-xl mx-auto leading-relaxed">
               An 80/20 plan spreads the bulk of your commitment across the build period rather than the day you sign, standard Nakheel structuring on launch-phase inventory, subject to unit and release.
             </p>
           </Reveal>
@@ -996,29 +992,28 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── INVESTMENT CASE ── */}
-      <section id="investment" className="relative overflow-hidden bg-[#06232E] py-24 sm:py-32">
-        <SectionBg src={BG_WATER} opacity={0.62} position="bottom" />
+      <section id="investment" className="relative overflow-hidden bg-[#EAE1D0] py-24 sm:py-32">
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
-            <Eyebrow>The investment case</Eyebrow>
-            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
-              Why buyers move <em className="italic text-[#E7C989]">early</em> here.
+            <Eyebrow dark>The investment case</Eyebrow>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
+              Why buyers move <em className="italic text-[#A8814A]">early</em> here.
             </h2>
-            <p className="mt-6 text-white/60 text-base sm:text-lg leading-relaxed">
+            <p className="mt-6 text-[#0C2E35]/65 text-base sm:text-lg leading-relaxed">
               Beachfront on a finite island is the one thing Dubai cannot produce more of on demand. The rest is timing.
             </p>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-white/10">
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-[#0C2E35]/12">
             {INVESTMENT.map(({ title, body }, i) => (
               <Reveal key={title} delay={(i % 2) * 60}>
-                <div className="group flex gap-5 py-7 sm:py-9 border-b border-white/10 h-full transition-colors hover:border-[#C9A26A]/40">
-                  <span className="font-serif text-2xl sm:text-3xl tabular-nums leading-none pt-1 flex-shrink-0 bg-gradient-to-b from-[#F0D9A0] to-[#A8814A] bg-clip-text text-transparent">
+                <div className="group flex gap-5 py-7 sm:py-9 border-b border-[#0C2E35]/12 h-full transition-colors hover:border-[#A8814A]/50">
+                  <span className="font-serif text-2xl sm:text-3xl tabular-nums leading-none pt-1 flex-shrink-0 bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-serif text-2xl sm:text-[28px] text-white leading-tight mb-2">{title}</h3>
-                    <p className="text-white/55 text-sm sm:text-base leading-relaxed">{body}</p>
+                    <h3 className="font-serif text-2xl sm:text-[28px] text-[#0C2E35] leading-tight mb-2">{title}</h3>
+                    <p className="text-[#0C2E35]/60 text-sm sm:text-base leading-relaxed">{body}</p>
                   </div>
                 </div>
               </Reveal>
@@ -1026,7 +1021,7 @@ export default function PalmJebelAliClient() {
           </div>
 
           <Reveal className="mt-14 sm:mt-16 max-w-2xl">
-            <p className="text-white/50 text-sm sm:text-base leading-relaxed">
+            <p className="text-[#0C2E35]/55 text-sm sm:text-base leading-relaxed">
               Early releases move fast and allocations are tightly held. We track Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches, with full DLD-registered transaction support from reservation through to handover.
             </p>
           </Reveal>
@@ -1034,11 +1029,11 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="bg-[#F0E6D2] py-24 sm:py-32">
+      <section id="faq" className="bg-[#E4EDEB] py-24 sm:py-32">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-12 sm:mb-14">
             <Eyebrow dark>Common questions</Eyebrow>
-            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#06232E] tracking-[-0.02em] leading-[1.02]">Palm Jebel Ali, answered.</h2>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">Palm Jebel Ali, answered.</h2>
           </Reveal>
           <FaqAccordion faqs={FAQS} emitJsonLd={false} />
         </div>
