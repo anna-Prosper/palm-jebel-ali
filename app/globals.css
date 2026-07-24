@@ -18,15 +18,29 @@ html {
   .hero-rise { animation: none; }
 }
 
-/* Continuous, natural "breathing" drift on the hero image — a slow zoom + pan
-   that loops seamlessly (0% and 100% match) so the aerial always feels alive.
-   Transform on the <img> only, kept within the container's overscan, GPU-safe. */
+/* Continuous, natural "breathing" drift on the hero image — a slow cinematic
+   camera push (zoom + pan) that loops seamlessly (0% and 100% match) so the
+   aerial always feels alive. Transform on the <img> only, GPU-safe. */
 @keyframes kenburns {
-  0%   { transform: scale(1.06) translate3d(0, 0, 0); }
-  50%  { transform: scale(1.13) translate3d(-1.1%, -1.4%, 0); }
-  100% { transform: scale(1.06) translate3d(0, 0, 0); }
+  0%   { transform: scale(1.04) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.09) translate3d(-0.6%, -1%, 0); }
+  100% { transform: scale(1.04) translate3d(0, 0, 0); }
 }
-.ken-burns { animation: kenburns 38s ease-in-out infinite; }
+.ken-burns { animation: kenburns 34s ease-in-out infinite; }
+
+/* Warm sunlight drifting across the water (screen blend brightens the sea). */
+@keyframes sunlightDrift {
+  from { transform: translate3d(-1%, 0, 0) scale(1);     opacity: 0.16; }
+  to   { transform: translate3d(1.6%, 0.6%, 0) scale(1.05); opacity: 0.32; }
+}
+.water-light { animation: sunlightDrift 13s ease-in-out infinite alternate; }
+
+/* Slow atmospheric haze — implies moving air over the horizon. */
+@keyframes atmosphereMove {
+  from { transform: translate3d(-1%, 0, 0) scale(1); }
+  to   { transform: translate3d(1.5%, -0.6%, 0) scale(1.04); }
+}
+.atmosphere { animation: atmosphereMove 20s ease-in-out infinite alternate; }
 
 /* Gentle opacity pulse for the scroll cue. */
 @keyframes scrollpulse {
@@ -46,5 +60,7 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .ken-burns,
   .scroll-pulse,
-  .scroll-travel { animation: none; }
+  .scroll-travel,
+  .water-light,
+  .atmosphere { animation: none; }
 }

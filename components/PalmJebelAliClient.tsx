@@ -8,10 +8,8 @@ import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { waHref } from "@/lib/whatsapp";
 
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
-// 2× AI-upscaled hero (2688×1536), crisp on large displays. Also the video poster + fallback.
+// 2× AI-upscaled hero (2688×1536), crisp on large displays.
 const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
-const HERO_MP4 = `${IMG_BASE}/hero-loop.mp4`;
-const HERO_WEBM = `${IMG_BASE}/hero-loop.webm`;
 const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png`;
 const MARINA_IMG = `${IMG_BASE}/marina-club.png`;
 const POOL_IMG = `${IMG_BASE}/amenities-pool.png`;
@@ -112,70 +110,32 @@ function CountUp({ target, suffix = "", duration = 1600 }: { target: number; suf
   );
 }
 
-// Hero background: the poster image is the instant paint + universal fallback,
-// and a light muted loop plays over it. The <video> is rendered directly in the
-// markup (not mounted by JS after load) — that's what lets Safari/iOS actually
-// autoplay it. We nudge play() on mount and fade the video in once it's ready.
+// Hero background: the still aerial with a slow cinematic camera push, plus two
+// cheap, GPU-safe atmospheric layers — drifting warm sunlight on the water and a
+// slow haze — that make the frame feel alive without video or WebGL.
 function HeroMedia() {
-  const [ready, setReady] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    // React's `muted` attribute doesn't reliably set the DOM property, so the
-    // browser can treat it as an unmuted autoplay and block it (esp. Safari).
-    // Set it imperatively — this is what actually unlocks muted autoplay.
-    v.muted = true;
-    v.defaultMuted = true;
-    const markReady = () => setReady(true);
-    if (v.readyState >= 3) markReady();
-    v.addEventListener("canplay", markReady);
-    v.addEventListener("playing", markReady);
-    // Explicit nudge — some browsers need it even for muted autoplay. Retry a
-    // beat later in case the first attempt is rejected before the media loads.
-    const tryPlay = () => v.play?.().catch(() => {});
-    tryPlay();
-    const t = window.setTimeout(tryPlay, 600);
-    // Last-resort fallback: if a browser blocks muted autoplay, start on the
-    // first user interaction. Fires once, then removes itself.
-    const kick = () => {
-      tryPlay();
-      window.removeEventListener("pointerdown", kick);
-      window.removeEventListener("touchstart", kick);
-      window.removeEventListener("scroll", kick);
-    };
-    window.addEventListener("pointerdown", kick, { passive: true });
-    window.addEventListener("touchstart", kick, { passive: true });
-    window.addEventListener("scroll", kick, { passive: true });
-    return () => {
-      v.removeEventListener("canplay", markReady);
-      v.removeEventListener("playing", markReady);
-      window.clearTimeout(t);
-      window.removeEventListener("pointerdown", kick);
-      window.removeEventListener("touchstart", kick);
-      window.removeEventListener("scroll", kick);
-    };
-  }, []);
-
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN hero poster */}
+      {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN hero */}
       <img src={HERO_IMG} alt="Aerial view of Palm Jebel Ali, Dubai's second palm island" className="ken-burns absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-      <video
-        ref={videoRef}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ${ready ? "opacity-100" : "opacity-0"}`}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster={HERO_IMG}
+      {/* warm sunlight shimmer over the sunny (right) side of the sea */}
+      <div
         aria-hidden
-      >
-        <source src={HERO_WEBM} type="video/webm" />
-        <source src={HERO_MP4} type="video/mp4" />
-      </video>
+        className="water-light absolute inset-0 pointer-events-none"
+        style={{ mixBlendMode: "screen", background: "radial-gradient(ellipse at 82% 16%, rgba(255,205,130,0.30), transparent 45%)" }}
+      />
+      {/* slow atmospheric haze for a sense of moving air */}
+      <div
+        aria-hidden
+        className="atmosphere absolute -inset-[10%] pointer-events-none"
+        style={{
+          opacity: 0.12,
+          filter: "blur(35px)",
+          mixBlendMode: "screen",
+          background:
+            "radial-gradient(ellipse at 75% 20%, rgba(255,214,160,0.45), transparent 42%), radial-gradient(ellipse at 20% 55%, rgba(110,170,180,0.18), transparent 38%)",
+        }}
+      />
     </>
   );
 }
@@ -614,24 +574,53 @@ export default function PalmJebelAliClient() {
     const section = heroRef.current;
     if (!section) return;
     if (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    // Pointer parallax only where there's a real pointer (skip touch devices).
+    const finePointer = window.matchMedia?.("(pointer: fine)").matches;
     let raf = 0;
+    let scrollP = 0;      // scroll progress 0..1
+    let px = 0, py = 0;   // eased pointer offset -0.5..0.5
+    let tx = 0, ty = 0;   // target pointer offset
     const update = () => {
       raf = 0;
-      const rect = section.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, -rect.top / (rect.height || 1)));
-      if (heroImgRef.current) heroImgRef.current.style.transform = `translateY(${p * 12}%)`;
-      if (heroTextRef.current) {
-        heroTextRef.current.style.transform = `translateY(${p * 26}%)`;
-        heroTextRef.current.style.opacity = `${Math.max(0, 1 - p / 0.7)}`;
+      // ease pointer toward target for a smooth, weighty feel
+      px += (tx - px) * 0.08;
+      py += (ty - py) * 0.08;
+      if (heroImgRef.current) {
+        // image drifts WITH the pointer (foreground feel) + scroll push-down
+        heroImgRef.current.style.transform = `translate3d(${px * 14}px, calc(${scrollP * 12}% + ${py * 10}px), 0)`;
       }
+      if (heroTextRef.current) {
+        // headline counter-drifts slightly for depth
+        heroTextRef.current.style.transform = `translate3d(${px * -6}px, calc(${scrollP * 26}% + ${py * -5}px), 0)`;
+        heroTextRef.current.style.opacity = `${Math.max(0, 1 - scrollP / 0.7)}`;
+      }
+      // keep easing while the pointer offset hasn't settled
+      if (Math.abs(tx - px) > 0.001 || Math.abs(ty - py) > 0.001) schedule();
     };
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-    update();
+    const schedule = () => { if (!raf) raf = requestAnimationFrame(update); };
+    const onScroll = () => {
+      const rect = section.getBoundingClientRect();
+      scrollP = Math.min(1, Math.max(0, -rect.top / (rect.height || 1)));
+      schedule();
+    };
+    const onMove = (e: PointerEvent) => {
+      tx = e.clientX / window.innerWidth - 0.5;
+      ty = e.clientY / window.innerHeight - 0.5;
+      schedule();
+    };
+    const onLeave = () => { tx = 0; ty = 0; schedule(); };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
+    if (finePointer) {
+      section.addEventListener("pointermove", onMove, { passive: true });
+      section.addEventListener("pointerleave", onLeave, { passive: true });
+    }
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      section.removeEventListener("pointermove", onMove);
+      section.removeEventListener("pointerleave", onLeave);
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
