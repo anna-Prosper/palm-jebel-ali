@@ -15,11 +15,14 @@ const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
 const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png?v=2`;
 const POOL_IMG = `${IMG_BASE}/amenities-pool.png?v=2`;
 const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png?v=2`;
-const CORAL_IMG = `${IMG_BASE}/coral-villa.png?v=2`;
+const CORAL_IMG = `${IMG_BASE}/coral-villa.png?v=3`;
 // Real Nakheel renders (Beach Collection villa, Palm Central resort) + a hi-res palm aerial.
 const BEACH_IMG = `${IMG_BASE}/beach-collection.jpg`;
 const PALM_CENTRAL_IMG = `${IMG_BASE}/palm-central.jpg`;
 const GALLERY_AERIAL_IMG = `${IMG_BASE}/gallery-aerial.png`;
+// Dedicated dark, moody twilight backdrop for the final CTA (its own image so it
+// stays dramatic behind the headline, independent of the bright gallery pool).
+const CTA_IMG = `${IMG_BASE}/cta-bg.png`;
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -472,8 +475,9 @@ const FAQS: FaqItem[] = [
   },
 ];
 
-// All authentic now: real palm aerial, real interiors, real amenity + villa renders.
-const GALLERY_IMAGES = [GALLERY_AERIAL_IMG, VILLA_INT_IMG, BEDROOM_IMG, POOL_IMG, BEACH_IMG, CORAL_IMG];
+// All authentic: real palm aerials, real interiors, real amenity + villa renders.
+// 8 tiles → clean 3-row grid (i0 feature 2×2, i5 wide band).
+const GALLERY_IMAGES = [GALLERY_AERIAL_IMG, VILLA_INT_IMG, BEDROOM_IMG, POOL_IMG, BEACH_IMG, PALM_CENTRAL_IMG, CORAL_IMG, HERO_IMG];
 
 const AMENITIES = [
   {
@@ -1017,8 +1021,8 @@ export default function PalmJebelAliClient() {
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN */}
-          <img src={POOL_IMG} alt="Resort pool at Palm Jebel Ali at dusk" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,35,46,0.55), rgba(6,35,46,0.8))" }} />
+          <img src={CTA_IMG} alt="Palm Jebel Ali coastline at twilight" className="w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(5,20,28,0.45), rgba(5,20,28,0.72))" }} />
         </div>
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
           <Reveal>
