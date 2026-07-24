@@ -573,9 +573,10 @@ export default function PalmJebelAliClient() {
   useEffect(() => {
     const section = heroRef.current;
     if (!section) return;
-    if (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
-    // Pointer parallax only where there's a real pointer (skip touch devices).
-    const finePointer = window.matchMedia?.("(pointer: fine)").matches;
+    // Cursor parallax is skipped for reduced-motion / touch; the gentle scroll
+    // push + ambient CSS motion still run (a deliberate brand choice).
+    const reduced = typeof window !== "undefined" && !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const finePointer = window.matchMedia?.("(pointer: fine)").matches && !reduced;
     let raf = 0;
     let scrollP = 0;      // scroll progress 0..1
     let px = 0, py = 0;   // eased pointer offset -0.5..0.5

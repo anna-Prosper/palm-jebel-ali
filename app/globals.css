@@ -57,10 +57,10 @@ html {
 }
 .scroll-travel { animation: scrolltravel 2.6s ease-in-out infinite; }
 
+/* The hero's ambient motion (camera push, sunlight, haze) is a deliberate
+   brand choice and stays on even under reduced-motion — it's gentle and
+   non-interactive. Only the scroll-cue flourishes are quieted. */
 @media (prefers-reduced-motion: reduce) {
-  .ken-burns,
   .scroll-pulse,
-  .scroll-travel,
-  .water-light,
-  .atmosphere { animation: none; }
+  .scroll-travel { animation: none; }
 }
