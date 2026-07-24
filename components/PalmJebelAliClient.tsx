@@ -15,7 +15,7 @@ const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
 const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png?v=2`;
 const POOL_IMG = `${IMG_BASE}/amenities-pool.png?v=2`;
 const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png?v=2`;
-const CORAL_IMG = `${IMG_BASE}/coral-villa.png?v=4`;
+const CORAL_IMG = `${IMG_BASE}/coral-villa.png?v=5`;
 // Real Nakheel renders (Beach Collection villa, Palm Central resort) + a hi-res palm aerial.
 const BEACH_IMG = `${IMG_BASE}/beach-collection.jpg`;
 const PALM_CENTRAL_IMG = `${IMG_BASE}/palm-central.jpg`;
