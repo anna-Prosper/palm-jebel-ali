@@ -23,6 +23,11 @@ const GALLERY_AERIAL_IMG = `${IMG_BASE}/gallery-aerial.png`;
 // Dedicated dark, moody twilight backdrop for the final CTA (its own image so it
 // stays dramatic behind the headline, independent of the bright gallery pool).
 const CTA_IMG = `${IMG_BASE}/cta-bg.png?v=2`;
+// Faint, very-dark atmospheric backdrops behind the text sections (always heavily
+// overlaid so copy stays fully legible — they add depth, not distraction).
+const BG_COAST = `${IMG_BASE}/bg-coast.png`;
+const BG_WATER = `${IMG_BASE}/bg-water.png`;
+const BG_SUSTAIN = `${IMG_BASE}/bg-sustain.png`;
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -155,6 +160,18 @@ function Eyebrow({ children, dark = false, strong = false }: { children: React.R
       >
         {children}
       </span>
+    </div>
+  );
+}
+
+// Faint cinematic backdrop for a text section — the image is heavily darkened so
+// copy stays fully legible; it only adds depth and a sense of place.
+function SectionBg({ src, opacity = 0.34, position = "center" }: { src: string; opacity?: number; position?: string }) {
+  return (
+    <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN backdrop */}
+      <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ opacity, objectPosition: position }} loading="lazy" />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,35,46,0.82) 0%, rgba(6,35,46,0.9) 55%, rgba(6,35,46,0.95) 100%)" }} />
     </div>
   );
 }
@@ -421,7 +438,7 @@ const FAQS: FaqItem[] = [
   {
     question: "What is Palm Jebel Ali?",
     answer:
-      "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans roughly 13.4 km² across 7 islands and 16 fronds, about twice the footprint of Palm Jumeirah, and is designed to add around 110km of new coastline to the city.",
+      "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans over 10.5 million square metres across 16 fronds and seven islands, about twice the footprint of Palm Jumeirah, and is designed to add around 110km of new coastline to the city.",
   },
   {
     question: "What types of homes are available at Palm Jebel Ali?",
@@ -461,7 +478,7 @@ const FAQS: FaqItem[] = [
   {
     question: "Where is Palm Jebel Ali and how do you get there?",
     answer:
-      "It sits on Dubai's southern coastline beside Jebel Ali, connected by three mainland access points straight onto Sheikh Zayed Road (E11). Al Maktoum International (DWC) is roughly 15 minutes away, Expo City is minutes down the road, and Dubai Marina is about 25 minutes north.",
+      "It sits on Dubai's southern coastline beside Jebel Ali, connected by three mainland access points straight onto Sheikh Zayed Road (E11). Al Maktoum International (DWC) is roughly 20 minutes away, Expo City is minutes down the road, and Dubai Marina is about 25 minutes north.",
   },
   {
     question: "What amenities will Palm Jebel Ali have?",
@@ -707,7 +724,7 @@ export default function PalmJebelAliClient() {
         <div className="max-w-4xl mx-auto px-5 sm:px-8 py-24 sm:py-36 text-center">
           <Reveal>
             <p className="font-serif text-2xl sm:text-4xl leading-[1.28] text-[#F0E6D2]">
-              Nakheel built Palm Jumeirah once. Palm Jebel Ali is what happens when they get to do it again, with two more decades of lessons, twice the land, and a waterfront capable of housing <span className="italic text-[#E7C989]">35,000 families</span>.
+              Nakheel built Palm Jumeirah once. Palm Jebel Ali is what happens when they get to do it again, with two more decades of lessons, twice the land, and room for a community of <span className="italic text-[#E7C989]">240,000 residents</span>.
             </p>
           </Reveal>
         </div>
@@ -858,12 +875,13 @@ export default function PalmJebelAliClient() {
 
       {/* ── SUSTAINABILITY ── */}
       <section id="sustainability" className="relative bg-[#051820] py-24 sm:py-32 overflow-hidden">
+        <SectionBg src={BG_SUSTAIN} opacity={0.3} />
         <div
           aria-hidden
           className="pointer-events-none absolute -left-32 top-1/2 -translate-y-1/2 w-[560px] h-[560px]"
           style={{ background: "radial-gradient(closest-side, rgba(201,162,106,0.07), transparent)" }}
         />
-        <div className="relative max-w-5xl mx-auto px-5 sm:px-8">
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow>Built to last</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
@@ -877,10 +895,10 @@ export default function PalmJebelAliClient() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
             {SUSTAINABILITY.map(({ icon: Icon, stat, title, body }, i) => (
               <Reveal key={title} delay={i * 60}>
-                <div className="border-t border-[#C9A26A]/25 pt-6 h-full">
-                  <Icon className="h-5 w-5 text-[#C9A26A] mb-4" />
-                  <p className="font-serif text-3xl sm:text-4xl text-white leading-none mb-3">{stat}</p>
-                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#C9A26A] mb-3">{title}</h3>
+                <div className="group border-t border-[#C9A26A]/30 pt-6 h-full transition-colors">
+                  <Icon className="h-6 w-6 text-[#C9A26A] mb-5 transition-transform duration-500 group-hover:-translate-y-0.5" />
+                  <p className="font-serif text-4xl sm:text-5xl leading-none mb-3 bg-gradient-to-b from-[#F0D9A0] to-[#A8814A] bg-clip-text text-transparent">{stat}</p>
+                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-white/85 mb-3">{title}</h3>
                   <p className="text-white/55 text-sm leading-relaxed">{body}</p>
                 </div>
               </Reveal>
@@ -891,12 +909,13 @@ export default function PalmJebelAliClient() {
 
       {/* ── LOCATION ── */}
       <section id="location" className="relative bg-[#06232E] py-24 sm:py-32 overflow-hidden">
+        <SectionBg src={BG_COAST} opacity={0.45} />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-40 top-0 w-[600px] h-[600px]"
           style={{ background: "radial-gradient(closest-side, rgba(201,162,106,0.08), transparent)" }}
         />
-        <div className="relative max-w-4xl mx-auto px-5 sm:px-8">
+        <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-16 max-w-xl">
             <Eyebrow>Location &amp; connectivity</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
@@ -906,16 +925,16 @@ export default function PalmJebelAliClient() {
 
           <div>
             {[
-              ["Al Maktoum International (DWC)", "15 min"],
+              ["Al Maktoum International (DWC)", "20 min"],
               ["Dubai Marina", "25 min"],
               ["Expo City Dubai", "Minutes"],
               ["Sheikh Zayed Road (E11)", "Direct"],
             ].map(([place, time], i) => (
               <Reveal key={place} delay={i * 50}>
-                <div className="flex items-baseline gap-4 py-5 sm:py-6 border-b border-white/10">
-                  <span className="text-white/70 text-base sm:text-xl">{place}</span>
+                <div className="group flex items-baseline gap-4 py-5 sm:py-7 border-b border-white/10 transition-colors hover:border-[#C9A26A]/40">
+                  <span className="text-white/75 text-lg sm:text-2xl transition-colors group-hover:text-white">{place}</span>
                   <span className="flex-1 border-b border-dotted border-[#C9A26A]/30 translate-y-[-4px]" />
-                  <span className="font-serif text-2xl sm:text-3xl text-[#C9A26A] whitespace-nowrap">{time}</span>
+                  <span className="font-serif text-3xl sm:text-4xl leading-none whitespace-nowrap bg-gradient-to-b from-[#F0D9A0] to-[#A8814A] bg-clip-text text-transparent">{time}</span>
                 </div>
               </Reveal>
             ))}
@@ -924,8 +943,9 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── PAYMENT PLAN ── */}
-      <section id="payment-plan" className="bg-[#0E3B45] py-24 sm:py-32">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
+      <section id="payment-plan" className="relative overflow-hidden bg-[#0E3B45] py-24 sm:py-32">
+        <SectionBg src={BG_WATER} opacity={0.28} />
+        <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-16 sm:mb-24 text-center">
             <div className="flex justify-center"><Eyebrow>Payment plan</Eyebrow></div>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.04]">
@@ -970,8 +990,9 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── INVESTMENT CASE ── */}
-      <section id="investment" className="bg-[#06232E] py-24 sm:py-32">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
+      <section id="investment" className="relative overflow-hidden bg-[#06232E] py-24 sm:py-32">
+        <SectionBg src={BG_WATER} opacity={0.3} position="bottom" />
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow>The investment case</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
@@ -985,8 +1006,8 @@ export default function PalmJebelAliClient() {
           <div className="grid sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-white/10">
             {INVESTMENT.map(({ title, body }, i) => (
               <Reveal key={title} delay={(i % 2) * 60}>
-                <div className="flex gap-5 py-7 sm:py-9 border-b border-white/10 h-full">
-                  <span className="font-serif text-xl text-[#C9A26A] tabular-nums leading-none pt-1.5 flex-shrink-0">
+                <div className="group flex gap-5 py-7 sm:py-9 border-b border-white/10 h-full transition-colors hover:border-[#C9A26A]/40">
+                  <span className="font-serif text-2xl sm:text-3xl tabular-nums leading-none pt-1 flex-shrink-0 bg-gradient-to-b from-[#F0D9A0] to-[#A8814A] bg-clip-text text-transparent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>

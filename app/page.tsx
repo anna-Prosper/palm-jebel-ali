@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 const FAQS_FOR_SCHEMA = [
   {
     q: "What is Palm Jebel Ali?",
-    a: "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans roughly 13.4 km² across 7 islands and 16 fronds, about twice the footprint of Palm Jumeirah, and is designed to add around 110km of new coastline to the city.",
+    a: "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans over 10.5 million square metres across 16 fronds and seven islands, about twice the footprint of Palm Jumeirah, and is designed to add around 110km of new coastline to the city.",
   },
   {
     q: "What types of homes are available at Palm Jebel Ali?",
@@ -80,7 +80,7 @@ const FAQS_FOR_SCHEMA = [
   },
   {
     q: "Where is Palm Jebel Ali and how do you get there?",
-    a: "It sits on Dubai's southern coastline beside Jebel Ali, connected by three mainland access points onto Sheikh Zayed Road (E11). Al Maktoum International (DWC) is roughly 15 minutes away, Expo City is minutes down the road, and Dubai Marina is about 25 minutes north.",
+    a: "It sits on Dubai's southern coastline beside Jebel Ali, connected by three mainland access points onto Sheikh Zayed Road (E11). Al Maktoum International (DWC) is roughly 20 minutes away, Expo City is minutes down the road, and Dubai Marina is about 25 minutes north.",
   },
   {
     q: "What amenities will Palm Jebel Ali have?",
