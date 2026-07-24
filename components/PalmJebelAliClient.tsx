@@ -506,6 +506,17 @@ const FAQS: FaqItem[] = [
 // All authentic: real palm aerials, real interiors, real amenity + villa renders.
 // 8 tiles → clean 3-row grid (i0 feature 2×2, i5 wide band).
 const GALLERY_IMAGES = [GALLERY_AERIAL_IMG, VILLA_INT_IMG, BEDROOM_IMG, POOL_IMG, BEACH_IMG, PALM_CENTRAL_IMG, CORAL_IMG, HERO_IMG];
+// Descriptive alt text for the gallery photos (image-search SEO).
+const GALLERY_ALTS = [
+  "Aerial view of Palm Jebel Ali island and fronds, Dubai",
+  "Beachfront villa interior at Palm Jebel Ali with sea views",
+  "Master bedroom suite in a Palm Jebel Ali beach villa",
+  "Resort swimming pool and beach club at Palm Jebel Ali",
+  "Palm Jebel Ali Beach Collection villa exterior",
+  "Palm Central Private Residences beachfront district at Palm Jebel Ali",
+  "Palm Jebel Ali Coral Collection signature mansion",
+  "Palm Jebel Ali, Dubai's second palm island, at golden hour",
+];
 
 const AMENITIES = [
   {
@@ -685,6 +696,7 @@ export default function PalmJebelAliClient() {
               className="hero-rise font-serif font-medium text-[#F0E6D2] tracking-[-0.02em] leading-[0.98] mb-7"
               style={{ fontSize: "clamp(2.9rem, 7vw, 6.4rem)", animationDelay: "0.27s" }}
             >
+              <span className="sr-only">Palm Jebel Ali by Nakheel — </span>
               <span className="block" style={{ fontSize: "0.62em" }}>The new palm.</span>
               Twice the <em className="italic text-[#E7C989]">shoreline</em>.
             </h1>
@@ -835,7 +847,7 @@ export default function PalmJebelAliClient() {
                 style={{ aspectRatio: i === 0 ? "1 / 1" : i === 5 ? "2 / 1" : "1 / 1" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN */}
-                <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]" loading="lazy" />
+                <img src={img} alt={GALLERY_ALTS[i] ?? ""} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl" />
               </button>
