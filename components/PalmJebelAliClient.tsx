@@ -10,11 +10,12 @@ import { waHref } from "@/lib/whatsapp";
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
 // 2× AI-upscaled hero (2688×1536), crisp on large displays.
 const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
-const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png`;
-const MARINA_IMG = `${IMG_BASE}/marina-club.png`;
-const POOL_IMG = `${IMG_BASE}/amenities-pool.png`;
-const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png`;
-const CORAL_IMG = `${IMG_BASE}/coral-villa.png`;
+// ?v query busts CDN/browser cache on images that were re-generated in place.
+// Real interiors/amenity renders (enhanced from official low-res via image-to-image).
+const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png?v=2`;
+const POOL_IMG = `${IMG_BASE}/amenities-pool.png?v=2`;
+const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png?v=2`;
+const CORAL_IMG = `${IMG_BASE}/coral-villa.png?v=2`;
 // Real Nakheel renders (Beach Collection villa, Palm Central resort) + a hi-res palm aerial.
 const BEACH_IMG = `${IMG_BASE}/beach-collection.jpg`;
 const PALM_CENTRAL_IMG = `${IMG_BASE}/palm-central.jpg`;
@@ -471,7 +472,8 @@ const FAQS: FaqItem[] = [
   },
 ];
 
-const GALLERY_IMAGES = [GALLERY_AERIAL_IMG, VILLA_INT_IMG, BEDROOM_IMG, POOL_IMG, MARINA_IMG, CORAL_IMG];
+// All authentic now: real palm aerial, real interiors, real amenity + villa renders.
+const GALLERY_IMAGES = [GALLERY_AERIAL_IMG, VILLA_INT_IMG, BEDROOM_IMG, POOL_IMG, BEACH_IMG, CORAL_IMG];
 
 const AMENITIES = [
   {
