@@ -111,54 +111,70 @@ function CountUp({ target, suffix = "", duration = 1600 }: { target: number; suf
   );
 }
 
-// Hero background: the poster image is always rendered (instant LCP + universal
-// fallback). On capable devices a looping muted video fades in over it. Video is
-// skipped on reduced-motion, tiny screens and Save-Data so mobile stays light.
+// Hero background: the poster image is the instant paint + universal fallback,
+// and a light muted loop plays over it. The <video> is rendered directly in the
+// markup (not mounted by JS after load) — that's what lets Safari/iOS actually
+// autoplay it. We nudge play() on mount and fade the video in once it's ready.
 function HeroMedia() {
-  const [showVideo, setShowVideo] = useState(false);
   const [ready, setReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-    // Video plays on mobile too — it's a ~690KB loop — unless the user has
-    // reduced-motion or data-saver on, in which case we keep the still image.
-    if (!reduced && !saveData) setShowVideo(true);
-  }, []);
-
-  useEffect(() => {
-    if (!showVideo) return;
     const v = videoRef.current;
     if (!v) return;
-    const onReady = () => setReady(true);
-    v.addEventListener("canplay", onReady);
-    // Some browsers need an explicit play() nudge for muted autoplay.
-    v.play?.().catch(() => {});
-    return () => v.removeEventListener("canplay", onReady);
-  }, [showVideo]);
+    // React's `muted` attribute doesn't reliably set the DOM property, so the
+    // browser can treat it as an unmuted autoplay and block it (esp. Safari).
+    // Set it imperatively — this is what actually unlocks muted autoplay.
+    v.muted = true;
+    v.defaultMuted = true;
+    const markReady = () => setReady(true);
+    if (v.readyState >= 3) markReady();
+    v.addEventListener("canplay", markReady);
+    v.addEventListener("playing", markReady);
+    // Explicit nudge — some browsers need it even for muted autoplay. Retry a
+    // beat later in case the first attempt is rejected before the media loads.
+    const tryPlay = () => v.play?.().catch(() => {});
+    tryPlay();
+    const t = window.setTimeout(tryPlay, 600);
+    // Last-resort fallback: if a browser blocks muted autoplay, start on the
+    // first user interaction. Fires once, then removes itself.
+    const kick = () => {
+      tryPlay();
+      window.removeEventListener("pointerdown", kick);
+      window.removeEventListener("touchstart", kick);
+      window.removeEventListener("scroll", kick);
+    };
+    window.addEventListener("pointerdown", kick, { passive: true });
+    window.addEventListener("touchstart", kick, { passive: true });
+    window.addEventListener("scroll", kick, { passive: true });
+    return () => {
+      v.removeEventListener("canplay", markReady);
+      v.removeEventListener("playing", markReady);
+      window.clearTimeout(t);
+      window.removeEventListener("pointerdown", kick);
+      window.removeEventListener("touchstart", kick);
+      window.removeEventListener("scroll", kick);
+    };
+  }, []);
 
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN hero poster */}
       <img src={HERO_IMG} alt="Aerial view of Palm Jebel Ali, Dubai's second palm island" className="ken-burns absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-      {showVideo && (
-        <video
-          ref={videoRef}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ${ready ? "opacity-100" : "opacity-0"}`}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={HERO_IMG}
-          aria-hidden
-        >
-          <source src={HERO_WEBM} type="video/webm" />
-          <source src={HERO_MP4} type="video/mp4" />
-        </video>
-      )}
+      <video
+        ref={videoRef}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ${ready ? "opacity-100" : "opacity-0"}`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={HERO_IMG}
+        aria-hidden
+      >
+        <source src={HERO_WEBM} type="video/webm" />
+        <source src={HERO_MP4} type="video/mp4" />
+      </video>
     </>
   );
 }
