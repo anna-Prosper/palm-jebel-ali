@@ -22,7 +22,7 @@ const PALM_CENTRAL_IMG = `${IMG_BASE}/palm-central.jpg`;
 const GALLERY_AERIAL_IMG = `${IMG_BASE}/gallery-aerial.png`;
 // Dedicated dark, moody twilight backdrop for the final CTA (its own image so it
 // stays dramatic behind the headline, independent of the bright gallery pool).
-const CTA_IMG = `${IMG_BASE}/cta-bg.png`;
+const CTA_IMG = `${IMG_BASE}/cta-bg.png?v=2`;
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -1021,8 +1021,8 @@ export default function PalmJebelAliClient() {
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN */}
-          <img src={CTA_IMG} alt="Palm Jebel Ali coastline at twilight" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(5,20,28,0.45), rgba(5,20,28,0.72))" }} />
+          <img src={CTA_IMG} alt="Resort pool at Palm Jebel Ali at dusk" className="w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,35,46,0.55), rgba(6,35,46,0.8))" }} />
         </div>
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
           <Reveal>
