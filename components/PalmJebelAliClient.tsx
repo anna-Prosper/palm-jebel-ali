@@ -8,8 +8,10 @@ import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { waHref } from "@/lib/whatsapp";
 
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
-// 2× AI-upscaled hero (2688×1536), crisp on large displays.
+// 2× AI-upscaled hero (2688×1536), crisp on large displays. Also the video poster + fallback.
 const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
+const HERO_MP4 = `${IMG_BASE}/hero-loop.mp4`;
+const HERO_WEBM = `${IMG_BASE}/hero-loop.webm`;
 const MASTERPLAN_IMG = `${IMG_BASE}/masterplan-aerial.png`;
 const VILLA_EXT_IMG = `${IMG_BASE}/villa-exterior.png`;
 const VILLA_INT_IMG = `${IMG_BASE}/villa-interior.png`;
@@ -105,6 +107,57 @@ function CountUp({ target, suffix = "", duration = 1600 }: { target: number; suf
       {value}
       {suffix}
     </span>
+  );
+}
+
+// Hero background: the poster image is always rendered (instant LCP + universal
+// fallback). On capable devices a looping muted video fades in over it. Video is
+// skipped on reduced-motion, tiny screens and Save-Data so mobile stays light.
+function HeroMedia() {
+  const [showVideo, setShowVideo] = useState(false);
+  const [ready, setReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    const bigEnough = window.innerWidth >= 640;
+    if (!reduced && !saveData && bigEnough) setShowVideo(true);
+  }, []);
+
+  useEffect(() => {
+    if (!showVideo) return;
+    const v = videoRef.current;
+    if (!v) return;
+    const onReady = () => setReady(true);
+    v.addEventListener("canplay", onReady);
+    // Some browsers need an explicit play() nudge for muted autoplay.
+    v.play?.().catch(() => {});
+    return () => v.removeEventListener("canplay", onReady);
+  }, [showVideo]);
+
+  return (
+    <>
+      {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN hero poster */}
+      <img src={HERO_IMG} alt="Aerial view of Palm Jebel Ali, Dubai's second palm island" className="ken-burns absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
+      {showVideo && (
+        <video
+          ref={videoRef}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ${ready ? "opacity-100" : "opacity-0"}`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={HERO_IMG}
+          aria-hidden
+        >
+          <source src={HERO_WEBM} type="video/webm" />
+          <source src={HERO_MP4} type="video/mp4" />
+        </video>
+      )}
+    </>
   );
 }
 
@@ -572,8 +625,7 @@ export default function PalmJebelAliClient() {
       <section ref={heroRef} className="relative min-h-[100vh] flex items-end overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div ref={heroImgRef} className="absolute inset-x-0 -top-[8%] h-[128%] will-change-transform">
-            {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN hero */}
-            <img src={HERO_IMG} alt="Aerial view of Palm Jebel Ali, Dubai's second palm island" className="ken-burns w-full h-full object-cover" fetchPriority="high" />
+            <HeroMedia />
             <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(5,24,32,0.32) 0%, rgba(5,24,32,0.08) 26%, rgba(5,24,32,0.62) 60%, rgba(5,24,32,0.88) 84%, #06232E 100%)" }} />
             <div className="absolute inset-0" style={{ background: "radial-gradient(120% 80% at 50% 40%, transparent 55%, rgba(5,24,32,0.5) 100%)" }} />
           </div>
