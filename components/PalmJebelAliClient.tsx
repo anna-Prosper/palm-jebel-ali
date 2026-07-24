@@ -412,12 +412,12 @@ function SiteHeader({ waLink }: { waLink: string }) {
 
 function SiteFooter({ waLink }: { waLink: string }) {
   return (
-    <footer className="bg-[#051820] border-t border-white/10 py-14 sm:py-20">
+    <footer className="bg-[#EAE1D0] border-t border-[#0C2E35]/10 py-14 sm:py-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-10 sm:mb-14">
           <div>
-            <p className="font-serif text-2xl text-white mb-3">Palm Jebel Ali</p>
-            <p className="text-white/50 text-sm max-w-sm leading-relaxed">
+            <p className="font-serif text-2xl text-[#0C2E35] mb-3">Palm Jebel Ali</p>
+            <p className="text-[#0C2E35]/60 text-sm max-w-sm leading-relaxed">
               An independent showcase for Nakheel&apos;s Palm Jebel Ali, curated by a Dubai brokerage tracking release phases directly.
             </p>
           </div>
@@ -425,16 +425,16 @@ function SiteFooter({ waLink }: { waLink: string }) {
             <a href={waLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#06232E]" style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}>
               <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
             </a>
-            <a href="tel:+971549988811" className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-white border border-white/20">
+            <a href="tel:+971549988811" className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#0C2E35] border border-[#0C2E35]/25 hover:border-[#0C2E35]/50 transition-colors">
               <Phone className="h-3.5 w-3.5" /> Call
             </a>
           </div>
         </div>
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-          <p className="text-white/35 text-xs leading-relaxed max-w-2xl">
+        <div className="pt-8 border-t border-[#0C2E35]/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+          <p className="text-[#0C2E35]/45 text-xs leading-relaxed max-w-2xl">
             Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery and subject to change. This is an independent showcase, not affiliated with or endorsed by Nakheel.
           </p>
-          <p className="text-white/35 text-xs whitespace-nowrap">© 2026 Palm Jebel Ali Showcase</p>
+          <p className="text-[#0C2E35]/45 text-xs whitespace-nowrap">© 2026 Palm Jebel Ali Showcase</p>
         </div>
       </div>
     </footer>
