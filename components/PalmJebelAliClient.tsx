@@ -164,14 +164,20 @@ function Eyebrow({ children, dark = false, strong = false }: { children: React.R
   );
 }
 
-// Faint cinematic backdrop for a text section — the image is heavily darkened so
-// copy stays fully legible; it only adds depth and a sense of place.
-function SectionBg({ src, opacity = 0.34, position = "center" }: { src: string; opacity?: number; position?: string }) {
+// Cinematic backdrop for a text section — the (already dark) image reads clearly
+// while a lighter, top-weighted scrim keeps the headline/copy legible.
+function SectionBg({ src, opacity = 0.7, position = "center", top = 0.68, bottom = 0.42 }: {
+  src: string;
+  opacity?: number;
+  position?: string;
+  top?: number;    // scrim darkness under the heading (upper area)
+  bottom?: number; // scrim darkness lower down (lets the image breathe)
+}) {
   return (
     <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN backdrop */}
       <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ opacity, objectPosition: position }} loading="lazy" />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(6,35,46,0.82) 0%, rgba(6,35,46,0.9) 55%, rgba(6,35,46,0.95) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, rgba(6,35,46,${top}) 0%, rgba(6,35,46,${(top + bottom) / 2}) 45%, rgba(6,35,46,${bottom}) 100%)` }} />
     </div>
   );
 }
@@ -875,7 +881,7 @@ export default function PalmJebelAliClient() {
 
       {/* ── SUSTAINABILITY ── */}
       <section id="sustainability" className="relative bg-[#051820] py-24 sm:py-32 overflow-hidden">
-        <SectionBg src={BG_SUSTAIN} opacity={0.3} />
+        <SectionBg src={BG_SUSTAIN} opacity={0.6} />
         <div
           aria-hidden
           className="pointer-events-none absolute -left-32 top-1/2 -translate-y-1/2 w-[560px] h-[560px]"
@@ -909,7 +915,7 @@ export default function PalmJebelAliClient() {
 
       {/* ── LOCATION ── */}
       <section id="location" className="relative bg-[#06232E] py-24 sm:py-32 overflow-hidden">
-        <SectionBg src={BG_COAST} opacity={0.45} />
+        <SectionBg src={BG_COAST} opacity={0.68} top={0.6} bottom={0.5} />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-40 top-0 w-[600px] h-[600px]"
@@ -944,7 +950,7 @@ export default function PalmJebelAliClient() {
 
       {/* ── PAYMENT PLAN ── */}
       <section id="payment-plan" className="relative overflow-hidden bg-[#0E3B45] py-24 sm:py-32">
-        <SectionBg src={BG_WATER} opacity={0.28} />
+        <SectionBg src={BG_WATER} opacity={0.62} />
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-16 sm:mb-24 text-center">
             <div className="flex justify-center"><Eyebrow>Payment plan</Eyebrow></div>
@@ -991,7 +997,7 @@ export default function PalmJebelAliClient() {
 
       {/* ── INVESTMENT CASE ── */}
       <section id="investment" className="relative overflow-hidden bg-[#06232E] py-24 sm:py-32">
-        <SectionBg src={BG_WATER} opacity={0.3} position="bottom" />
+        <SectionBg src={BG_WATER} opacity={0.62} position="bottom" />
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow>The investment case</Eyebrow>
