@@ -19,6 +19,7 @@ const MARINA_IMG = `${IMG_BASE}/marina-club.png`;
 const POOL_IMG = `${IMG_BASE}/amenities-pool.png`;
 const BEDROOM_IMG = `${IMG_BASE}/bedroom-suite.png`;
 const CORAL_IMG = `${IMG_BASE}/coral-villa.png`;
+const BEACH_IMG = `${IMG_BASE}/beach-villa.png`;
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -122,8 +123,9 @@ function HeroMedia() {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-    const bigEnough = window.innerWidth >= 640;
-    if (!reduced && !saveData && bigEnough) setShowVideo(true);
+    // Video plays on mobile too — it's a ~690KB loop — unless the user has
+    // reduced-motion or data-saver on, in which case we keep the still image.
+    if (!reduced && !saveData) setShowVideo(true);
   }, []);
 
   useEffect(() => {
@@ -553,7 +555,7 @@ const INVESTMENT = [
 
 const RESIDENCES = [
   {
-    img: VILLA_EXT_IMG,
+    img: BEACH_IMG,
     tag: "The Beach Collection",
     meta: "5 & 6 bedroom villas · 7,500-8,500 sqft",
     price: "18.5M",
@@ -642,7 +644,7 @@ export default function PalmJebelAliClient() {
               className="hero-rise font-serif font-medium text-[#F0E6D2] tracking-[-0.02em] leading-[0.98] mb-7"
               style={{ fontSize: "clamp(2.9rem, 7vw, 6.4rem)", animationDelay: "0.27s" }}
             >
-              <span className="block" style={{ fontSize: "0.62em" }}>The second palm.</span>
+              <span className="block" style={{ fontSize: "0.62em" }}>The new palm.</span>
               Twice the <em className="italic text-[#E7C989]">shoreline</em>.
             </h1>
             <p className="hero-rise text-white/75 text-base sm:text-xl max-w-xl mb-10 leading-relaxed" style={{ animationDelay: "0.39s" }}>
@@ -730,27 +732,42 @@ export default function PalmJebelAliClient() {
             </h2>
           </Reveal>
 
-          <div className="space-y-16 sm:space-y-24">
+          <div className="space-y-20 sm:space-y-28">
             {RESIDENCES.map((r, idx) => (
               <Reveal key={r.tag}>
-                <div className={`grid lg:grid-cols-5 gap-8 lg:gap-12 items-center ${idx % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+                <div className={`grid lg:grid-cols-5 gap-8 lg:gap-14 items-center ${idx % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
                   <div className="lg:col-span-3 relative overflow-hidden rounded-2xl group">
                     {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN */}
-                    <img src={r.img} alt={r.tag} className="w-full h-[46vh] lg:h-[62vh] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]" loading="lazy" />
+                    <img src={r.img} alt={r.tag} className="w-full h-[46vh] lg:h-[64vh] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
                     <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
+                    {/* big index watermark on the image */}
+                    <span className="absolute top-5 left-6 font-serif text-white/85 text-2xl sm:text-3xl [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]">0{idx + 1}</span>
                   </div>
+
                   <div className="lg:col-span-2">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-[#C9A26A] mb-4">{r.tag}</p>
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-white/50 text-lg">From AED</span>
-                      <span className="font-serif text-5xl sm:text-6xl text-white leading-none">{r.price}</span>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="h-px w-7 bg-[#C9A26A]" />
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#C9A26A]">Collection 0{idx + 1}</span>
                     </div>
-                    <div className="h-px w-full bg-white/10 my-5" />
-                    <p className="text-white/60 text-sm uppercase tracking-[0.14em] mb-5">{r.meta}</p>
-                    <ul className="space-y-2.5">
+
+                    {/* the collection TITLE, now a prominent serif display heading */}
+                    <h3 className="font-serif font-medium text-white text-4xl sm:text-[46px] leading-[1.02] tracking-[-0.01em] mb-6">
+                      {r.tag}
+                    </h3>
+
+                    <div className="flex items-baseline gap-2.5 mb-6">
+                      <span className="text-white/45 text-sm uppercase tracking-[0.16em]">From AED</span>
+                      <span className="font-serif text-4xl sm:text-5xl leading-none bg-gradient-to-b from-[#F0D9A0] to-[#B8922F] bg-clip-text text-transparent">{r.price}</span>
+                    </div>
+
+                    <div className="h-px w-full bg-white/10 mb-6" />
+                    <p className="text-white/55 text-sm uppercase tracking-[0.14em] mb-6">{r.meta}</p>
+
+                    <ul className="space-y-3">
                       {r.facts.map((f) => (
-                        <li key={f} className="flex gap-3 text-white/70 text-sm sm:text-base">
-                          <span className="mt-2 h-1 w-1 rounded-full bg-[#C9A26A] flex-shrink-0" />
+                        <li key={f} className="flex gap-3 text-white/70 text-sm sm:text-[15px] leading-relaxed">
+                          <span className="mt-[9px] h-1 w-1 rounded-full bg-[#C9A26A] flex-shrink-0" />
                           {f}
                         </li>
                       ))}
