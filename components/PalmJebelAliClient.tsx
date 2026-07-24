@@ -851,11 +851,11 @@ export default function PalmJebelAliClient() {
       <GalleryModal open={galleryOpen} onClose={() => setGalleryOpen(false)} images={GALLERY_IMAGES} activeIndex={galleryIndex} onChange={setGalleryIndex} title="Palm Jebel Ali" />
 
       {/* ── AMENITIES ── */}
-      <section id="amenities" className="relative overflow-hidden bg-[#EFE8DA] py-24 sm:py-32">
+      <section id="amenities" className="relative overflow-hidden bg-[#F7F2EA] py-24 sm:py-32">
         {/* faint AI-generated watercolour paper texture for a refined brochure surface */}
         {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN texture */}
-        <img aria-hidden src={AMENITIES_TEX} alt="" className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-90" loading="lazy" />
-        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(239,232,218,0.35), rgba(239,232,218,0))" }} />
+        <img aria-hidden src={AMENITIES_TEX} alt="" className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-60" loading="lazy" />
+        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(247,242,234,0.45), rgba(247,242,234,0.1))" }} />
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
             <Eyebrow dark>Island lifestyle</Eyebrow>
