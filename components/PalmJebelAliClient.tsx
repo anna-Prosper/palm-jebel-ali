@@ -28,9 +28,9 @@ const BEACH_FOAM_IMG = `${IMG_BASE}/beach-foam.jpg`;
 // Dedicated dark, moody twilight backdrop for the final CTA (its own image so it
 // stays dramatic behind the headline, independent of the bright gallery pool).
 const CTA_IMG = `${IMG_BASE}/cta-bg.png?v=2`;
-// Dark, moody backdrop kept only behind the night-aerial Location feature — the
-// rest of the body is now a light palette and needs no dark scrim images.
-const BG_COAST = `${IMG_BASE}/bg-coast.png`;
+// Turquoise aerial-ocean backdrop behind the Location feature — deep teal on the
+// left (where the copy sits) resolving to soft foam waves on the right.
+const OCEAN_IMG = `${IMG_BASE}/ocean-aerial.jpg`;
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -921,10 +921,10 @@ export default function PalmJebelAliClient() {
 
       {/* ── LOCATION ── */}
       <section id="location" className="relative bg-[#06232E] py-24 sm:py-32 overflow-hidden">
-        <SectionBg src={BG_COAST} opacity={0.95} top={0.42} bottom={0.28} />
-        {/* left-anchored scrim keeps the white copy legible while the water image
-            breathes brightly on the right */}
-        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(6,35,46,0.72) 0%, rgba(6,35,46,0.32) 42%, transparent 72%)" }} />
+        <SectionBg src={OCEAN_IMG} opacity={0.98} top={0.5} bottom={0.42} />
+        {/* left-anchored teal scrim keeps the white copy legible while the turquoise
+            water breathes on the right */}
+        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(6,35,46,0.82) 0%, rgba(6,35,46,0.42) 45%, rgba(6,35,46,0.08) 78%)" }} />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-40 top-0 w-[600px] h-[600px]"
