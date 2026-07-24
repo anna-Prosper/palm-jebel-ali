@@ -48,11 +48,11 @@ export const metadata: Metadata = {
 const FAQS_FOR_SCHEMA = [
   {
     q: "What is Palm Jebel Ali?",
-    a: "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans roughly 13.4 km² across 7 islands and 16 fronds — about twice the footprint of Palm Jumeirah — and is designed to add around 110km of new coastline to the city.",
+    a: "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans roughly 13.4 km² across 7 islands and 16 fronds, about twice the footprint of Palm Jumeirah, and is designed to add around 110km of new coastline to the city.",
   },
   {
     q: "What types of homes are available at Palm Jebel Ali?",
-    a: "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500–8,500 sqft across eight architectural signatures. The Coral Collection is the ultra-premium tier — 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1–5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
+    a: "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500-8,500 sqft across eight architectural signatures. The Coral Collection is the ultra-premium tier, 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1-5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
   },
   {
     q: "How much does it cost to buy at Palm Jebel Ali?",
@@ -68,7 +68,7 @@ const FAQS_FOR_SCHEMA = [
   },
   {
     q: "Is Palm Jebel Ali bigger than Palm Jumeirah?",
-    a: "Yes — substantially. The master plan is roughly double Palm Jumeirah's footprint, with 16 fronds, and capacity planned for a far larger resident population.",
+    a: "Yes, substantially. The master plan is roughly double Palm Jumeirah's footprint, with 16 fronds, and capacity planned for a far larger resident population.",
   },
   {
     q: "Can foreigners buy property at Palm Jebel Ali?",
@@ -84,7 +84,7 @@ const FAQS_FOR_SCHEMA = [
   },
   {
     q: "What amenities will Palm Jebel Ali have?",
-    a: "Private beaches and beach clubs, full-service marinas, more than 80 hotels and resorts, waterfront dining and retail districts, landscaped parks and promenades, wellness and fitness facilities, and everyday essentials such as schools, clinics and mosques — with island-wide cycling and pedestrian routes.",
+    a: "Private beaches and beach clubs, full-service marinas, more than 80 hotels and resorts, waterfront dining and retail districts, landscaped parks and promenades, wellness and fitness facilities, and everyday essentials such as schools, clinics and mosques, with island-wide cycling and pedestrian routes.",
   },
   {
     q: "Is Palm Jebel Ali a good investment?",
@@ -108,7 +108,7 @@ const SCHEMA = {
       "@id": `${SITE}/#place`,
       name: "Palm Jebel Ali",
       description:
-        "Nakheel's second palm-shaped island off Dubai's southern coast — 16 fronds across 7 islands, roughly twice the size of Palm Jumeirah, adding around 110km of new coastline.",
+        "Nakheel's second palm-shaped island off Dubai's southern coast, 16 fronds across 7 islands, roughly twice the size of Palm Jumeirah, adding around 110km of new coastline.",
       image: OG_IMG,
       address: { "@type": "PostalAddress", addressLocality: "Jebel Ali", addressRegion: "Dubai", addressCountry: "AE" },
       geo: { "@type": "GeoCoordinates", latitude: 24.9928, longitude: 55.0203 },

@@ -8,7 +8,7 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-// Editorial display serif — used only for narrative headlines, prices and
+// Editorial display serif, used only for narrative headlines, prices and
 // pull-quotes; Jakarta carries everything functional.
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],

@@ -61,7 +61,7 @@ export function GalleryModal({ open, onClose, images, activeIndex, onChange, tit
             </button>
           </div>
 
-          {/* Stage — swipeable on mobile */}
+          {/* Stage, swipeable on mobile */}
           <div
             className="flex-1 flex items-center justify-center relative min-h-0 touch-pan-y"
             onTouchStart={(e) => {

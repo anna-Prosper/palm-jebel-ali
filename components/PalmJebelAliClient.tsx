@@ -8,7 +8,7 @@ import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { waHref } from "@/lib/whatsapp";
 
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
-// 2× AI-upscaled hero (2688×1536) — crisp on large displays.
+// 2× AI-upscaled hero (2688×1536), crisp on large displays.
 const HERO_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
 const MASTERPLAN_IMG = `${IMG_BASE}/masterplan-aerial.png`;
 const VILLA_EXT_IMG = `${IMG_BASE}/villa-exterior.png`;
@@ -55,7 +55,7 @@ function useRevealOnScroll<T extends HTMLElement>() {
       { rootMargin: "0px 0px -8% 0px", threshold: 0.01 }
     );
     obs.observe(el);
-    // Safety net — nothing may ever stay invisible.
+    // Safety net, nothing may ever stay invisible.
     const fallback = window.setTimeout(() => setVisible(true), 1500);
     return () => {
       obs.disconnect();
@@ -108,12 +108,15 @@ function CountUp({ target, suffix = "", duration = 1600 }: { target: number; suf
   );
 }
 
-// Eyebrow — gold hairline + spaced caps, the recurring "opening mark".
-function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
+// Eyebrow, gold hairline + spaced caps, the recurring "opening mark".
+// `strong` brightens and enlarges it for the hero, where it sits over a bright sky.
+function Eyebrow({ children, dark = false, strong = false }: { children: React.ReactNode; dark?: boolean; strong?: boolean }) {
   return (
     <div className="flex items-center gap-3 mb-5">
-      <span className="h-px w-8 bg-[#C9A26A]" />
-      <span className={`text-[11px] font-semibold uppercase tracking-[0.28em] ${dark ? "text-[#A8814A]" : "text-[#C9A26A]"}`}>
+      <span className={`h-px ${strong ? "w-10 bg-[#E7C989]" : "w-8 bg-[#C9A26A]"}`} />
+      <span
+        className={`font-semibold uppercase ${strong ? "text-sm sm:text-[15px] tracking-[0.32em] text-[#F0D9A0] [text-shadow:0_1px_10px_rgba(0,0,0,0.55)]" : "text-[11px] tracking-[0.28em]"} ${!strong && (dark ? "text-[#A8814A]" : "text-[#C9A26A]")}`}
+      >
         {children}
       </span>
     </div>
@@ -239,9 +242,9 @@ function FrondComparison() {
         className="relative mx-auto grid items-end justify-center gap-x-3 sm:gap-x-14"
         style={{ gridTemplateColumns: "clamp(66px, 16vw, 140px) auto clamp(124px, 34vw, 264px)" }}
       >
-        {/* row 1 — silhouettes, both sitting on the same ground line */}
+        {/* row 1, silhouettes, both sitting on the same ground line */}
         <PalmSilhouette fronds={8} draw={visible} tone="muted" animate={animate} className="w-full h-auto" />
-        {/* 2× — boxed to the SMALL palm's height and bottom-aligned to the ground
+        {/* 2×, boxed to the SMALL palm's height and bottom-aligned to the ground
             line, so it sits at the small palm's vertical centre, reading "×2". */}
         <div
           className="self-end flex flex-col items-center justify-center px-0.5 sm:px-2"
@@ -252,10 +255,10 @@ function FrondComparison() {
         </div>
         <PalmSilhouette fronds={11} draw={visible} tone="gold" animate={animate} className="w-full h-auto" />
 
-        {/* row 2 — the shared ground line */}
+        {/* row 2, the shared ground line */}
         <div className="col-span-3 mt-7 sm:mt-9 h-px bg-gradient-to-r from-transparent via-[#C9A26A]/30 to-transparent" />
 
-        {/* row 3 — labels on a common baseline (matched km sizes) */}
+        {/* row 3, labels on a common baseline (matched km sizes) */}
         <div className="mt-5 sm:mt-6 text-center">
           <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-white/45 leading-snug">Palm Jumeirah</p>
           <p className="mt-1.5 sm:mt-2 font-serif text-2xl sm:text-4xl text-white/60 leading-none">
@@ -382,12 +385,12 @@ const FAQS: FaqItem[] = [
   {
     question: "What is Palm Jebel Ali?",
     answer:
-      "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans roughly 13.4 km² across 7 islands and 16 fronds — about twice the footprint of Palm Jumeirah — and is designed to add around 110km of new coastline to the city.",
+      "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans roughly 13.4 km² across 7 islands and 16 fronds, about twice the footprint of Palm Jumeirah, and is designed to add around 110km of new coastline to the city.",
   },
   {
     question: "What types of homes are available at Palm Jebel Ali?",
     answer:
-      "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500–8,500 sqft across eight architectural signatures. The Coral Collection is the ultra-premium tier — 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1–5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
+      "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500-8,500 sqft across eight architectural signatures. The Coral Collection is the ultra-premium tier, 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1-5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
   },
   {
     question: "How much does it cost to buy at Palm Jebel Ali?",
@@ -407,12 +410,12 @@ const FAQS: FaqItem[] = [
   {
     question: "Is Palm Jebel Ali bigger than Palm Jumeirah?",
     answer:
-      "Yes — substantially. The master plan is roughly double Palm Jumeirah's footprint, with 16 fronds instead of Palm Jumeirah's tighter frond layout, and capacity planned for a far larger resident population.",
+      "Yes, substantially. The master plan is roughly double Palm Jumeirah's footprint, with 16 fronds instead of Palm Jumeirah's tighter frond layout, and capacity planned for a far larger resident population.",
   },
   {
     question: "Can foreigners buy property at Palm Jebel Ali?",
     answer:
-      "Yes. Palm Jebel Ali sits within Dubai's designated freehold zone, so buyers of any nationality can own outright, with title registered at the Dubai Land Department — the same ownership basis as Palm Jumeirah.",
+      "Yes. Palm Jebel Ali sits within Dubai's designated freehold zone, so buyers of any nationality can own outright, with title registered at the Dubai Land Department, the same ownership basis as Palm Jumeirah.",
   },
   {
     question: "Does buying at Palm Jebel Ali qualify for the UAE Golden Visa?",
@@ -427,7 +430,7 @@ const FAQS: FaqItem[] = [
   {
     question: "What amenities will Palm Jebel Ali have?",
     answer:
-      "The master plan includes private beaches and beach clubs, full-service marinas, more than 80 hotels and resorts, waterfront dining and retail districts, landscaped parks and promenades, wellness and fitness facilities, and everyday essentials such as schools, clinics and mosques — with island-wide cycling and pedestrian routes.",
+      "The master plan includes private beaches and beach clubs, full-service marinas, more than 80 hotels and resorts, waterfront dining and retail districts, landscaped parks and promenades, wellness and fitness facilities, and everyday essentials such as schools, clinics and mosques, with island-wide cycling and pedestrian routes.",
   },
   {
     question: "Is Palm Jebel Ali a good investment?",
@@ -447,7 +450,7 @@ const AMENITIES = [
   {
     icon: Anchor,
     title: "Marinas & yachting",
-    body: "Full-service marinas and berthing built into the crescent — the Gulf starts a few steps from the door, not a drive away.",
+    body: "Full-service marinas and berthing built into the crescent, the Gulf starts a few steps from the door, not a drive away.",
   },
   {
     icon: Building2,
@@ -457,7 +460,7 @@ const AMENITIES = [
   {
     icon: UtensilsCrossed,
     title: "Waterfront dining",
-    body: "Restaurant and café precincts wrapped around the marinas — built for long evenings rather than quick meals.",
+    body: "Restaurant and café precincts wrapped around the marinas, built for long evenings rather than quick meals.",
   },
   {
     icon: ShoppingBag,
@@ -477,7 +480,7 @@ const AMENITIES = [
   {
     icon: GraduationCap,
     title: "Everyday essentials",
-    body: "Schools, clinics, mosques and community retail planned in from day one — so the island works on a Tuesday, not just a Saturday.",
+    body: "Schools, clinics, mosques and community retail planned in from day one, so the island works on a Tuesday, not just a Saturday.",
   },
 ];
 
@@ -489,9 +492,9 @@ const SUSTAINABILITY = [
 ];
 
 const INVESTMENT = [
-  { title: "Freehold for all nationalities", body: "Palm Jebel Ali sits inside Dubai's designated freehold zone — full ownership, registered with the Dubai Land Department." },
+  { title: "Freehold for all nationalities", body: "Palm Jebel Ali sits inside Dubai's designated freehold zone, full ownership, registered with the Dubai Land Department." },
   { title: "Golden Visa eligible", body: "Property purchases at or above AED 2 million meet the threshold for the UAE's 10-year renewable Golden Visa." },
-  { title: "Launch-phase pricing", body: "Early releases are priced ahead of the island's amenity and hotel phases coming online — the classic off-plan entry window." },
+  { title: "Launch-phase pricing", body: "Early releases are priced ahead of the island's amenity and hotel phases coming online, the classic off-plan entry window." },
   { title: "Dubai's southern corridor", body: "Anchored beside Al Maktoum International and Expo City, the growth axis the city is actively building toward." },
 ];
 
@@ -499,7 +502,7 @@ const RESIDENCES = [
   {
     img: VILLA_EXT_IMG,
     tag: "The Beach Collection",
-    meta: "5 & 6 bedroom villas · 7,500–8,500 sqft",
+    meta: "5 & 6 bedroom villas · 7,500-8,500 sqft",
     price: "18.5M",
     facts: ["Frond-front plots with private beach access", "Eight architectural signatures across the collection"],
   },
@@ -513,7 +516,7 @@ const RESIDENCES = [
   {
     img: MARINA_IMG,
     tag: "Palm Central Private Residences",
-    meta: "1–5 bed apartments · townhouses · penthouses",
+    meta: "1-5 bed apartments · townhouses · penthouses",
     price: "2.5M",
     facts: ["Beachfront resort living between Fronds M & N", "212 connected residences across three buildings"],
   },
@@ -576,12 +579,12 @@ export default function PalmJebelAliClient() {
           </div>
         </div>
 
-        {/* CSS-animated (not framer) so the hero copy can NEVER get stuck hidden —
+        {/* CSS-animated (not framer) so the hero copy can NEVER get stuck hidden ,
             each element defaults to visible and the entrance is pure enhancement. */}
         <div ref={heroTextRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 pb-[17vh] sm:pb-[12vh] w-full will-change-transform">
           <div className="max-w-3xl">
             <div className="hero-rise" style={{ animationDelay: "0.15s" }}>
-              <Eyebrow>Nakheel · Dubai&apos;s Second Palm</Eyebrow>
+              <Eyebrow strong>By Nakheel</Eyebrow>
             </div>
             <h1
               className="hero-rise font-serif font-medium text-[#F0E6D2] tracking-[-0.02em] leading-[0.98] mb-7"
@@ -637,7 +640,7 @@ export default function PalmJebelAliClient() {
         <div className="max-w-4xl mx-auto px-5 sm:px-8 py-24 sm:py-36 text-center">
           <Reveal>
             <p className="font-serif text-2xl sm:text-4xl leading-[1.28] text-[#F0E6D2]">
-              Nakheel built Palm Jumeirah once. Palm Jebel Ali is what happens when they get to do it again — with two more decades of lessons, twice the land, and a waterfront capable of housing <span className="italic text-[#E7C989]">35,000 families</span>.
+              Nakheel built Palm Jumeirah once. Palm Jebel Ali is what happens when they get to do it again, with two more decades of lessons, twice the land, and a waterfront capable of housing <span className="italic text-[#E7C989]">35,000 families</span>.
             </p>
           </Reveal>
         </div>
@@ -659,7 +662,7 @@ export default function PalmJebelAliClient() {
 
           <Reveal className="mt-14 sm:mt-20 max-w-2xl mx-auto text-center" delay={120}>
             <p className="text-white/65 text-base sm:text-lg leading-relaxed">
-              Seven islands, sixteen fronds, and more shoreline than most countries add in a decade — all connected by three mainland access points straight onto Sheikh Zayed Road.
+              Seven islands, sixteen fronds, and more shoreline than most countries add in a decade, all connected by three mainland access points straight onto Sheikh Zayed Road.
             </p>
           </Reveal>
         </div>
@@ -748,7 +751,7 @@ export default function PalmJebelAliClient() {
               A whole city&apos;s worth of <em className="italic text-[#A8814A]">everyday</em>.
             </h2>
             <p className="mt-6 text-[#06232E]/65 text-base sm:text-lg leading-relaxed">
-              Islands fail when they are only beautiful. Palm Jebel Ali is planned as somewhere you can actually live — the marinas and beach clubs, yes, but also the schools, clinics and corner retail that make a Tuesday work.
+              Islands fail when they are only beautiful. Palm Jebel Ali is planned as somewhere you can actually live, the marinas and beach clubs, yes, but also the schools, clinics and corner retail that make a Tuesday work.
             </p>
           </Reveal>
 
@@ -785,7 +788,7 @@ export default function PalmJebelAliClient() {
               An island engineered to <em className="italic text-[#E7C989]">age well</em>.
             </h2>
             <p className="mt-6 text-white/60 text-base sm:text-lg leading-relaxed">
-              Reclaiming land is the easy part. Making it liveable in forty years is the discipline — and it shows up in the energy plan, the movement plan and what happens under the waterline.
+              Reclaiming land is the easy part. Making it liveable in forty years is the discipline, and it shows up in the energy plan, the movement plan and what happens under the waterline.
             </p>
           </Reveal>
 
@@ -878,7 +881,7 @@ export default function PalmJebelAliClient() {
 
           <Reveal>
             <p className="text-white/55 text-sm sm:text-base text-center mt-16 sm:mt-24 max-w-xl mx-auto leading-relaxed">
-              An 80/20 plan spreads the bulk of your commitment across the build period rather than the day you sign — standard Nakheel structuring on launch-phase inventory, subject to unit and release.
+              An 80/20 plan spreads the bulk of your commitment across the build period rather than the day you sign, standard Nakheel structuring on launch-phase inventory, subject to unit and release.
             </p>
           </Reveal>
         </div>
@@ -915,7 +918,7 @@ export default function PalmJebelAliClient() {
 
           <Reveal className="mt-14 sm:mt-16 max-w-2xl">
             <p className="text-white/50 text-sm sm:text-base leading-relaxed">
-              Early releases move fast and allocations are tightly held. We track Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches — with full DLD-registered transaction support from reservation through to handover.
+              Early releases move fast and allocations are tightly held. We track Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches, with full DLD-registered transaction support from reservation through to handover.
             </p>
           </Reveal>
         </div>
@@ -948,7 +951,7 @@ export default function PalmJebelAliClient() {
               Your address on the new <em className="italic text-[#E7C989]">coastline</em>.
             </h2>
             <p className="text-white/70 text-base sm:text-lg mb-10 max-w-xl mx-auto">
-              Get the current release schedule, pricing by frond, and payment-plan breakdowns — sent directly, no obligation.
+              Get the current release schedule, pricing by frond, and payment-plan breakdowns, sent directly, no obligation.
             </p>
             <div className="flex justify-center">
               <GoldButton href={waLink} size="lg">Request Palm Jebel Ali pricing</GoldButton>

@@ -28,7 +28,7 @@ function FAQJsonLd({ faqs }: { faqs: FaqItem[] }) {
 }
 
 /**
- * FAQ accordion built on native <details>/<summary> — the answer text is
+ * FAQ accordion built on native <details>/<summary>, the answer text is
  * always present in the server-rendered HTML, only the toggle is interactive.
  */
 export function FaqAccordion({ faqs, emitJsonLd = true }: FaqAccordionProps) {
