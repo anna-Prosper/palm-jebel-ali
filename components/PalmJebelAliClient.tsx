@@ -25,6 +25,8 @@ const GALLERY_AERIAL_IMG = `${IMG_BASE}/gallery-aerial.png`;
 const AMENITIES_TEX = `${IMG_BASE}/amenities-texture.jpg`;
 // Airy AI-generated shoreline (pale sand meeting soft foam) behind the Payment section.
 const BEACH_FOAM_IMG = `${IMG_BASE}/beach-foam.jpg`;
+// Subtle AI-generated pale-aqua watercolour paper texture behind the FAQ section.
+const FAQ_TEX = `${IMG_BASE}/faq-texture.jpg`;
 // Dedicated dark, moody twilight backdrop for the final CTA (its own image so it
 // stays dramatic behind the headline, independent of the bright gallery pool).
 const CTA_IMG = `${IMG_BASE}/cta-bg.png?v=2`;
@@ -700,13 +702,6 @@ export default function PalmJebelAliClient() {
           </div>
         </div>
 
-        {/* scroll cue */}
-        <div className="absolute bottom-7 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/50 scroll-pulse">Scroll</span>
-          <span className="relative h-10 w-px overflow-hidden bg-white/15">
-            <span className="absolute inset-x-0 top-0 h-4 bg-[#C9A26A] scroll-travel" />
-          </span>
-        </div>
       </section>
 
       {/* ── STATS BAR ── */}
@@ -1045,8 +1040,11 @@ export default function PalmJebelAliClient() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="bg-[#E4EDEB] py-24 sm:py-32">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
+      <section id="faq" className="relative overflow-hidden bg-[#EAF0EF] py-24 sm:py-32">
+        {/* faint AI-generated pale-aqua watercolour paper texture */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN texture */}
+        <img aria-hidden src={FAQ_TEX} alt="" className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" />
+        <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-12 sm:mb-14">
             <Eyebrow dark>Common questions</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">Palm Jebel Ali, answered.</h2>
