@@ -305,18 +305,27 @@ function SiteHeader({ waLink }: { waLink: string }) {
   }, []);
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#06232E]/85 backdrop-blur-md border-b border-white/10 py-3" : "bg-transparent py-5"}`}>
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#06232E]/85 backdrop-blur-md border-b border-white/10 py-3" : "py-5"}`}>
+      {/* Top scrim so the transparent-header links stay legible over a bright sky. */}
+      {!scrolled && (
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-28" style={{ background: "linear-gradient(180deg, rgba(5,24,32,0.55), transparent)" }} />
+      )}
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         <a
           href="#top"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
           className="flex items-baseline gap-2"
         >
-          <span className="font-serif text-lg sm:text-xl text-white leading-none">Palm Jebel Ali</span>
+          <span className={`font-serif text-lg sm:text-xl text-white leading-none ${scrolled ? "" : "[text-shadow:0_1px_10px_rgba(0,0,0,0.45)]"}`}>Palm Jebel Ali</span>
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} onClick={(e) => scrollToAnchor(e, l.href)} className="text-white/65 hover:text-white text-[11px] uppercase tracking-[0.15em] transition-colors">
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={(e) => scrollToAnchor(e, l.href)}
+              className={`text-white/90 hover:text-white text-[11px] uppercase tracking-[0.15em] transition-colors ${scrolled ? "" : "[text-shadow:0_1px_8px_rgba(0,0,0,0.5)]"}`}
+            >
               {l.label}
             </a>
           ))}
