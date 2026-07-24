@@ -6,6 +6,18 @@ html {
   scroll-behavior: auto;
 }
 
+/* Hero copy entrance. Base state is VISIBLE (opacity 1) so the headline and
+   CTAs can never be stuck hidden if the animation is skipped; the keyframe just
+   plays a fade-up when it runs. `both` holds opacity:0 during the delay. */
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-rise { opacity: 1; animation: heroRise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}
+
 /* Cinematic slow zoom on the hero image (transform on the <img> only — GPU-safe). */
 @keyframes kenburns {
   from { transform: scale(1.09); }

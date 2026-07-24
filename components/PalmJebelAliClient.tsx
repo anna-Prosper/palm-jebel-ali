@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Anchor, Waves, UtensilsCrossed, ShoppingBag, HeartPulse, Trees, Building2, GraduationCap, Phone, MessageCircle, Leaf, Sun, Bike, Fish } from "lucide-react";
 import { GalleryModal } from "@/components/GalleryModal";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
@@ -519,15 +519,9 @@ const RESIDENCES = [
   },
 ];
 
-// ── hero entrance ────────────────────────────────────────────────────────────
-
-const heroStagger: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } };
-const heroItem: Variants = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } } };
-
 // ── page ─────────────────────────────────────────────────────────────────────
 
 export default function PalmJebelAliClient() {
-  const reduceMotion = useReducedMotion();
   const heroRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
@@ -582,31 +576,32 @@ export default function PalmJebelAliClient() {
           </div>
         </div>
 
+        {/* CSS-animated (not framer) so the hero copy can NEVER get stuck hidden —
+            each element defaults to visible and the entrance is pure enhancement. */}
         <div ref={heroTextRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 pb-[17vh] sm:pb-[12vh] w-full will-change-transform">
-          <motion.div variants={reduceMotion ? undefined : heroStagger} initial={reduceMotion ? undefined : "hidden"} animate={reduceMotion ? undefined : "show"} className="max-w-3xl">
-            <motion.div variants={reduceMotion ? undefined : heroItem}>
+          <div className="max-w-3xl">
+            <div className="hero-rise" style={{ animationDelay: "0.15s" }}>
               <Eyebrow>Nakheel · Dubai&apos;s Second Palm</Eyebrow>
-            </motion.div>
-            <motion.h1
-              variants={reduceMotion ? undefined : heroItem}
-              className="font-serif font-medium text-[#F0E6D2] tracking-[-0.02em] leading-[0.98] mb-7"
-              style={{ fontSize: "clamp(2.9rem, 7vw, 6.4rem)" }}
+            </div>
+            <h1
+              className="hero-rise font-serif font-medium text-[#F0E6D2] tracking-[-0.02em] leading-[0.98] mb-7"
+              style={{ fontSize: "clamp(2.9rem, 7vw, 6.4rem)", animationDelay: "0.27s" }}
             >
               <span className="block" style={{ fontSize: "0.62em" }}>The second palm.</span>
               Twice the <em className="italic text-[#E7C989]">shoreline</em>.
-            </motion.h1>
-            <motion.p variants={reduceMotion ? undefined : heroItem} className="text-white/75 text-base sm:text-xl max-w-xl mb-10 leading-relaxed">
+            </h1>
+            <p className="hero-rise text-white/75 text-base sm:text-xl max-w-xl mb-10 leading-relaxed" style={{ animationDelay: "0.39s" }}>
               16 fronds. 110 kilometres of new coastline. A private island city rising off Dubai&apos;s southern shore, and the first villas are already under construction.
-            </motion.p>
-            <motion.div variants={reduceMotion ? undefined : heroItem} className="flex flex-wrap items-center gap-6">
+            </p>
+            <div className="hero-rise flex flex-wrap items-center gap-6" style={{ animationDelay: "0.51s" }}>
               <GoldButton href={waLink} size="lg">Register your interest</GoldButton>
               <span className="hidden sm:block h-10 w-px bg-white/20" />
               <a href="#residences" onClick={(e) => scrollToAnchor(e, "#residences")} className="group inline-flex flex-col text-white text-sm font-medium">
                 <span className="uppercase tracking-[0.12em]">View the residences</span>
                 <span className="mt-1 h-px w-0 bg-[#C9A26A] transition-all duration-500 group-hover:w-full" />
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* scroll cue */}
