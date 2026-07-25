@@ -5,7 +5,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Anchor, Waves, UtensilsCrossed, ShoppingBag, HeartPulse, Trees, Building2, GraduationCap, Phone, MessageCircle, Leaf, Sun, Bike, Fish } from "lucide-react";
 import { GalleryModal } from "@/components/GalleryModal";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
+import { LeadFormModal } from "@/components/LeadFormModal";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { waHref } from "@/lib/whatsapp";
+import { trackEvent } from "@/lib/analytics";
 
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
 // 2× AI-upscaled hero (2688×1536), crisp on large displays.
@@ -197,19 +200,43 @@ function Shine() {
   );
 }
 
-function GoldButton({ href, children, size = "md" }: { href: string; children: React.ReactNode; size?: "md" | "lg" }) {
+// Gold pill CTA. Renders an <a> when `href` is given (WhatsApp/tel), otherwise a
+// <button> (opens the lead form). Focus ring is brand-gold, not the browser blue.
+function GoldButton({ href, onClick, children, size = "md" }: { href?: string; onClick?: () => void; children: React.ReactNode; size?: "md" | "lg" }) {
+  const cls = `group relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-full font-semibold uppercase tracking-[0.12em] text-[#06232E] transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8814A] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
+    size === "lg" ? "px-9 py-4 text-sm" : "px-7 py-3.5 text-[13px]"
+  }`;
+  const style = { background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)", boxShadow: "0 10px 30px -10px rgba(201,162,106,0.55)" } as const;
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" onClick={onClick} className={cls} style={style}>
+        {children}
+        <Shine />
+      </a>
+    );
+  }
+  return (
+    <button type="button" onClick={onClick} className={cls} style={style}>
+      {children}
+      <Shine />
+    </button>
+  );
+}
+
+// Ghost/outline CTA companion (used for the WhatsApp option beside the form CTA).
+function GhostButton({ href, onClick, children, tone = "dark", size = "md" }: { href: string; onClick?: () => void; children: React.ReactNode; tone?: "dark" | "light"; size?: "md" | "lg" }) {
+  const color = tone === "light" ? "text-white border-white/40 hover:border-white" : "text-[#0C2E35] border-[#0C2E35]/25 hover:border-[#0C2E35]/60";
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-full font-semibold uppercase tracking-[0.12em] text-[#06232E] transition-transform hover:scale-[1.03] ${
-        size === "lg" ? "px-9 py-4 text-sm" : "px-7 py-3.5 text-[13px]"
+      onClick={onClick}
+      className={`inline-flex items-center justify-center gap-2 rounded-full font-semibold uppercase tracking-[0.12em] border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A8814A] ${color} ${
+        size === "lg" ? "px-8 py-4 text-sm" : "px-6 py-3.5 text-[13px]"
       }`}
-      style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)", boxShadow: "0 10px 30px -10px rgba(201,162,106,0.55)" }}
     >
       {children}
-      <Shine />
     </a>
   );
 }
@@ -401,6 +428,7 @@ function SiteHeader({ waLink }: { waLink: string }) {
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEvent("whatsapp_click", { location: "header" })}
           className="group relative overflow-hidden inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.12em] text-[#06232E]"
           style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}
         >
@@ -424,10 +452,10 @@ function SiteFooter({ waLink }: { waLink: string }) {
             </p>
           </div>
           <div className="flex gap-3">
-            <a href={waLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#06232E]" style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}>
+            <a href={waLink} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("whatsapp_click", { location: "footer" })} className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#06232E]" style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}>
               <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
             </a>
-            <a href="tel:+971549988811" className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#0C2E35] border border-[#0C2E35]/25 hover:border-[#0C2E35]/50 transition-colors">
+            <a href="tel:+971549988811" onClick={() => trackEvent("call_click", { location: "footer" })} className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#0C2E35] border border-[#0C2E35]/25 hover:border-[#0C2E35]/50 transition-colors">
               <Phone className="h-3.5 w-3.5" /> Call
             </a>
           </div>
@@ -608,6 +636,14 @@ export default function PalmJebelAliClient() {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [waLink, setWaLink] = useState(() => waHref(WA_MESSAGE));
+  const [formOpen, setFormOpen] = useState(false);
+  const [formInterest, setFormInterest] = useState("General enquiry");
+
+  const openForm = (interest: string, location: string) => {
+    setFormInterest(interest);
+    setFormOpen(true);
+    trackEvent("form_open", { location, interest });
+  };
 
   const payment = useRevealOnScroll<HTMLDivElement>();
 
@@ -703,8 +739,11 @@ export default function PalmJebelAliClient() {
             <p className="hero-rise text-white/75 text-base sm:text-xl max-w-xl mb-10 leading-relaxed" style={{ animationDelay: "0.39s" }}>
               16 fronds. 110 kilometres of new coastline. A private island city rising off Dubai&apos;s southern shore, and the first villas are already under construction.
             </p>
-            <div className="hero-rise flex flex-wrap items-center gap-6" style={{ animationDelay: "0.51s" }}>
-              <GoldButton href={waLink} size="lg">Register your interest</GoldButton>
+            <div className="hero-rise flex flex-wrap items-center gap-4 sm:gap-5" style={{ animationDelay: "0.51s" }}>
+              <GoldButton onClick={() => openForm("General enquiry", "hero")} size="lg">Register your interest</GoldButton>
+              <GhostButton href={waLink} tone="light" size="lg" onClick={() => trackEvent("whatsapp_click", { location: "hero" })}>
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </GhostButton>
               <span className="hidden sm:block h-10 w-px bg-white/20" />
               <a href="#residences" onClick={(e) => scrollToAnchor(e, "#residences")} className="group inline-flex flex-col text-white text-sm font-medium">
                 <span className="uppercase tracking-[0.12em]">View the residences</span>
@@ -953,10 +992,10 @@ export default function PalmJebelAliClient() {
               ["Sheikh Zayed Road (E11)", "Direct"],
             ].map(([place, time], i) => (
               <Reveal key={place} delay={i * 50}>
-                <div className="group flex items-baseline gap-4 py-5 sm:py-7 border-b border-white/10 transition-colors hover:border-[#C9A26A]/40">
-                  <span className="text-white/75 text-lg sm:text-2xl transition-colors group-hover:text-white">{place}</span>
-                  <span className="flex-1 border-b border-dotted border-[#C9A26A]/30 translate-y-[-4px]" />
-                  <span className="font-serif text-3xl sm:text-4xl leading-none whitespace-nowrap bg-gradient-to-b from-[#F0D9A0] to-[#A8814A] bg-clip-text text-transparent">{time}</span>
+                <div className="group flex items-baseline gap-4 py-5 sm:py-7 border-b border-white/15 transition-colors hover:border-[#E7C989]/50">
+                  <span className="text-white text-lg sm:text-2xl [text-shadow:0_1px_10px_rgba(4,20,26,0.6)]">{place}</span>
+                  <span className="flex-1 border-b border-dotted border-white/25 translate-y-[-4px]" />
+                  <span className="font-serif text-3xl sm:text-4xl leading-none whitespace-nowrap text-[#F0D9A0] [text-shadow:0_2px_14px_rgba(4,20,26,0.75)]">{time}</span>
                 </div>
               </Reveal>
             ))}
@@ -1083,14 +1122,20 @@ export default function PalmJebelAliClient() {
             <p className="text-white/70 text-base sm:text-lg mb-10 max-w-xl mx-auto">
               Get the current release schedule, pricing by frond, and payment-plan breakdowns, sent directly, no obligation.
             </p>
-            <div className="flex justify-center">
-              <GoldButton href={waLink} size="lg">Request Palm Jebel Ali pricing</GoldButton>
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-5">
+              <GoldButton onClick={() => openForm("Investment / payment plans", "final_cta")} size="lg">Request Palm Jebel Ali pricing</GoldButton>
+              <GhostButton href={waLink} tone="light" size="lg" onClick={() => trackEvent("whatsapp_click", { location: "final_cta" })}>
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </GhostButton>
             </div>
           </Reveal>
         </div>
       </section>
 
       <SiteFooter waLink={waLink} />
+
+      <FloatingWhatsApp waLink={waLink} />
+      <LeadFormModal open={formOpen} onClose={() => setFormOpen(false)} waLink={waLink} defaultInterest={formInterest} />
     </div>
   );
 }
