@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { hasDb, leadsCollection } from "@/lib/db";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -63,6 +64,8 @@ Phone: ${phone}
 Interest: ${interest}
 ${message ? `Message: ${message}\n` : ""}${pageUrl ? `Source: ${pageUrl}` : ""}`;
 
+  let emailed = false;
+  let emailError = false;
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -76,14 +79,35 @@ ${message ? `Message: ${message}\n` : ""}${pageUrl ? `Source: ${pageUrl}` : ""}`
         text,
       }),
     });
-    if (!res.ok) {
-      const detail = await res.text();
-      console.error("[lead] Resend error", res.status, detail);
-      return NextResponse.json({ error: "Could not send right now. Please WhatsApp us instead." }, { status: 502 });
+    if (res.ok) emailed = true;
+    else {
+      emailError = true;
+      console.error("[lead] Resend error", res.status, await res.text());
     }
-    return NextResponse.json({ ok: true });
   } catch (err) {
+    emailError = true;
     console.error("[lead] send failed", err);
+  }
+
+  // Persist the lead regardless of email outcome so nothing is lost. Best-effort.
+  if (hasDb()) {
+    try {
+      const col = await leadsCollection();
+      await col.insertOne({
+        name, email, phone, interest, message, pageUrl, emailed,
+        ip: req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || undefined,
+        userAgent: req.headers.get("user-agent")?.slice(0, 300) || undefined,
+        createdAt: new Date(),
+      });
+    } catch (err) {
+      console.error("[lead] db insert failed", err);
+    }
+  }
+
+  // If the email failed but we stored the lead, still tell the user to use
+  // WhatsApp — but the lead is safe in the admin dashboard.
+  if (emailError && !emailed) {
     return NextResponse.json({ error: "Could not send right now. Please WhatsApp us instead." }, { status: 502 });
   }
+  return NextResponse.json({ ok: true });
 }
