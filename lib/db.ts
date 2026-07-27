@@ -1,8 +1,11 @@
 import { MongoClient, Db, Collection } from "mongodb";
 
-// Palm Jebel Ali keeps its own isolated database on the shared cluster.
-// It never touches the binayah_web_new_dev collections.
-const DB_NAME = "palm_jebel_ali";
+// The shared Mongo user is scoped to the binayah_web_new_dev database, so we
+// live there but keep Palm Jebel Ali data in its own `pja_`-prefixed
+// collections — isolated, easy to identify, and trivial to drop on their own.
+const DB_NAME = "binayah_web_new_dev";
+const LEADS = "pja_leads";
+const EVENTS = "pja_events";
 
 const uri = process.env.MONGODB_URI;
 
@@ -56,10 +59,10 @@ export type EventDoc = {
 
 export async function leadsCollection(): Promise<Collection<LeadDoc>> {
   const db = await getDb();
-  return db.collection<LeadDoc>("leads");
+  return db.collection<LeadDoc>(LEADS);
 }
 
 export async function eventsCollection(): Promise<Collection<EventDoc>> {
   const db = await getDb();
-  return db.collection<EventDoc>("events");
+  return db.collection<EventDoc>(EVENTS);
 }
