@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone, Menu, X } from "lucide-react";
 import { Shine } from "@/components/ui/kit";
 import { trackEvent } from "@/lib/analytics";
 
@@ -16,6 +16,7 @@ const NAV_LINKS = [
 
 export function SiteHeader({ waLink }: { waLink: string }) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     let raf = 0;
     const update = () => { raf = 0; setScrolled(window.scrollY > 60); };
@@ -25,14 +26,17 @@ export function SiteHeader({ waLink }: { waLink: string }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // A solid surface is needed whenever scrolled OR the mobile menu is open.
+  const solid = scrolled || menuOpen;
+
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#F4EEE2]/90 backdrop-blur-md border-b border-[#0C2E35]/10 py-3" : "py-5"}`}>
-      {!scrolled && (
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${solid ? "bg-[#F4EEE2]/95 backdrop-blur-md border-b border-[#0C2E35]/10 py-3" : "py-5"}`}>
+      {!solid && (
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-28" style={{ background: "linear-gradient(180deg, rgba(5,24,32,0.55), transparent)" }} />
       )}
       <div className="relative max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         <a href="/" className="flex items-baseline gap-2">
-          <span className={`font-serif text-lg sm:text-xl leading-none transition-colors ${scrolled ? "text-[#0C2E35]" : "text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]"}`}>Palm Jebel Ali</span>
+          <span className={`font-serif text-lg sm:text-xl leading-none transition-colors ${solid ? "text-[#0C2E35]" : "text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]"}`}>Palm Jebel Ali</span>
         </a>
         <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
@@ -45,18 +49,47 @@ export function SiteHeader({ waLink }: { waLink: string }) {
             </a>
           ))}
         </nav>
-        <a
-          href={waLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackEvent("whatsapp_click", { location: "header" })}
-          className="group relative overflow-hidden inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.12em] text-[#06232E]"
-          style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}
-        >
-          <MessageCircle className="h-3.5 w-3.5" /> Enquire
-          <Shine />
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("whatsapp_click", { location: "header" })}
+            className="group relative overflow-hidden inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.12em] text-[#06232E]"
+            style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}
+          >
+            <MessageCircle className="h-3.5 w-3.5" /> Enquire
+            <Shine />
+          </a>
+          <button
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className={`lg:hidden inline-flex items-center justify-center h-9 w-9 rounded-full transition-colors ${solid ? "text-[#0C2E35] hover:bg-[#0C2E35]/5" : "text-white"}`}
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+
+      {/* mobile dropdown */}
+      {menuOpen && (
+        <nav className="lg:hidden mt-3 border-t border-[#0C2E35]/10">
+          <div className="max-w-6xl mx-auto px-5 sm:px-8 py-3 flex flex-col">
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMenuOpen(false)}
+                className="py-3 text-sm uppercase tracking-[0.14em] text-[#0C2E35]/80 hover:text-[#A8814A] border-b border-[#0C2E35]/5 last:border-0 transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

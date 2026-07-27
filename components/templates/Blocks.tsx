@@ -161,21 +161,23 @@ function ConnectivityBlock({ block }: { block: Extract<Block, { kind: "connectiv
   return (
     <section className="relative overflow-hidden bg-[#06232E] py-20 sm:py-28">
       <SectionBg src={block.image} opacity={0.98} top={0.5} bottom={0.42} />
-      <div className="relative max-w-6xl mx-auto px-5 sm:px-8" style={{ maskImage: "none" }}>
-        <div
-          aria-hidden
-          className="absolute inset-0 -mx-5 sm:-mx-8"
-          style={{ background: "linear-gradient(90deg, rgba(6,35,46,0.82) 0%, rgba(6,35,46,0.42) 45%, rgba(6,35,46,0.08) 78%)" }}
-        />
-        <div className="relative max-w-xl">
+      {/* Full-bleed left-darkening scrim (no boxed edges) so the copy stays
+          legible while the ocean breathes on the right. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(90deg, rgba(6,35,46,0.88) 0%, rgba(6,35,46,0.55) 42%, rgba(6,35,46,0.12) 80%)" }}
+      />
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="max-w-xl">
           {block.heading && <h2 className="font-serif text-3xl sm:text-4xl text-white leading-tight mb-5">{block.heading}</h2>}
           {block.intro && <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-8">{block.intro}</p>}
-          <div className="space-y-3">
+          <div className="space-y-3.5">
             {block.rows.map((r, j) => (
-              <div key={j} className="flex items-baseline gap-4">
-                <span className="text-white text-lg sm:text-2xl [text-shadow:0_1px_10px_rgba(4,20,26,0.6)]">{r.place}</span>
-                <span className="flex-1 border-b border-dotted border-white/25 translate-y-[-4px]" />
-                <span className="font-serif text-2xl sm:text-3xl leading-none whitespace-nowrap text-[#F0D9A0] [text-shadow:0_2px_14px_rgba(4,20,26,0.75)]">{r.time}</span>
+              <div key={j} className="flex items-baseline gap-3 sm:gap-4">
+                <span className="text-white text-[15px] sm:text-2xl [text-shadow:0_1px_10px_rgba(4,20,26,0.6)]">{r.place}</span>
+                <span className="flex-1 min-w-[1.5rem] border-b border-dotted border-white/25 translate-y-[-4px]" />
+                <span className="font-serif text-xl sm:text-3xl leading-none whitespace-nowrap text-[#F0D9A0] [text-shadow:0_2px_14px_rgba(4,20,26,0.75)]">{r.time}</span>
               </div>
             ))}
           </div>
