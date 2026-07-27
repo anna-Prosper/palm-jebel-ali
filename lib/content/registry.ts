@@ -24,6 +24,13 @@ import { serviceCharges } from "@/lib/content/guides/palm-jebel-ali-service-char
 import { mortgage } from "@/lib/content/guides/palm-jebel-ali-mortgage";
 import { resale } from "@/lib/content/guides/palm-jebel-ali-resale";
 import { vsEmaarBeachfront } from "@/lib/content/guides/palm-jebel-ali-vs-emaar-beachfront";
+import { prices } from "@/lib/content/guides/palm-jebel-ali-prices";
+import { history } from "@/lib/content/guides/palm-jebel-ali-history";
+import { beaches } from "@/lib/content/guides/palm-jebel-ali-beaches";
+import { marinas } from "@/lib/content/guides/palm-jebel-ali-marinas";
+import { hotels } from "@/lib/content/guides/palm-jebel-ali-hotels";
+import { dining } from "@/lib/content/guides/palm-jebel-ali-dining";
+import { schools } from "@/lib/content/guides/palm-jebel-ali-schools";
 
 // Slug → content maps. The [slug] routes and sitemap read from these.
 
@@ -66,6 +73,13 @@ export const GUIDES: Record<string, GuideContent> = {
   "palm-jebel-ali-mortgage": mortgage,
   "palm-jebel-ali-resale": resale,
   "palm-jebel-ali-vs-emaar-beachfront": vsEmaarBeachfront,
+  "palm-jebel-ali-prices": prices,
+  "palm-jebel-ali-history": history,
+  "palm-jebel-ali-beaches": beaches,
+  "palm-jebel-ali-marinas": marinas,
+  "palm-jebel-ali-hotels": hotels,
+  "palm-jebel-ali-dining": dining,
+  "palm-jebel-ali-schools": schools,
 };
 
 export const GUIDE_SLUGS = Object.keys(GUIDES);
