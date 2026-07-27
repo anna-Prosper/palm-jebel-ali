@@ -107,12 +107,17 @@ const FOOTER_HUBS = [
   { href: "/off-plan-in/palm-jebel-ali", label: "Off-plan" },
   { href: "/rent-property-in/palm-jebel-ali", label: "Rent" },
 ];
+const FOOTER_RESIDENCES = [
+  { href: "/residences/beach-collection", label: "The Beach Collection" },
+  { href: "/residences/coral-collection", label: "The Coral Collection" },
+  { href: "/residences/palm-central", label: "Palm Central Residences" },
+];
 
 export function SiteFooter({ waLink }: { waLink: string }) {
   return (
     <footer className="bg-[#EAE1D0] border-t border-[#0C2E35]/10 py-14 sm:py-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="grid gap-10 sm:grid-cols-[1.4fr_1fr_1fr] mb-12">
+        <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr] mb-12">
           <div>
             <p className="font-serif text-2xl text-[#0C2E35] mb-3">Palm Jebel Ali</p>
             <p className="text-[#0C2E35]/60 text-sm max-w-sm leading-relaxed mb-5">
@@ -127,6 +132,7 @@ export function SiteFooter({ waLink }: { waLink: string }) {
               </a>
             </div>
           </div>
+          <FooterCol title="Residences" links={FOOTER_RESIDENCES} />
           <FooterCol title="Explore" links={FOOTER_HUBS} />
           <FooterCol title="Guides" links={FOOTER_GUIDES} />
         </div>
