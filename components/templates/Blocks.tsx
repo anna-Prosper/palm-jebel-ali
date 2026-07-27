@@ -130,28 +130,34 @@ function CollectionsBody({ heading, intro, items }: { heading?: string; intro?: 
         </Reveal>
       )}
       <div className="grid gap-6 md:grid-cols-3">
-        {items.map((c, j) => (
-          <Reveal key={c.key} delay={j * 80}>
-            <div className="group h-full rounded-2xl overflow-hidden bg-white border border-[#0C2E35]/8 flex flex-col">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN render */}
-                <img src={c.image} alt={`${c.name} at Palm Jebel Ali`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-              </div>
-              <div className="p-6 flex flex-col flex-1">
-                <p className="text-[10px] uppercase tracking-[0.16em] text-[#A8814A] mb-1.5">{c.meta}</p>
-                <h3 className="font-serif text-xl text-[#0C2E35] mb-3">{c.name}</h3>
-                <ul className="space-y-2 mb-5 flex-1">
-                  {c.facts.map((f, k) => (
-                    <li key={k} className="text-[#0C2E35]/65 text-sm leading-relaxed flex gap-2">
-                      <span className="text-[#C9A26A] mt-1.5 h-1 w-1 rounded-full bg-[#C9A26A] flex-shrink-0" />{f}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-xs uppercase tracking-[0.14em] text-[#0C2E35]/45">From <span className="font-serif text-lg text-[#0C2E35] normal-case tracking-normal">AED {c.priceFromAed}</span></p>
-              </div>
-            </div>
-          </Reveal>
-        ))}
+        {items.map((c, j) => {
+          const Wrapper = c.href ? "a" : "div";
+          return (
+            <Reveal key={c.key} delay={j * 80}>
+              <Wrapper
+                {...(c.href ? { href: c.href } : {})}
+                className={`group block h-full rounded-2xl overflow-hidden bg-white border border-[#0C2E35]/8 flex flex-col ${c.href ? "hover:border-[#C9A26A]/50 transition-colors" : ""}`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN render */}
+                  <img src={c.image} alt={`${c.name} at Palm Jebel Ali`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-[#A8814A] mb-1.5">{c.meta}</p>
+                  <h3 className="font-serif text-xl text-[#0C2E35] mb-3">{c.name}</h3>
+                  <ul className="space-y-2 mb-5 flex-1">
+                    {c.facts.map((f, k) => (
+                      <li key={k} className="text-[#0C2E35]/65 text-sm leading-relaxed flex gap-2">
+                        <span className="text-[#C9A26A] mt-1.5 h-1 w-1 rounded-full bg-[#C9A26A] flex-shrink-0" />{f}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-xs uppercase tracking-[0.14em] text-[#0C2E35]/45">From <span className="font-serif text-lg text-[#0C2E35] normal-case tracking-normal">AED {c.priceFromAed}</span>{c.href && <span className="ml-2 text-[#A8814A] normal-case tracking-normal">· View →</span>}</p>
+                </div>
+              </Wrapper>
+            </Reveal>
+          );
+        })}
       </div>
     </div>
   );

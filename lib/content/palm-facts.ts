@@ -50,6 +50,7 @@ export interface Collection {
   priceFromAed: string;   // e.g. "18.5M"
   image: string;
   facts: string[];
+  href?: string;          // dedicated collection landing page
 }
 
 export const COLLECTIONS: Collection[] = [
@@ -60,6 +61,7 @@ export const COLLECTIONS: Collection[] = [
     priceFromAed: "18.5M",
     image: IMG.beach,
     facts: ["Frond-front plots with private beach access", "Eight architectural signatures across the collection"],
+    href: "/residences/beach-collection",
   },
   {
     key: "coral",
@@ -68,6 +70,7 @@ export const COLLECTIONS: Collection[] = [
     priceFromAed: "30M",
     image: IMG.coral,
     facts: ["Ultra-premium mansions designed by SAOTA & Naga Architects", "The rarest addresses on the island"],
+    href: "/residences/coral-collection",
   },
   {
     key: "central",
@@ -76,6 +79,7 @@ export const COLLECTIONS: Collection[] = [
     priceFromAed: "2.5M",
     image: IMG.palmCentral,
     facts: ["Beachfront resort living between Fronds M & N", "212 connected residences across three buildings"],
+    href: "/residences/palm-central",
   },
 ];
 
