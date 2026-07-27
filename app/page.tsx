@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PalmJebelAliClient from "@/components/PalmJebelAliClient";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://palm-jebel-ali-prosper3.vercel.app";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.jebelalipalmdubai.com";
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
 const OG_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
 
