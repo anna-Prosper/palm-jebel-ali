@@ -14,15 +14,19 @@ import { paymentPlans } from "@/lib/content/guides/palm-jebel-ali-payment-plans"
 import { villas } from "@/lib/content/guides/palm-jebel-ali-villas";
 import { vsPalmJumeirah } from "@/lib/content/guides/palm-jebel-ali-vs-palm-jumeirah";
 import { developer } from "@/lib/content/guides/nakheel-palm-jebel-ali-developer";
+import { amenities } from "@/lib/content/guides/palm-jebel-ali-amenities";
 import { beaches } from "@/lib/content/guides/palm-jebel-ali-beaches";
 import { constructionProgress } from "@/lib/content/guides/palm-jebel-ali-construction-progress";
 import { dining } from "@/lib/content/guides/palm-jebel-ali-dining";
 import { floorPlans } from "@/lib/content/guides/palm-jebel-ali-floor-plans";
 import { forUkBuyers } from "@/lib/content/guides/palm-jebel-ali-for-uk-buyers";
+import { foreignBuyers } from "@/lib/content/guides/palm-jebel-ali-foreign-buyers";
+import { fronds } from "@/lib/content/guides/palm-jebel-ali-fronds";
 import { goldenVisa } from "@/lib/content/guides/palm-jebel-ali-golden-visa";
 import { handoverTimeline } from "@/lib/content/guides/palm-jebel-ali-handover-timeline";
 import { history } from "@/lib/content/guides/palm-jebel-ali-history";
 import { hotels } from "@/lib/content/guides/palm-jebel-ali-hotels";
+import { howToBuyOffPlan } from "@/lib/content/guides/palm-jebel-ali-how-to-buy-off-plan";
 import { location } from "@/lib/content/guides/palm-jebel-ali-location";
 import { marinas } from "@/lib/content/guides/palm-jebel-ali-marinas";
 import { masterplan } from "@/lib/content/guides/palm-jebel-ali-masterplan";
@@ -63,15 +67,19 @@ export const GUIDES: Record<string, GuideContent> = {
   "palm-jebel-ali-villas": villas,
   "palm-jebel-ali-vs-palm-jumeirah": vsPalmJumeirah,
   "nakheel-palm-jebel-ali-developer": developer,
+  "palm-jebel-ali-amenities": amenities,
   "palm-jebel-ali-beaches": beaches,
   "palm-jebel-ali-construction-progress": constructionProgress,
   "palm-jebel-ali-dining": dining,
   "palm-jebel-ali-floor-plans": floorPlans,
   "palm-jebel-ali-for-uk-buyers": forUkBuyers,
+  "palm-jebel-ali-foreign-buyers": foreignBuyers,
+  "palm-jebel-ali-fronds": fronds,
   "palm-jebel-ali-golden-visa": goldenVisa,
   "palm-jebel-ali-handover-timeline": handoverTimeline,
   "palm-jebel-ali-history": history,
   "palm-jebel-ali-hotels": hotels,
+  "palm-jebel-ali-how-to-buy-off-plan": howToBuyOffPlan,
   "palm-jebel-ali-location": location,
   "palm-jebel-ali-marinas": marinas,
   "palm-jebel-ali-masterplan": masterplan,
