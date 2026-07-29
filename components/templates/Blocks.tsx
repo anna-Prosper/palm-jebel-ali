@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal, Eyebrow, SectionBg, Stat } from "@/components/ui/kit";
+import { GatedDownload } from "@/components/site/GatedDownload";
 import { COLLECTIONS, type Collection } from "@/lib/content/palm-facts";
 import type { Block } from "@/lib/content/types";
 
@@ -13,6 +14,19 @@ export function BlockList({ blocks, reading = false }: { blocks: Block[]; readin
     <>
       {blocks.map((block, i) => {
         if (block.kind === "connectivity") return <ConnectivityBlock key={i} block={block} />;
+        if (block.kind === "download")
+          return (
+            <GatedDownload
+              key={i}
+              heading={block.heading}
+              blurb={block.blurb}
+              bullets={block.bullets}
+              interest={block.interest}
+              buttonLabel={block.buttonLabel}
+              note={block.note}
+              location="floor_plans_gate"
+            />
+          );
         const tone = TONES[lightIndex % TONES.length];
         lightIndex++;
         return (

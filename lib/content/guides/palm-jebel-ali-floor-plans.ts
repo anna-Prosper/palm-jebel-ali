@@ -50,6 +50,19 @@ export const floorPlans: GuideContent = {
       ],
     },
     {
+      kind: "download",
+      heading: "Get the Palm Jebel Ali floor plans",
+      blurb: "The stamped, dimensioned drawings for the Beach and Coral villas and Palm Central residences — sent straight to you, matched to the collection and unit you're considering.",
+      bullets: [
+        "Villa & apartment floor plans by collection",
+        "Current release schedule and starting prices",
+        "A quick note on what's actually available now",
+      ],
+      interest: "Floor plans & pricing",
+      buttonLabel: "Get the floor plans",
+      note: "Tell us which collection you're interested in and our Palm Jebel Ali team will email the relevant plans and pricing. No cost, no obligation.",
+    },
+    {
       kind: "collections",
       heading: "The three collections at a glance",
       intro:

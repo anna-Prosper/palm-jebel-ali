@@ -6,6 +6,7 @@ import { trackEvent } from "@/lib/analytics";
 
 const INTERESTS = [
   "General enquiry",
+  "Floor plans & pricing",
   "The Beach Collection",
   "The Coral Collection",
   "Palm Central Private Residences",
@@ -17,11 +18,15 @@ export function LeadFormModal({
   onClose,
   waLink,
   defaultInterest = "General enquiry",
+  successTitle = "Thank you.",
+  successBody = "Your enquiry is with our Palm Jebel Ali team. We’ll be in touch shortly with the current release schedule and pricing.",
 }: {
   open: boolean;
   onClose: () => void;
   waLink: string;
   defaultInterest?: string;
+  successTitle?: string;
+  successBody?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [error, setError] = useState("");
@@ -85,9 +90,9 @@ export function LeadFormModal({
             <div className="mx-auto mb-6 h-14 w-14 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(to bottom right, #E7C989, #A8814A)" }}>
               <Check className="h-7 w-7 text-white" />
             </div>
-            <h3 className="font-serif text-3xl text-[#0C2E35] mb-3">Thank you.</h3>
+            <h3 className="font-serif text-3xl text-[#0C2E35] mb-3">{successTitle}</h3>
             <p className="text-[#0C2E35]/65 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
-              Your enquiry is with our Palm Jebel Ali team. We&apos;ll be in touch shortly with the current release schedule and pricing.
+              {successBody}
             </p>
             <button onClick={onClose} className="mt-8 text-[11px] uppercase tracking-[0.14em] text-[#A8814A] hover:text-[#0C2E35] transition-colors">Close</button>
           </div>

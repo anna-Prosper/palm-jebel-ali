@@ -51,7 +51,8 @@ export type Block =
   | { kind: "collections"; heading?: string; intro?: string; items?: Collection[] }
   | { kind: "connectivity"; heading?: string; image: string; intro?: string; rows: { place: string; time: string }[] }
   | { kind: "pullquote"; text: string }
-  | { kind: "steps"; heading?: string; intro?: string; items: { title: string; body: string }[] };
+  | { kind: "steps"; heading?: string; intro?: string; items: { title: string; body: string }[] }
+  | { kind: "download"; heading: string; blurb?: string; bullets?: string[]; interest: string; buttonLabel?: string; note?: string };
 
 /** Community + intent hubs share this shape. */
 export interface HubContent {
