@@ -96,14 +96,6 @@ const SCHEMA = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": `${SITE}/#website`,
-      url: SITE,
-      name: "Palm Jebel Ali",
-      description: META_DESC,
-      inLanguage: "en",
-    },
-    {
       "@type": "Place",
       "@id": `${SITE}/#place`,
       name: "Palm Jebel Ali",

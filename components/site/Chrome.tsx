@@ -9,7 +9,8 @@ import { trackEvent } from "@/lib/analytics";
 // page's single-scroll anchor nav).
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/#residences", label: "Residences" },
+  { href: "/residences", label: "Residences" },
+  { href: "/off-plan-in/palm-jebel-ali", label: "Off-plan" },
   { href: "/communities/palm-jebel-ali", label: "Community" },
   { href: "/pulse/guides", label: "Guides" },
 ];
@@ -111,6 +112,7 @@ const FOOTER_RESIDENCES = [
   { href: "/residences/beach-collection", label: "The Beach Collection" },
   { href: "/residences/coral-collection", label: "The Coral Collection" },
   { href: "/residences/palm-central", label: "Palm Central Residences" },
+  { href: "/residences", label: "All residences →" },
 ];
 
 export function SiteFooter({ waLink }: { waLink: string }) {

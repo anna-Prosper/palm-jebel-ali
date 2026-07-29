@@ -374,6 +374,7 @@ const NAV_LINKS = [
   { href: "#residences", label: "Residences" },
   { href: "#amenities", label: "Amenities" },
   { href: "#location", label: "Location" },
+  { href: "/off-plan-in/palm-jebel-ali", label: "Off-plan" },
   { href: "/pulse/guides", label: "Guides" },
   { href: "/communities/palm-jebel-ali", label: "Community" },
 ];
@@ -479,6 +480,7 @@ const FOOTER_RESIDENCES = [
   { href: "/residences/beach-collection", label: "The Beach Collection" },
   { href: "/residences/coral-collection", label: "The Coral Collection" },
   { href: "/residences/palm-central", label: "Palm Central Residences" },
+  { href: "/residences", label: "All residences →" },
 ];
 const FOOTER_EXPLORE = [
   { href: "/communities/palm-jebel-ali", label: "Community overview" },

@@ -7,6 +7,7 @@ const now = new Date("2026-07-27");
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
     { url: SITE, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE}/residences`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/pulse/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
   ];
 
