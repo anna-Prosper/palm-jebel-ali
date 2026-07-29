@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const handoverTimeline: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-handover-timeline",
-    title: "Palm Jebel Ali Handover Timeline | When Each Collection Completes",
+    title: "Palm Jebel Ali Handover Timeline | When It Completes",
     description:
-      "An honest, hedged read on Palm Jebel Ali's phased handover: what's under construction now, roughly when Coral, Beach and Palm Central are expected to complete, what phased delivery means for buyers, and how to track your specific unit.",
+      "An honest, hedged read on Palm Jebel Ali's phased handover: what's building now, and roughly when Coral, Beach and Palm Central are expected to complete.",
     keywords: [
       "Palm Jebel Ali handover",
       "Palm Jebel Ali handover date",

@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const floorPlans: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-floor-plans",
-    title: "Palm Jebel Ali Floor Plans & Layouts | Beach, Coral & Palm Central",
+    title: "Palm Jebel Ali Floor Plans | Beach, Coral & Palm Central",
     description:
-      "How the layouts differ across Palm Jebel Ali's three collections — Beach Collection villas, Coral Collection mansions and Palm Central's apartments, townhouses and penthouses — plus how to read an off-plan floor plan before you commit.",
+      "How layouts differ across Palm Jebel Ali's three collections — Beach villas, Coral mansions and Palm Central apartments — plus how to read off-plan plans.",
     keywords: [
       "Palm Jebel Ali floor plans",
       "Palm Jebel Ali layouts",

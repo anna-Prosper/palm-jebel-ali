@@ -4,9 +4,9 @@ import { IMG, CONSTRUCTION, FACTS } from "@/lib/content/palm-facts";
 export const projectStatus: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-project-status",
-    title: "Palm Jebel Ali Project Status 2026 | Abandoned, Sinking or On Track?",
+    title: "Palm Jebel Ali Project Status 2026 | Abandoned or On Track?",
     description:
-      "Is Palm Jebel Ali abandoned or sinking? The honest 2026 status: relaunched by Nakheel in 2023, under active construction across six fronds, first villa handovers underway.",
+      "Is Palm Jebel Ali abandoned or sinking? The honest 2026 status: relaunched by Nakheel in 2023, under active construction, first villa handovers underway.",
     keywords: [
       "Palm Jebel Ali status",
       "Palm Jebel Ali abandoned",

@@ -6,7 +6,7 @@ export const sunsetMirage: HubContent = {
     slug: "residences/sunset-mirage",
     title: "Sunset Mirage Villa | Coral Collection, Palm Jebel Ali",
     description:
-      "Sunset Mirage — a 6-bedroom, 11,701 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the floor plans.",
+      "Sunset Mirage: a 6-bedroom, 11,701 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the plans.",
     keywords: [
       "Sunset Mirage Palm Jebel Ali",
       "Sunset Mirage Coral Collection",

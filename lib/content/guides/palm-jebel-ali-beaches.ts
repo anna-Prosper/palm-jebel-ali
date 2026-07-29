@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const beaches: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-beaches",
-    title: "Beaches & Beach Clubs at Palm Jebel Ali | The Island's Shoreline Life",
+    title: "Palm Jebel Ali Beaches & Beach Clubs | Shoreline Life",
     description:
-      "A lifestyle guide to the beaches of Palm Jebel Ali: ~110km of new coastline, private frond-front frontage, residents' beach clubs, a family beach club, the sunset promenade, and how beach access differs by collection.",
+      "Palm Jebel Ali beaches: ~110km of new coastline, private frond-front frontage, residents' and family beach clubs, and how access differs by collection.",
     keywords: [
       "Palm Jebel Ali beaches",
       "Palm Jebel Ali beach club",

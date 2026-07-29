@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const offplanPalmJebelAli: HubContent = {
   meta: {
     slug: "off-plan-in/palm-jebel-ali",
-    title: "Off-Plan Property in Palm Jebel Ali | Launches, Prices & Payment Plans 2026",
+    title: "Off-Plan Property in Palm Jebel Ali | Prices & Payment Plans",
     description:
-      "Buy off-plan at Palm Jebel Ali. Beach Collection villas from AED 18.5M, Coral mansions from AED 30M, Palm Central residences from AED 2.5M — 80/20 payment plans, freehold, Golden Visa eligible, phased handover from 2027.",
+      "Buy off-plan at Palm Jebel Ali: villas from AED 18.5M, Coral mansions from AED 30M, residences from AED 2.5M — 80/20 plans, freehold, handover from 2027.",
     keywords: [
       "Palm Jebel Ali off-plan",
       "off-plan property Palm Jebel Ali",

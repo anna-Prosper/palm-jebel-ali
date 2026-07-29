@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const villas: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-villas",
-    title: "Palm Jebel Ali Villas | The Beach & Coral Collections In Depth",
+    title: "Palm Jebel Ali Villas | The Beach & Coral Collections",
     description:
-      "A close read of the villas on Palm Jebel Ali: the Beach Collection's six villa designs from AED 18.5M, the Coral Collection's SAOTA-designed signature mansions from AED 30M, how they differ, and where Palm Central fits for apartment buyers.",
+      "A close read of Palm Jebel Ali villas: the Beach Collection from AED 18.5M, the SAOTA-designed Coral mansions from AED 30M, plus Palm Central apartments.",
     keywords: [
       "Palm Jebel Ali villas",
       "Palm Jebel Ali Beach Collection",

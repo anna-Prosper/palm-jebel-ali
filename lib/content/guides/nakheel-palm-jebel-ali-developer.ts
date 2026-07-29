@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const developer: GuideContent = {
   meta: {
     slug: "pulse/guides/nakheel-palm-jebel-ali-developer",
-    title: "Nakheel — The Developer Behind Palm Jebel Ali | Track Record & Off-Plan Confidence",
+    title: "Nakheel: The Developer Behind Palm Jebel Ali | Track Record",
     description:
-      "Who is Nakheel, and why does it matter when you're buying off-plan? A measured look at the master developer behind Palm Jebel Ali — the landmark portfolio, what that record means for delivery confidence, and the honest caveat every early buyer should weigh.",
+      "Who is Nakheel, the developer behind Palm Jebel Ali? A measured look at its track record — Palm Jumeirah and more — and what it means for off-plan buyers.",
     keywords: [
       "Nakheel developer",
       "who is Nakheel",

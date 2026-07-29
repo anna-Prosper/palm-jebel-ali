@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const schools: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-schools",
-    title: "Family Life, Schools & Everyday Essentials at Palm Jebel Ali",
+    title: "Palm Jebel Ali Schools & Family Life | Island Essentials",
     description:
-      "An honest look at family living on Palm Jebel Ali: schools, clinics, mosques and community retail planned in from day one, parks and shaded playgrounds between the fronds, and a car-light island designed to be walked and cycled.",
+      "An honest look at family life on Palm Jebel Ali: schools, clinics, mosques and retail planned in from day one, on a walkable, car-light island.",
     keywords: [
       "Palm Jebel Ali schools",
       "Palm Jebel Ali family",

@@ -6,7 +6,7 @@ export const coralDune: HubContent = {
     slug: "residences/coral-dune",
     title: "Coral Dune Villa | Coral Collection, Palm Jebel Ali",
     description:
-      "Coral Dune — a 6-bedroom, 11,635 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the floor plans.",
+      "Coral Dune: a 6-bedroom, 11,635 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the plans.",
     keywords: [
       "Coral Dune Palm Jebel Ali",
       "Coral Dune Coral Collection",

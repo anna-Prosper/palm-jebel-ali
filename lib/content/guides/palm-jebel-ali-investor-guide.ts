@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const investorGuide: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-investor-guide",
-    title: "Palm Jebel Ali Investor Guide 2026 | Prices, Payment Plans & The Real Case",
+    title: "Palm Jebel Ali Investor Guide 2026 | Prices & The Case",
     description:
-      "An honest investor's guide to Palm Jebel Ali: the growth thesis, launch pricing across all three collections, location, how it compares to Palm Jumeirah, the risks worth weighing, and who it actually suits.",
+      "An honest investor's guide to Palm Jebel Ali: the growth thesis, launch pricing across all three collections, the risks worth weighing, and who it suits.",
     keywords: [
       "Palm Jebel Ali investment",
       "Palm Jebel Ali investor guide",

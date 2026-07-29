@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const history: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-history",
-    title: "The Story of Palm Jebel Ali | History, the Pause & the 2023 Relaunch",
+    title: "Palm Jebel Ali History | The Pause & 2023 Relaunch",
     description:
-      "How Palm Jebel Ali went from an early-2000s Nakheel ambition to a stalled reclamation after the 2008-09 crisis, to a redesigned island relaunched in 2023 — now roughly twice the size of Palm Jumeirah, with 16 fronds and around 110km of coastline.",
+      "How Palm Jebel Ali went from an early-2000s Nakheel ambition to a post-2008 pause, then a 2023 relaunch — now ~2× Palm Jumeirah with ~110km of coastline.",
     keywords: [
       "Palm Jebel Ali history",
       "when was Palm Jebel Ali launched",

@@ -6,7 +6,7 @@ export const vsWorldIslands: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-vs-the-world-islands",
     title: "Palm Jebel Ali vs The World Islands | Nakheel Compared",
     description:
-      "Palm Jebel Ali vs The World Islands: Nakheel's connected palm island vs its offshore archipelago. Access, scale, product and investment profile compared.",
+      "Palm Jebel Ali vs The World Islands: Nakheel's road-connected palm island vs its ~300-island offshore archipelago reached by boat — and who each suits.",
     keywords: [
       "Palm Jebel Ali vs The World",
       "The World Islands Dubai",

@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const rentalYield: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-rental-yield",
-    title: "Palm Jebel Ali Rental Yield & Income Potential | An Honest Forward Look",
+    title: "Palm Jebel Ali Rental Yield | An Honest Forward Look",
     description:
-      "There is no live rental market on Palm Jebel Ali yet — nothing has handed over. This is an honest, forward-looking read on what could drive rental demand once the island completes, why capital appreciation is the near-term play, and what to watch before you count on income.",
+      "No live rental market on Palm Jebel Ali yet — nothing has handed over. An honest look at what drives demand and why capital growth is the near-term play.",
     keywords: [
       "Palm Jebel Ali rental yield",
       "Palm Jebel Ali rental income",

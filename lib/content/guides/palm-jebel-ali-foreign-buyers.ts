@@ -4,9 +4,9 @@ import { IMG, FACTS, COLLECTIONS } from "@/lib/content/palm-facts";
 export const foreignBuyers: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-foreign-buyers",
-    title: "Palm Jebel Ali for Foreign Buyers | Freehold Ownership & Golden Visa",
+    title: "Palm Jebel Ali for Foreign Buyers | Freehold & Golden Visa",
     description:
-      "Can foreigners buy at Palm Jebel Ali? Yes — freehold ownership for all nationalities in Dubai's designated zone, DLD-registered title, and Golden Visa eligibility from AED 2M.",
+      "Can foreigners buy at Palm Jebel Ali? Yes — freehold ownership for all nationalities in Dubai's designated zone, plus Golden Visa eligibility from AED 2M.",
     keywords: [
       "Palm Jebel Ali foreign buyers",
       "can foreigners buy Palm Jebel Ali",

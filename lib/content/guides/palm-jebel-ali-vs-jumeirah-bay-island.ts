@@ -6,7 +6,7 @@ export const vsJumeirahBay: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-vs-jumeirah-bay-island",
     title: "Palm Jebel Ali vs Jumeirah Bay Island | Ultra-Prime Compared",
     description:
-      "Palm Jebel Ali vs Jumeirah Bay Island: a large off-plan palm island vs a tiny ultra-exclusive seahorse island. Scale, exclusivity, product and pricing compared.",
+      "Palm Jebel Ali vs Jumeirah Bay Island: a large off-plan palm island vs a tiny, ultra-exclusive seahorse island — scale against scarcity, compared.",
     keywords: [
       "Palm Jebel Ali vs Jumeirah Bay",
       "Jumeirah Bay Island",

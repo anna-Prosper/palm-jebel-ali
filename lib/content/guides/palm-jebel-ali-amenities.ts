@@ -6,7 +6,7 @@ export const amenities: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-amenities",
     title: "Palm Jebel Ali Amenities | Beaches, Marinas, Hotels & More",
     description:
-      "Every amenity at Palm Jebel Ali in one place: private beaches and beach clubs, marinas, 80+ hotels, waterfront dining and retail, parks, wellness, schools and the crescent.",
+      "Every amenity at Palm Jebel Ali in one place: private beaches and beach clubs, marinas, 80+ hotels, dining, parks, wellness, schools and the crescent.",
     keywords: [
       "Palm Jebel Ali amenities",
       "Palm Jebel Ali facilities",

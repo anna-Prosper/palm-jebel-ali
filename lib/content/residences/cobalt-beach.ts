@@ -6,7 +6,7 @@ export const cobaltBeach: HubContent = {
     slug: "residences/cobalt-beach",
     title: "Cobalt Beach Villa | Beach Collection, Palm Jebel Ali",
     description:
-      "Cobalt Beach — a 7,633 sqft LOCI-designed beachfront villa in Palm Jebel Ali's Beach Collection, from AED 18.5M. Space-optimised, private. Get the floor plans.",
+      "Cobalt Beach: a 7,633 sqft LOCI-designed beachfront villa in Palm Jebel Ali's Beach Collection, from AED 18.5M. Space-optimised and private.",
     keywords: [
       "Cobalt Beach Palm Jebel Ali",
       "Cobalt Beach villa",

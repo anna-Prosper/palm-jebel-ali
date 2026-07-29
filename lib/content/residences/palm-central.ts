@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const palmCentral: HubContent = {
   meta: {
     slug: "residences/palm-central",
-    title: "Palm Central Private Residences | Palm Jebel Ali Apartments from AED 2.5M",
+    title: "Palm Central Apartments, Palm Jebel Ali | From AED 2.5M",
     description:
-      "Palm Central Private Residences — 1–5 bedroom beachfront apartments, townhouses and penthouses on Palm Jebel Ali. 212 connected residences across three buildings between Fronds M & N, from AED 2.5M. Freehold, Golden Visa eligible, 80/20 payment plan.",
+      "Palm Central Private Residences: 1–5 bed apartments, townhouses and penthouses on Palm Jebel Ali — 212 homes between Fronds M & N, from AED 2.5M.",
     keywords: [
       "Palm Central Private Residences",
       "Palm Jebel Ali apartments",

@@ -5,9 +5,9 @@ import { COLLECTIONS } from "@/lib/content/palm-facts";
 
 const META = {
   slug: "residences",
-  title: "Palm Jebel Ali Residences | Villas, Mansions & Apartments — All Collections",
+  title: "Palm Jebel Ali Residences | Villas, Mansions & Apartments",
   description:
-    "Every home at Palm Jebel Ali in one place: the Beach Collection villas (from AED 18.5M), the ultra-prime Coral Collection mansions (from AED 30M), and Palm Central Private Residences (from AED 2.5M).",
+    "Every home at Palm Jebel Ali: Beach Collection villas from AED 18.5M, Coral Collection mansions from AED 30M, Palm Central residences from AED 2.5M.",
   keywords: ["Palm Jebel Ali residences", "Palm Jebel Ali villas", "Palm Jebel Ali apartments", "Palm Jebel Ali collections", "Beach Collection", "Coral Collection", "Palm Central"],
   ogImage: COLLECTIONS[0].image,
 };

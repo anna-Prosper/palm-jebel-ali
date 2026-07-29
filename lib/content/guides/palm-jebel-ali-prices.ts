@@ -6,7 +6,7 @@ export const prices: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-prices",
     title: "Palm Jebel Ali Prices 2026 | Starting Prices by Collection",
     description:
-      "What Palm Jebel Ali costs in 2026 — honest 'from' prices across all three collections, what moves the price you actually pay, how launch-phase pricing works, the 80/20 payment plan, and how to get the current price list.",
+      "Palm Jebel Ali prices in 2026: apartments from AED 2.5M, Beach villas from AED 18.5M, Coral mansions from AED 30M — honest 'from' figures, 80/20 plan.",
     keywords: [
       "Palm Jebel Ali price",
       "Palm Jebel Ali prices 2026",

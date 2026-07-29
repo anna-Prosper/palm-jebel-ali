@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const coralCollection: HubContent = {
   meta: {
     slug: "residences/coral-collection",
-    title: "The Coral Collection | Palm Jebel Ali 7-Bedroom Signature Mansions",
+    title: "Coral Collection, Palm Jebel Ali | 7-Bed Signature Mansions",
     description:
-      "The Coral Collection is the ultra-premium tier at Palm Jebel Ali — 7-bedroom signature mansions on the outer fronds, designed with SAOTA & Naga Architects, from AED 30M. Freehold, 80/20 payment plan, handover from around 2027.",
+      "Coral Collection: the ultra-premium tier at Palm Jebel Ali — 7-bed mansions on the outer fronds by SAOTA & Naga, from AED 30M. Handover from around 2027.",
     keywords: [
       "Palm Jebel Ali Coral Collection",
       "Coral Collection mansions",
@@ -24,16 +24,16 @@ export const coralCollection: HubContent = {
     title: "The Coral Collection",
     titleItalic: "the island's rarest addresses",
     subtitle:
-      "Seven-bedroom signature mansions set along the outer fronds of Palm Jebel Ali — designed with SAOTA & Naga Architects and reserved for the few. This is the top of the island, from AED 30 million.",
+      "Six- and seven-bedroom signature mansions set along the outer fronds of Palm Jebel Ali — designed by SAOTA, LOCI, LW Design & Naga and reserved for the few. This is the top of the island, from AED 30 million.",
     image: IMG.coral,
     imagePosition: "center 55%",
   },
 
   stats: [
     { value: "AED 30M", label: "From" },
-    { value: "7", label: "Bedrooms" },
+    { value: "6 & 7", label: "Bedrooms" },
     { value: "Outer fronds", label: "Position" },
-    { value: "SAOTA & Naga", label: "Design" },
+    { value: "11,500–12,500", suffix: " sqft", label: "Built-up" },
   ],
 
   blocks: [

@@ -5,9 +5,9 @@ import { GUIDES, GUIDE_SLUGS } from "@/lib/content/registry";
 
 const META = {
   slug: "pulse/guides",
-  title: "Palm Jebel Ali Guides | Prices, Payment Plans, Villas & Investment",
+  title: "Palm Jebel Ali Guides | Prices, Payment Plans & Villas",
   description:
-    "Straight-talking guides to Palm Jebel Ali: pricing across all three collections, 80/20 payment plans, handover timeline, the villa collections, Golden Visa, location and how it compares to Palm Jumeirah.",
+    "Straight-talking guides to Palm Jebel Ali: pricing across all three collections, 80/20 payment plans, handover timeline, villas, Golden Visa and location.",
   keywords: ["Palm Jebel Ali guides", "Palm Jebel Ali pricing", "Palm Jebel Ali payment plans", "Palm Jebel Ali villas", "Palm Jebel Ali investment"],
 };
 

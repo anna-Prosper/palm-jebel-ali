@@ -6,7 +6,7 @@ export const location: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-location",
     title: "Where is Palm Jebel Ali? Location & Connectivity Explained",
     description:
-      "Palm Jebel Ali sits on Dubai's southern coastline beside Jebel Ali, with three mainland access points onto Sheikh Zayed Road. Here's exactly where it is, how you get there, and why the 'far south' label is already out of date.",
+      "Palm Jebel Ali sits on Dubai's southern coast beside Jebel Ali, with three access points onto Sheikh Zayed Road — ~20 min to Al Maktoum, ~25 to the Marina.",
     keywords: [
       "where is Palm Jebel Ali",
       "Palm Jebel Ali location",

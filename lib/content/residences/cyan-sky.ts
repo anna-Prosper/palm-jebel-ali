@@ -6,7 +6,7 @@ export const cyanSky: HubContent = {
     slug: "residences/cyan-sky",
     title: "Cyan Sky Villa | Beach Collection, Palm Jebel Ali",
     description:
-      "Cyan Sky — a 7,722 sqft NAGA-designed beachfront villa in Palm Jebel Ali's Beach Collection, from AED 18.5M. Light-filled, sea-facing. Get the floor plans.",
+      "Cyan Sky: a 7,722 sqft NAGA-designed beachfront villa in Palm Jebel Ali's Beach Collection, from AED 18.5M. Light-filled, sea-facing. Get the floor plans.",
     keywords: [
       "Cyan Sky Palm Jebel Ali",
       "Cyan Sky villa",

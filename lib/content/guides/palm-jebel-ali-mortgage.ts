@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const mortgage: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-mortgage",
-    title: "Financing & Mortgages for Palm Jebel Ali | How to Fund an Off-Plan Purchase",
+    title: "Palm Jebel Ali Mortgage & Financing | Funding Off-Plan",
     description:
-      "How buyers fund a Palm Jebel Ali purchase: cash versus mortgage on off-plan, how the 80/20 plan interacts with financing, resident vs non-resident lending, the fees to expect, and who to speak to. Honest, no invented rates.",
+      "How buyers fund a Palm Jebel Ali purchase: cash vs mortgage on off-plan, how the 80/20 plan works with financing, and the 4% DLD fee to expect.",
     keywords: [
       "Palm Jebel Ali mortgage",
       "Palm Jebel Ali financing",

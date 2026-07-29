@@ -6,7 +6,7 @@ export const oceanWhisper: HubContent = {
     slug: "residences/ocean-whisper",
     title: "Ocean Whisper Villa | Beach Collection, Palm Jebel Ali",
     description:
-      "Ocean Whisper — a 6-bedroom, 8,314 sqft SAOTA-designed beachfront villa on Frond B at Palm Jebel Ali's Beach Collection. From AED 18.5M. Get the floor plans.",
+      "Ocean Whisper: a 6-bedroom, 8,314 sqft SAOTA-designed beachfront villa on Frond B in Palm Jebel Ali's Beach Collection. From AED 18.5M. Get the plans.",
     keywords: [
       "Ocean Whisper Palm Jebel Ali",
       "Ocean Whisper villa",

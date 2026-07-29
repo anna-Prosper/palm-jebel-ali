@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const paymentPlans: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-payment-plans",
-    title: "Palm Jebel Ali Payment Plans Explained | The 80/20 Structure, Fees & Handover",
+    title: "Palm Jebel Ali Payment Plans | The 80/20 Plan Explained",
     description:
-      "How off-plan payment actually works at Palm Jebel Ali: the 80/20 milestone plan, booking and Oqood/DLD registration, construction-linked instalments, the handover payment, cash vs mortgage, and the fees to budget for.",
+      "How off-plan payment works at Palm Jebel Ali: the 80/20 plan — 20% on booking, 60% during build, 20% at handover — plus Oqood/DLD fees, from AED 2.5M.",
     keywords: [
       "Palm Jebel Ali payment plan",
       "Palm Jebel Ali 80/20 payment plan",

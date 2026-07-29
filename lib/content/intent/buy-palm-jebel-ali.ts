@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const buyPalmJebelAli: HubContent = {
   meta: {
     slug: "buy-property-in/palm-jebel-ali",
-    title: "Buy Property in Palm Jebel Ali | Freehold Villas, Mansions & Residences",
+    title: "Buy Property in Palm Jebel Ali | Freehold Villas & Homes",
     description:
-      "How to buy property in Palm Jebel Ali: freehold ownership for all nationalities, three collections from AED 2.5M, Golden Visa from AED 2M, and the full buying process. All inventory is currently off-plan direct from Nakheel.",
+      "Buy freehold property in Palm Jebel Ali: open to all nationalities, three collections from AED 2.5M, Golden Visa from AED 2M, all off-plan from Nakheel.",
     keywords: [
       "buy property Palm Jebel Ali",
       "Palm Jebel Ali freehold",

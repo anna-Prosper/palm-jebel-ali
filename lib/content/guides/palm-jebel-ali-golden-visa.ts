@@ -4,9 +4,9 @@ import { IMG, FACTS, COLLECTIONS } from "@/lib/content/palm-facts";
 export const goldenVisa: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-golden-visa",
-    title: "Palm Jebel Ali & the UAE Golden Visa | How Buying Qualifies You",
+    title: "Palm Jebel Ali & the UAE Golden Visa | How to Qualify",
     description:
-      "How a home on Palm Jebel Ali can qualify you for the UAE's 10-year renewable Golden Visa: the AED 2 million property route, how every collection clears it, how off-plan purchases count, who it covers, and the practical steps.",
+      "How a home on Palm Jebel Ali can qualify you for the UAE's 10-year Golden Visa: the AED 2 million property route, and how every collection clears it.",
     keywords: [
       "Palm Jebel Ali Golden Visa",
       "UAE Golden Visa property",

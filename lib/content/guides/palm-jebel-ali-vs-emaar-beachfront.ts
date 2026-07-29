@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const vsEmaarBeachfront: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-vs-emaar-beachfront",
-    title: "Palm Jebel Ali vs Emaar Beachfront 2026 | Which Dubai Beachfront Should You Buy?",
+    title: "Palm Jebel Ali vs Emaar Beachfront 2026 | Which to Buy",
     description:
-      "A balanced comparison of two Dubai beachfront options: Nakheel's off-plan Palm Jebel Ali island of private villas versus Emaar Beachfront's largely-ready high-rise apartment district at Dubai Harbour. Product, location, maturity, liquidity, pricing and which suits which buyer.",
+      "Palm Jebel Ali vs Emaar Beachfront: an off-plan island of private villas vs a largely-ready high-rise district at Dubai Harbour — and who each suits.",
     keywords: [
       "Palm Jebel Ali vs Emaar Beachfront",
       "Emaar Beachfront or Palm Jebel Ali",

@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const dining: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-dining",
-    title: "Dining, Retail & Lifestyle Districts at Palm Jebel Ali | Everyday Life on the Island",
+    title: "Palm Jebel Ali Dining, Retail & Lifestyle Districts",
     description:
-      "How everyday life is planned on Palm Jebel Ali: waterfront dining precincts around the marinas, boutique retail and lifestyle centres scaled for residents rather than tour buses, and the everyday-essentials layer that makes an island livable.",
+      "How everyday life is planned on Palm Jebel Ali: waterfront dining around the marinas, boutique retail and lifestyle centres, and essentials on every frond.",
     keywords: [
       "Palm Jebel Ali dining",
       "Palm Jebel Ali restaurants",

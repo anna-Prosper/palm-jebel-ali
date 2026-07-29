@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const vsPalmJumeirah: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-vs-palm-jumeirah",
-    title: "Palm Jebel Ali vs Palm Jumeirah 2026 | Which Palm Should You Buy?",
+    title: "Palm Jebel Ali vs Palm Jumeirah 2026 | Which Palm to Buy",
     description:
-      "A straight comparison of Dubai's two Palm islands: scale, coastline and fronds, proven maturity versus launch-phase upside, entry pricing, liquidity and rental depth, and which island actually suits which buyer.",
+      "Dubai's two Palm islands compared: proven, liquid Palm Jumeirah vs launch-phase Palm Jebel Ali — twice the size, from AED 2.5M, and who each suits.",
     keywords: [
       "Palm Jebel Ali vs Palm Jumeirah",
       "Palm Jebel Ali or Palm Jumeirah",

@@ -6,7 +6,7 @@ export const fronds: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-fronds",
     title: "Palm Jebel Ali Fronds | Which Are Released & Which to Buy",
     description:
-      "Palm Jebel Ali's 16 fronds and crescent explained: how the collections map across them, which fronds are under construction now (A–F contracted, K–P building), and how position drives value.",
+      "Palm Jebel Ali's 16 fronds explained: how the collections map across them, which are building (A–F contracted, K–P rising), and position drives value.",
     keywords: [
       "Palm Jebel Ali fronds",
       "Palm Jebel Ali frond map",

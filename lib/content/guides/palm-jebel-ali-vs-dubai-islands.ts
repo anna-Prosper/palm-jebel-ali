@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const vsDubaiIslands: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-vs-dubai-islands",
-    title: "Palm Jebel Ali vs Dubai Islands | Two Nakheel Waterfronts Compared",
+    title: "Palm Jebel Ali vs Dubai Islands | Two Nakheel Waterfronts",
     description:
-      "An honest comparison of Palm Jebel Ali and Dubai Islands — two Nakheel waterfront developments at opposite ends of the coastline. Location, scale, product, price tier and who each one actually suits.",
+      "An honest comparison of Palm Jebel Ali and Dubai Islands — two Nakheel waterfronts at opposite ends of the coast, and who each one actually suits.",
     keywords: [
       "Palm Jebel Ali vs Dubai Islands",
       "Dubai Islands",

@@ -4,9 +4,9 @@ import { IMG, CONSTRUCTION, FACTS } from "@/lib/content/palm-facts";
 export const constructionProgress: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-construction-progress",
-    title: "Palm Jebel Ali Construction Progress 2026 | Frond-by-Frond Update",
+    title: "Palm Jebel Ali Construction Progress 2026 | Frond by Frond",
     description:
-      "Palm Jebel Ali construction progress, dated: frond-by-frond percentages (March 2026), AED 750M infrastructure by end-2026, AED 3.5bn villa contracts, first handovers underway.",
+      "Palm Jebel Ali construction, dated: frond-by-frond percentages (March 2026), ~AED 750M infrastructure by end-2026, and first handovers underway.",
     keywords: [
       "Palm Jebel Ali construction",
       "Palm Jebel Ali construction update",

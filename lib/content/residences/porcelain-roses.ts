@@ -6,7 +6,7 @@ export const porcelainRoses: HubContent = {
     slug: "residences/porcelain-roses",
     title: "Porcelain Roses Villa | Coral Collection, Palm Jebel Ali",
     description:
-      "Porcelain Roses — a 7-bedroom, 11,519 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the floor plans.",
+      "Porcelain Roses: a 7-bedroom, 11,519 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the plans.",
     keywords: [
       "Porcelain Roses Palm Jebel Ali",
       "Porcelain Roses Coral Collection",

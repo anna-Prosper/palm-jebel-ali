@@ -6,7 +6,7 @@ export const vsBluewaters: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-vs-bluewaters",
     title: "Palm Jebel Ali vs Bluewaters Island 2026 | Which to Buy",
     description:
-      "Palm Jebel Ali vs Bluewaters Island: villas on an off-plan island vs a completed high-rise entertainment destination. Product, location, maturity, pricing and which suits which buyer.",
+      "Palm Jebel Ali vs Bluewaters Island: off-plan villa island vs a completed high-rise entertainment destination — and which suits which buyer.",
     keywords: [
       "Palm Jebel Ali vs Bluewaters",
       "Bluewaters Island",

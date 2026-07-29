@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const rentPalmJebelAli: HubContent = {
   meta: {
     slug: "rent-property-in/palm-jebel-ali",
-    title: "Renting at Palm Jebel Ali | Rental Outlook & Handover Timeline 2027+",
+    title: "Renting at Palm Jebel Ali | Rental Outlook & 2027 Handover",
     description:
-      "There are no homes to rent at Palm Jebel Ali yet — the island is pre-handover, with the first keys staged from 2027. Here's the honest rental outlook, what future tenants can expect, and how to be first in line when rentals go live.",
+      "No homes to rent at Palm Jebel Ali yet — the island is pre-handover, with first keys staged from 2027. Honest rental outlook and how to be first in line.",
     keywords: [
       "rent Palm Jebel Ali",
       "Palm Jebel Ali rent",

@@ -6,7 +6,7 @@ export const redwood: HubContent = {
     slug: "residences/redwood",
     title: "Redwood Villa | Coral Collection, Palm Jebel Ali",
     description:
-      "Redwood — a 7-bedroom, 12,010 sqft G+2 mansion, the largest Coral Collection design at Palm Jebel Ali, on the outer fronds. From AED 30M. Get the floor plans.",
+      "Redwood: a 7-bedroom, 12,010 sqft G+2 mansion, the largest Coral Collection design at Palm Jebel Ali, on the outer fronds. From AED 30M. Get the plans.",
     keywords: [
       "Redwood Palm Jebel Ali",
       "Redwood Coral Collection",

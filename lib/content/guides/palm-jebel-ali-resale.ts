@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const resale: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-resale",
-    title: "Palm Jebel Ali Resale & Secondary Market | Selling Off-Plan Before Handover",
+    title: "Palm Jebel Ali Resale | Selling Off-Plan Before Handover",
     description:
-      "An honest look at the Palm Jebel Ali resale market: why the secondary market is thin during construction, how off-plan assignment works in Dubai, and the real case for buying at launch versus waiting for resale.",
+      "An honest look at Palm Jebel Ali resale: why the resale market is thin mid-build, how off-plan assignment works, and the case for buying at launch.",
     keywords: [
       "Palm Jebel Ali resale",
       "Palm Jebel Ali secondary market",

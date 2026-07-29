@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const hotels: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-hotels",
-    title: "Hotels & Resorts at Palm Jebel Ali | 80+ Stays on a Resort Island",
+    title: "Palm Jebel Ali Hotels | 80+ Stays on a Resort Island",
     description:
-      "Palm Jebel Ali is planned as a resort island, not just a residential one — with more than 80 hotels and resorts phased across its outer edges. What that mix of five-stars, eco-retreats and beach clubs means for residents, and why maturing hospitality lifts the whole island.",
+      "Palm Jebel Ali is a resort island, not just a residential one — 80+ hotels and resorts phased across its edges, and why maturing hospitality lifts value.",
     keywords: [
       "Palm Jebel Ali hotels",
       "Palm Jebel Ali resorts",

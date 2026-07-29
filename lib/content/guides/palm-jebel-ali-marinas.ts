@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const marinas: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-marinas",
-    title: "Marinas & Yachting at Palm Jebel Ali | Berthing, Waterfront Dining & The Boat-Access Life",
+    title: "Palm Jebel Ali Marinas & Yachting | The Boat-Access Life",
     description:
-      "A lifestyle guide to marinas and yachting at Palm Jebel Ali: full-service marinas and berthing built into the crescent, the Gulf steps from the door, waterfront dining wrapped around the water, and what it all means for waterfront homeowners.",
+      "A lifestyle guide to marinas and yachting at Palm Jebel Ali: full-service marinas built into the crescent, the Gulf steps from the door, waterfront dining.",
     keywords: [
       "Palm Jebel Ali marina",
       "Palm Jebel Ali yachting",

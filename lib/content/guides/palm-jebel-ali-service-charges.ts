@@ -4,9 +4,9 @@ import { IMG } from "@/lib/content/palm-facts";
 export const serviceCharges: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-service-charges",
-    title: "Palm Jebel Ali Service Charges & Running Costs 2026 | What to Budget",
+    title: "Palm Jebel Ali Service Charges 2026 | Running Costs Guide",
     description:
-      "An honest guide to the running costs of owning on Palm Jebel Ali: what service charges cover, how Dubai sets them through RERA and Mollak, the other bills to budget for, and why island rates are confirmed closer to handover.",
+      "An honest guide to Palm Jebel Ali running costs: what service charges cover, who sets them (RERA/Mollak), and island rates are confirmed near handover.",
     keywords: [
       "Palm Jebel Ali service charges",
       "Palm Jebel Ali running costs",

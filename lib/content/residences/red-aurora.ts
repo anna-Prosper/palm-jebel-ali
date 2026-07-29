@@ -6,7 +6,7 @@ export const redAurora: HubContent = {
     slug: "residences/red-aurora",
     title: "Red Aurora Villa | Coral Collection, Palm Jebel Ali",
     description:
-      "Red Aurora — a 7-bedroom, 11,670 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the floor plans.",
+      "Red Aurora: a 7-bedroom, 11,670 sqft G+2 mansion in Palm Jebel Ali's ultra-prime Coral Collection, on the outer fronds. From AED 30M. Get the plans.",
     keywords: [
       "Red Aurora Palm Jebel Ali",
       "Red Aurora Coral Collection",

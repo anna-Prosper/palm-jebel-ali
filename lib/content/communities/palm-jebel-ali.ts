@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const communityPalmJebelAli: HubContent = {
   meta: {
     slug: "communities/palm-jebel-ali",
-    title: "Palm Jebel Ali Community Guide | Island Living, Villas & Amenities",
+    title: "Palm Jebel Ali Community Guide | Island Living & Villas",
     description:
-      "A complete guide to living at Palm Jebel Ali — Nakheel's second palm island. 16 fronds, 110km of new coastline, three home collections, beaches, marinas and 80+ resorts, connected straight onto Sheikh Zayed Road.",
+      "Palm Jebel Ali: Nakheel's second palm island — 16 fronds, 110km of new coastline, three collections, beaches, marinas and 80+ resorts off Dubai's shore.",
     keywords: [
       "Palm Jebel Ali community",
       "Palm Jebel Ali living",

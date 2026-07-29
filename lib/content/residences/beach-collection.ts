@@ -4,9 +4,9 @@ import { IMG, COLLECTIONS } from "@/lib/content/palm-facts";
 export const beachCollection: HubContent = {
   meta: {
     slug: "residences/beach-collection",
-    title: "The Beach Collection at Palm Jebel Ali | 5 & 6-Bed Beachfront Villas from AED 18.5M",
+    title: "Beach Collection, Palm Jebel Ali | 5 & 6-Bed Villas",
     description:
-      "The Beach Collection at Palm Jebel Ali: 5 and 6-bedroom beachfront villas of roughly 7,500–8,500 sqft, across eight architectural signatures, with private beach access on the fronds. From AED 18.5M, 80/20 payment plan, freehold, handover toward 2029.",
+      "Beach Collection at Palm Jebel Ali: 5 & 6-bed beachfront villas of 7,500–8,500 sqft across six signatures, from AED 18.5M. 80/20, handover toward 2029.",
     keywords: [
       "Palm Jebel Ali Beach Collection",
       "Beach Collection villas Palm Jebel Ali",
@@ -33,7 +33,7 @@ export const beachCollection: HubContent = {
     { value: "AED 18.5M", label: "From" },
     { value: "5–6", suffix: " bed", label: "Villa layouts" },
     { value: "7,500–8,500", suffix: " sqft", label: "Built-up area" },
-    { countTo: 8, label: "Architectural signatures" },
+    { countTo: 6, label: "Villa designs" },
   ],
 
   blocks: [
@@ -47,18 +47,18 @@ export const beachCollection: HubContent = {
     },
     {
       kind: "cards",
-      heading: "Eight ways to live by the water",
+      heading: "Six ways to live by the water",
       intro:
-        "The collection isn't a single repeated house. Nakheel released it across eight distinct architectural signatures — a deliberate spread of design languages so that a frond reads as a real neighbourhood rather than a row of identical roofs. The specifics of each signature are confirmed on selection; what follows is the character of the choice, not a spec sheet.",
+        "The collection isn't a single repeated house. Nakheel released it across six distinct architectural signatures — a deliberate spread of design languages so that a frond reads as a real neighbourhood rather than a row of identical roofs. The specifics of each signature are confirmed on selection; what follows is the character of the choice, not a spec sheet.",
       columns: 2,
       items: [
         {
-          title: "One collection, eight expressions",
-          body: "Rather than a single villa stamped down the frond, the Beach Collection spans eight architectural signatures. The footprint and bedroom count stay in the same band — 5 and 6-bed, 7,500 to 8,500 sqft — but the design vocabulary shifts from home to home, giving each address its own face to the sea.",
+          title: "One collection, six expressions",
+          body: "Rather than a single villa stamped down the frond, the Beach Collection spans six architectural signatures. The footprint and bedroom count stay in the same band — 5 and 6-bed, 7,500 to 8,500 sqft — but the design vocabulary shifts from home to home, giving each address its own face to the sea.",
         },
         {
           title: "A streetscape, not a template",
-          body: "The point of eight signatures is variety at the scale of the frond. Neighbours don't live in copies of one another; the mix of forms, rooflines and material palettes lets a stretch of coastline feel composed and lived-in from the first day, the way older beach communities take decades to earn.",
+          body: "The point of six signatures is variety at the scale of the frond. Neighbours don't live in copies of one another; the mix of forms, rooflines and material palettes lets a stretch of coastline feel composed and lived-in from the first day, the way older beach communities take decades to earn.",
         },
         {
           title: "Room to be a household",
@@ -66,7 +66,7 @@ export const beachCollection: HubContent = {
         },
         {
           title: "The sea as the organising idea",
-          body: "Across all eight, the constant is orientation: these are homes designed to face the water and open to it. The private beach isn't an amenity bolted on — it's the axis the villa is arranged around, from the ground-floor living spaces out to the sand.",
+          body: "Across all six, the constant is orientation: these are homes designed to face the water and open to it. The private beach isn't an amenity bolted on — it's the axis the villa is arranged around, from the ground-floor living spaces out to the sand.",
         },
       ],
     },
@@ -107,7 +107,7 @@ export const beachCollection: HubContent = {
     {
       question: "What is the Beach Collection at Palm Jebel Ali?",
       answer:
-        "It is the island's principal collection of beachfront family villas: five and six-bedroom homes of roughly 7,500 to 8,500 square feet, set frond-front with direct private beach access. It is released across eight distinct architectural signatures and priced from around AED 18.5 million.",
+        "It is the island's principal collection of beachfront family villas: five and six-bedroom homes of roughly 7,500 to 8,500 square feet, set frond-front with direct private beach access. It is released across six distinct architectural signatures and priced from around AED 18.5 million.",
     },
     {
       question: "How much do Beach Collection villas cost?",
@@ -120,9 +120,9 @@ export const beachCollection: HubContent = {
         "The collection is offered in five and six-bedroom layouts, built at approximately 7,500 to 8,500 square feet. That scale is designed for full households — family, guests and live-in help — rather than a holiday footprint.",
     },
     {
-      question: "What are the eight architectural signatures?",
+      question: "What are the six architectural signatures?",
       answer:
-        "Nakheel released the Beach Collection across eight distinct architectural signatures, so a frond reads as a varied neighbourhood rather than a run of identical houses. The bedroom count and size band stay consistent across them; the design language changes. The specifics of each signature are confirmed at the point of selection.",
+        "Nakheel released the Beach Collection across six distinct architectural signatures, so a frond reads as a varied neighbourhood rather than a run of identical houses. The bedroom count and size band stay consistent across them; the design language changes. The specifics of each signature are confirmed at the point of selection.",
     },
     {
       question: "Do the villas come with private beach access, and when is handover?",

@@ -4,9 +4,9 @@ import { IMG, FACTS, COLLECTIONS } from "@/lib/content/palm-facts";
 export const masterplan: GuideContent = {
   meta: {
     slug: "pulse/guides/palm-jebel-ali-masterplan",
-    title: "Palm Jebel Ali Master Plan | The Island's Design, Scale & Districts",
+    title: "Palm Jebel Ali Master Plan | Fronds, Islands & Districts",
     description:
-      "How Nakheel's Palm Jebel Ali is laid out: 16 fronds, seven islands, over 10.5 million sqm and 110km of new coastline — the crescent, the residential districts, the amenities, and the sustainability thinking behind it.",
+      "How Nakheel's Palm Jebel Ali master plan is laid out: 16 fronds, 7 islands, over 10.5M sqm and 110km of coastline — roughly twice Palm Jumeirah.",
     keywords: [
       "Palm Jebel Ali master plan",
       "Palm Jebel Ali fronds",

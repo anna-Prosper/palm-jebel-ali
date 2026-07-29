@@ -5,9 +5,9 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.jebelalipalmdubai.
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
 const OG_IMG = `${IMG_BASE}/hero-aerial-2k.jpg`;
 
-const META_TITLE = "Palm Jebel Ali by Nakheel | Villas & Apartments, Prices & Payment Plans 2026";
+const META_TITLE = "Palm Jebel Ali by Nakheel | Villas, Prices & Payment Plans";
 const META_DESC =
-  "Palm Jebel Ali, Nakheel's second palm island: 16 fronds, 110km of new coastline, twice the size of Palm Jumeirah. Beach Collection villas from AED 18.5M, Coral Collection from AED 30M, Palm Central residences from AED 2.5M. 80/20 payment plan, freehold, Golden Visa eligible.";
+  "Palm Jebel Ali by Nakheel: 16 fronds, roughly twice Palm Jumeirah's size. Villas from AED 18.5M, Coral mansions from AED 30M, residences from AED 2.5M.";
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -52,7 +52,7 @@ const FAQS_FOR_SCHEMA = [
   },
   {
     q: "What types of homes are available at Palm Jebel Ali?",
-    a: "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500-8,500 sqft across eight architectural signatures. The Coral Collection is the ultra-premium tier, 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1-5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
+    a: "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500-8,500 sqft across six architectural signatures. The Coral Collection is the ultra-premium tier, 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1-5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
   },
   {
     q: "How much does it cost to buy at Palm Jebel Ali?",
