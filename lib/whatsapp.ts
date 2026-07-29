@@ -9,7 +9,7 @@ export const WHATSAPP_NUMBER = "971549988811";
  * @param number   optional override; non-digits are stripped. Defaults to the company number.
  */
 export function waHref(message: string, ref?: string, number?: string): string {
-  const text = ref ? `${message}\n\n🔗 ${ref}` : message;
+  const text = ref ? `${message}\n\n${ref}` : message;
   const to = (number || WHATSAPP_NUMBER).replace(/[^0-9]/g, "") || WHATSAPP_NUMBER;
   return `https://wa.me/${to}?text=${encodeURIComponent(text)}`;
 }
