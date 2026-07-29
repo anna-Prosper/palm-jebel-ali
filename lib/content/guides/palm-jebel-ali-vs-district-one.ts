@@ -95,7 +95,7 @@ export const vsDistrictOne: GuideContent = {
       heading: "The product on each plot",
       body: [
         "Both addresses are unmistakably villa territory, but they arrive at it differently. District One built its reputation on contemporary mansions and villas set on generous inland plots — clean modern architecture, private gardens, and in the larger tiers direct lagoon frontage. The masterplan spans a spectrum from family villas to ultra-prime mansions, and because parts of it are already delivered, you can walk finished streets and see exactly what the product looks like lived-in.",
-        "Palm Jebel Ali's villa story is the frond. The Beach Collection puts 5- and 6-bedroom homes of roughly 7,500–8,500 sqft on frond-front plots with private beach access, across eight architectural signatures. Above it, the Coral Collection places 7-bedroom signature mansions — designed by names such as SAOTA and Naga Architects — on the rarest outer-frond addresses on the island. The trade for that beachfront rarity is that these homes are bought off-plan, ahead of completion, rather than viewed and moved into.",
+        "Palm Jebel Ali's villa story is the frond. The Beach Collection puts 5- and 6-bedroom homes of roughly 7,500–8,500 sqft on frond-front plots with private beach access, across six villa designs. Above it, the Coral Collection places 7-bedroom signature mansions — designed by names such as SAOTA and Naga Architects — on the rarest outer-frond addresses on the island. The trade for that beachfront rarity is that these homes are bought off-plan, ahead of completion, rather than viewed and moved into.",
       ],
     },
     {
