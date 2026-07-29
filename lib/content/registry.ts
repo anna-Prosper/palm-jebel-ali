@@ -17,6 +17,7 @@ import { developer } from "@/lib/content/guides/nakheel-palm-jebel-ali-developer
 import { beaches } from "@/lib/content/guides/palm-jebel-ali-beaches";
 import { dining } from "@/lib/content/guides/palm-jebel-ali-dining";
 import { floorPlans } from "@/lib/content/guides/palm-jebel-ali-floor-plans";
+import { forUkBuyers } from "@/lib/content/guides/palm-jebel-ali-for-uk-buyers";
 import { goldenVisa } from "@/lib/content/guides/palm-jebel-ali-golden-visa";
 import { handoverTimeline } from "@/lib/content/guides/palm-jebel-ali-handover-timeline";
 import { history } from "@/lib/content/guides/palm-jebel-ali-history";
@@ -29,8 +30,12 @@ import { rentalYield } from "@/lib/content/guides/palm-jebel-ali-rental-yield";
 import { resale } from "@/lib/content/guides/palm-jebel-ali-resale";
 import { schools } from "@/lib/content/guides/palm-jebel-ali-schools";
 import { serviceCharges } from "@/lib/content/guides/palm-jebel-ali-service-charges";
+import { vsBluewaters } from "@/lib/content/guides/palm-jebel-ali-vs-bluewaters";
+import { vsDistrictOne } from "@/lib/content/guides/palm-jebel-ali-vs-district-one";
 import { vsDubaiIslands } from "@/lib/content/guides/palm-jebel-ali-vs-dubai-islands";
 import { vsEmaarBeachfront } from "@/lib/content/guides/palm-jebel-ali-vs-emaar-beachfront";
+import { vsJumeirahBay } from "@/lib/content/guides/palm-jebel-ali-vs-jumeirah-bay-island";
+import { vsWorldIslands } from "@/lib/content/guides/palm-jebel-ali-vs-the-world-islands";
 
 export const COMMUNITIES: Record<string, HubContent> = {
   "palm-jebel-ali": communityPalmJebelAli,
@@ -59,6 +64,7 @@ export const GUIDES: Record<string, GuideContent> = {
   "palm-jebel-ali-beaches": beaches,
   "palm-jebel-ali-dining": dining,
   "palm-jebel-ali-floor-plans": floorPlans,
+  "palm-jebel-ali-for-uk-buyers": forUkBuyers,
   "palm-jebel-ali-golden-visa": goldenVisa,
   "palm-jebel-ali-handover-timeline": handoverTimeline,
   "palm-jebel-ali-history": history,
@@ -71,8 +77,12 @@ export const GUIDES: Record<string, GuideContent> = {
   "palm-jebel-ali-resale": resale,
   "palm-jebel-ali-schools": schools,
   "palm-jebel-ali-service-charges": serviceCharges,
+  "palm-jebel-ali-vs-bluewaters": vsBluewaters,
+  "palm-jebel-ali-vs-district-one": vsDistrictOne,
   "palm-jebel-ali-vs-dubai-islands": vsDubaiIslands,
   "palm-jebel-ali-vs-emaar-beachfront": vsEmaarBeachfront,
+  "palm-jebel-ali-vs-jumeirah-bay-island": vsJumeirahBay,
+  "palm-jebel-ali-vs-the-world-islands": vsWorldIslands,
 };
 
 export const GUIDE_SLUGS = Object.keys(GUIDES);
