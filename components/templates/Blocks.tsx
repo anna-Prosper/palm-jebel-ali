@@ -78,15 +78,24 @@ function BlockBody({ block }: { block: Block }) {
             </Reveal>
           )}
           <div className={`grid gap-5 ${cols}`}>
-            {block.items.map((c, j) => (
-              <Reveal key={j} delay={j * 60}>
-                <div className="h-full rounded-2xl bg-white/70 border border-[#0C2E35]/8 p-6 sm:p-7">
-                  {c.meta && <p className="text-[10px] uppercase tracking-[0.16em] text-[#A8814A] mb-2">{c.meta}</p>}
-                  <h3 className="font-serif text-xl text-[#0C2E35] mb-2.5 leading-snug">{c.title}</h3>
-                  <p className="text-[#0C2E35]/65 text-sm leading-relaxed">{c.body}</p>
-                </div>
-              </Reveal>
-            ))}
+            {block.items.map((c, j) => {
+              const Wrapper = c.href ? "a" : "div";
+              return (
+                <Reveal key={j} delay={j * 60}>
+                  <Wrapper
+                    {...(c.href ? { href: c.href } : {})}
+                    className={`group block h-full rounded-2xl bg-white/70 border border-[#0C2E35]/8 p-6 sm:p-7 ${c.href ? "hover:border-[#C9A26A]/50 transition-colors" : ""}`}
+                  >
+                    {c.meta && <p className="text-[10px] uppercase tracking-[0.16em] text-[#A8814A] mb-2">{c.meta}</p>}
+                    <h3 className="font-serif text-xl text-[#0C2E35] mb-2.5 leading-snug flex items-center justify-between gap-2">
+                      {c.title}
+                      {c.href && <span className="text-[#C9A26A] transition-transform group-hover:translate-x-1">→</span>}
+                    </h3>
+                    <p className="text-[#0C2E35]/65 text-sm leading-relaxed">{c.body}</p>
+                  </Wrapper>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       );

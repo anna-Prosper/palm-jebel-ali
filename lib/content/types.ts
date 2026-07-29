@@ -35,6 +35,7 @@ export interface CardItem {
   title: string;
   body: string;
   meta?: string;
+  href?: string;   // makes the card a link
 }
 
 export interface RelatedLink {

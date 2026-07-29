@@ -83,6 +83,18 @@ export const beachCollection: HubContent = {
       text: "Most beachfront in Dubai is a view. On the fronds of Palm Jebel Ali, it's the plot line — the sand starts where the garden ends.",
     },
     {
+      kind: "cards",
+      heading: "The villa designs",
+      intro: "Six architectural signatures make up the Beach Collection, by SAOTA, NAGA, LOCI, WATG and LW Design Group. Explore the individual designs — ask us for live availability and current asking prices on any of them.",
+      columns: 3,
+      items: [
+        { title: "Ocean Whisper", meta: "8,314 sqft · SAOTA · Frond B", body: "A 6-bedroom SAOTA design with an indoor-outdoor plan oriented to the open Gulf.", href: "/residences/ocean-whisper" },
+        { title: "Cyan Sky", meta: "7,722 sqft · NAGA Architects", body: "Light-filled and sea-facing, with generous balconies and terraces by NAGA.", href: "/residences/cyan-sky" },
+        { title: "Cobalt Beach", meta: "7,633 sqft · LOCI", body: "A space-optimised, privacy-led plan by LOCI within the Beach Collection.", href: "/residences/cobalt-beach" },
+        { title: "Baia Luna · Wave Crest · Bluejay", meta: "By WATG, LW Design & SAOTA", body: "The remaining Beach signatures — ask us for plans, specs and availability." },
+      ],
+    },
+    {
       kind: "collections",
       heading: "Where it sits among the island's homes",
       intro:

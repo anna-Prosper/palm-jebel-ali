@@ -6,7 +6,7 @@ import { SiteHeader, SiteFooter } from "@/components/site/Chrome";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Eyebrow, Reveal } from "@/components/ui/kit";
 import { waHref } from "@/lib/whatsapp";
-import { COLLECTIONS, IMG } from "@/lib/content/palm-facts";
+import { COLLECTIONS, BEACH_DESIGNS, IMG } from "@/lib/content/palm-facts";
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -63,6 +63,24 @@ export function ResidencesIndex() {
               </a>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-[#F7F2EA] border-t border-[#0C2E35]/8 py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Eyebrow dark>Beach Collection designs</Eyebrow>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#0C2E35] leading-tight mb-8 max-w-2xl">Explore the individual villa designs</h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {BEACH_DESIGNS.map((d) => (
+              <a key={d.slug} href={`/residences/${d.slug}`} className="group rounded-xl bg-white border border-[#0C2E35]/8 p-6 hover:border-[#C9A26A]/50 transition-colors">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-[#A8814A] mb-1.5">{d.sqft} sqft · {d.architect}</p>
+                <p className="font-serif text-xl text-[#0C2E35] leading-snug flex items-center justify-between gap-2">
+                  {d.name}
+                  <ChevronRight className="h-4 w-4 text-[#C9A26A] flex-shrink-0 transition-transform group-hover:translate-x-1" />
+                </p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
