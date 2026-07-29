@@ -24,7 +24,7 @@ const SITE_SCHEMA = {
         telephone: "+971549988811",
         contactType: "sales",
         areaServed: "AE",
-        availableLanguage: ["English"],
+        availableLanguage: ["English", "Arabic", "Russian"],
       },
     },
     {

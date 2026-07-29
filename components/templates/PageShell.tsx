@@ -45,7 +45,7 @@ export function PageShell(props: PageShellProps) {
   }, []);
 
   return (
-    <div className="bg-[#F4EEE2]" dir={dir(locale)}>
+    <div className="bg-[#F4EEE2]" dir={dir(locale)} lang={locale}>
       <SiteHeader waLink={waLink} locale={locale} availableLocales={availableLocales} />
 
       {/* ── hero ─────────────────────────────────────────────────────────── */}

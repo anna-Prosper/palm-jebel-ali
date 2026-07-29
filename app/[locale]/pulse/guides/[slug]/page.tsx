@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLoc(locale)) return {};
   const content = I18N_GUIDES[slug]?.[locale];
   if (!content) return {};
-  return { ...buildMetadata(content.meta), alternates: localizedAlternates(content.meta.slug, locale, ["en", "ar", "ru"]) };
+  return { ...buildMetadata(content.meta, locale), alternates: localizedAlternates(content.meta.slug, locale, ["en", "ar", "ru"]) };
 }
 
 export default async function LocalizedGuidePage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -39,7 +39,7 @@ export default async function LocalizedGuidePage({ params }: { params: Promise<{
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(guideJsonLd(content.meta, content.faqs, breadcrumbs)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(guideJsonLd(content.meta, content.faqs, breadcrumbs, locale)) }} />
       <GuideTemplate content={content} breadcrumbs={breadcrumbs} locale={locale as Locale} availableLocales={["en", "ar", "ru"]} />
     </>
   );
