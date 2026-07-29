@@ -13,6 +13,17 @@ export function safeJsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
+// Canonical + hreflang alternates for a page that exists in multiple locales.
+// `baseSlug` is the English slug (e.g. "communities/palm-jebel-ali"); `locale`
+// is the page being rendered; `locales` are all locales this page exists in
+// (must include "en").
+export function localizedAlternates(baseSlug: string, locale: "en" | "ar" | "ru", locales: ("en" | "ar" | "ru")[]) {
+  const url = (l: string) => (l === "en" ? urlFor(baseSlug) : `${SITE}/${l}/${baseSlug}`);
+  const languages: Record<string, string> = { "x-default": urlFor(baseSlug) };
+  for (const l of locales) languages[l] = url(l);
+  return { canonical: url(locale), languages };
+}
+
 export function buildMetadata(meta: PageMeta): Metadata {
   const url = urlFor(meta.slug);
   const ogImage = meta.ogImage || IMG.heroAerial;

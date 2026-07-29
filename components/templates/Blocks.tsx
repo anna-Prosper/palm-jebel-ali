@@ -4,11 +4,12 @@ import { Reveal, Eyebrow, SectionBg, Stat } from "@/components/ui/kit";
 import { GatedDownload } from "@/components/site/GatedDownload";
 import { COLLECTIONS, type Collection } from "@/lib/content/palm-facts";
 import type { Block } from "@/lib/content/types";
+import { UI, type Locale } from "@/lib/i18n";
 
 // Light section tones cycled for rhythm between blocks.
 const TONES = ["bg-[#F4EEE2]", "bg-[#F7F2EA]", "bg-[#E4EDEB]"];
 
-export function BlockList({ blocks, reading = false }: { blocks: Block[]; reading?: boolean }) {
+export function BlockList({ blocks, reading = false, locale = "en" }: { blocks: Block[]; reading?: boolean; locale?: Locale }) {
   let lightIndex = 0;
   return (
     <>
@@ -32,7 +33,7 @@ export function BlockList({ blocks, reading = false }: { blocks: Block[]; readin
         return (
           <section key={i} className={`relative overflow-hidden ${tone} py-16 sm:py-24`}>
             <div className={`mx-auto px-5 sm:px-8 ${reading ? "max-w-3xl" : "max-w-6xl"}`}>
-              <BlockBody block={block} />
+              <BlockBody block={block} locale={locale} />
             </div>
           </section>
         );
@@ -41,7 +42,7 @@ export function BlockList({ blocks, reading = false }: { blocks: Block[]; readin
   );
 }
 
-function BlockBody({ block }: { block: Block }) {
+function BlockBody({ block, locale }: { block: Block; locale: Locale }) {
   switch (block.kind) {
     case "prose":
       return (
@@ -127,7 +128,7 @@ function BlockBody({ block }: { block: Block }) {
       );
 
     case "collections":
-      return <CollectionsBody heading={block.heading} intro={block.intro} items={block.items ?? COLLECTIONS} />;
+      return <CollectionsBody heading={block.heading} intro={block.intro} items={block.items ?? COLLECTIONS} locale={locale} />;
 
     case "pullquote":
       return (
@@ -143,7 +144,7 @@ function BlockBody({ block }: { block: Block }) {
   }
 }
 
-function CollectionsBody({ heading, intro, items }: { heading?: string; intro?: string; items: Collection[] }) {
+function CollectionsBody({ heading, intro, items, locale = "en" }: { heading?: string; intro?: string; items: Collection[]; locale?: Locale }) {
   return (
     <div>
       {(heading || intro) && (
@@ -175,7 +176,7 @@ function CollectionsBody({ heading, intro, items }: { heading?: string; intro?: 
                       </li>
                     ))}
                   </ul>
-                  <p className="text-xs uppercase tracking-[0.14em] text-[#0C2E35]/45">From <span className="font-serif text-lg text-[#0C2E35] normal-case tracking-normal">AED {c.priceFromAed}</span>{c.href && <span className="ml-2 text-[#A8814A] normal-case tracking-normal">· View →</span>}</p>
+                  <p className="text-xs uppercase tracking-[0.14em] text-[#0C2E35]/45">{UI[locale].from} <span className="font-serif text-lg text-[#0C2E35] normal-case tracking-normal">AED {c.priceFromAed}</span>{c.href && <span className="ml-2 text-[#A8814A] normal-case tracking-normal">· {UI[locale].view} →</span>}</p>
                 </div>
               </Wrapper>
             </Reveal>

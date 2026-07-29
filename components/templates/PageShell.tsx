@@ -10,6 +10,7 @@ import { GoldButton, GhostButton, Reveal, Eyebrow, Stat } from "@/components/ui/
 import { useLeadForm } from "@/components/site/useLeadForm";
 import { waHref } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
+import { UI, dir, type Locale } from "@/lib/i18n";
 import type { Hero, StatItem, RelatedLink } from "@/lib/content/types";
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
@@ -27,10 +28,15 @@ export interface PageShellProps {
   faqHeading?: string;
   related?: RelatedLink[];
   cta: { heading: string; body?: string; interest: string };
+  locale?: Locale;
+  availableLocales?: Locale[];
 }
 
 export function PageShell(props: PageShellProps) {
-  const { hero, breadcrumbs, statsBand, atAGlance, children, faqs, faqHeading = "Frequently asked questions", related, cta, heroCtaLabel = "Register your interest", heroInterest, location } = props;
+  const { hero, breadcrumbs, statsBand, atAGlance, children, faqs, related, cta, heroInterest, location, locale = "en", availableLocales = ["en"] } = props;
+  const t = UI[locale];
+  const faqHeading = props.faqHeading ?? t.faqHeading;
+  const heroCtaLabel = props.heroCtaLabel ?? t.registerInterest;
 
   const { formOpen, formInterest, openForm, closeForm } = useLeadForm(heroInterest);
   const [waLink, setWaLink] = useState(() => waHref(WA_MESSAGE));
@@ -39,8 +45,8 @@ export function PageShell(props: PageShellProps) {
   }, []);
 
   return (
-    <div className="bg-[#F4EEE2]">
-      <SiteHeader waLink={waLink} />
+    <div className="bg-[#F4EEE2]" dir={dir(locale)}>
+      <SiteHeader waLink={waLink} locale={locale} availableLocales={availableLocales} />
 
       {/* ── hero ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[74vh] flex items-end overflow-hidden">
@@ -66,7 +72,7 @@ export function PageShell(props: PageShellProps) {
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <GoldButton onClick={() => openForm(heroInterest, `${location}_hero`)} size="lg">{heroCtaLabel}</GoldButton>
             <GhostButton href={waLink} tone="light" size="lg" onClick={() => trackEvent("whatsapp_click", { location: `${location}_hero` })}>
-              <MessageCircle className="h-4 w-4" /> WhatsApp us
+              <MessageCircle className="h-4 w-4" /> {t.whatsappUs}
             </GhostButton>
           </div>
         </div>
@@ -87,7 +93,7 @@ export function PageShell(props: PageShellProps) {
       {atAGlance && atAGlance.length > 0 && (
         <section className="bg-[#F7F2EA] border-b border-[#0C2E35]/10 py-12 sm:py-16">
           <div className="max-w-3xl mx-auto px-5 sm:px-8">
-            <Eyebrow dark>At a glance</Eyebrow>
+            <Eyebrow dark>{t.atAGlance}</Eyebrow>
             <dl className="grid sm:grid-cols-2 gap-x-10 gap-y-4">
               {atAGlance.map((row, j) => (
                 <div key={j} className="flex justify-between gap-4 border-b border-[#0C2E35]/10 pb-3">
@@ -120,7 +126,7 @@ export function PageShell(props: PageShellProps) {
       {related && related.length > 0 && (
         <section className="bg-[#F4EEE2] py-16 sm:py-20 border-t border-[#0C2E35]/10">
           <div className="max-w-6xl mx-auto px-5 sm:px-8">
-            <Eyebrow dark>Keep reading</Eyebrow>
+            <Eyebrow dark>{t.keepReading}</Eyebrow>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
                 <a key={r.href} href={r.href} className="group rounded-xl bg-white/70 border border-[#0C2E35]/8 p-6 hover:border-[#C9A26A]/50 transition-colors">
@@ -143,15 +149,15 @@ export function PageShell(props: PageShellProps) {
           <h2 className="font-serif text-3xl sm:text-5xl text-white leading-tight mb-5">{cta.heading}</h2>
           {cta.body && <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-9 max-w-xl mx-auto">{cta.body}</p>}
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <GoldButton onClick={() => openForm(cta.interest, `${location}_final_cta`)} size="lg">Register your interest</GoldButton>
+            <GoldButton onClick={() => openForm(cta.interest, `${location}_final_cta`)} size="lg">{t.registerInterest}</GoldButton>
             <GhostButton href={waLink} tone="light" size="lg" onClick={() => trackEvent("whatsapp_click", { location: `${location}_final_cta` })}>
-              <MessageCircle className="h-4 w-4" /> WhatsApp us
+              <MessageCircle className="h-4 w-4" /> {t.whatsappUs}
             </GhostButton>
           </div>
         </div>
       </section>
 
-      <SiteFooter waLink={waLink} />
+      <SiteFooter waLink={waLink} locale={locale} />
       <FloatingWhatsApp waLink={waLink} />
       <LeadFormModal open={formOpen} onClose={closeForm} waLink={waLink} defaultInterest={formInterest} />
     </div>
