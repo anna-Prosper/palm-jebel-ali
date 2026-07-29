@@ -15,6 +15,7 @@ import { villas } from "@/lib/content/guides/palm-jebel-ali-villas";
 import { vsPalmJumeirah } from "@/lib/content/guides/palm-jebel-ali-vs-palm-jumeirah";
 import { developer } from "@/lib/content/guides/nakheel-palm-jebel-ali-developer";
 import { beaches } from "@/lib/content/guides/palm-jebel-ali-beaches";
+import { constructionProgress } from "@/lib/content/guides/palm-jebel-ali-construction-progress";
 import { dining } from "@/lib/content/guides/palm-jebel-ali-dining";
 import { floorPlans } from "@/lib/content/guides/palm-jebel-ali-floor-plans";
 import { forUkBuyers } from "@/lib/content/guides/palm-jebel-ali-for-uk-buyers";
@@ -26,6 +27,7 @@ import { location } from "@/lib/content/guides/palm-jebel-ali-location";
 import { marinas } from "@/lib/content/guides/palm-jebel-ali-marinas";
 import { masterplan } from "@/lib/content/guides/palm-jebel-ali-masterplan";
 import { mortgage } from "@/lib/content/guides/palm-jebel-ali-mortgage";
+import { projectStatus } from "@/lib/content/guides/palm-jebel-ali-project-status";
 import { rentalYield } from "@/lib/content/guides/palm-jebel-ali-rental-yield";
 import { resale } from "@/lib/content/guides/palm-jebel-ali-resale";
 import { schools } from "@/lib/content/guides/palm-jebel-ali-schools";
@@ -62,6 +64,7 @@ export const GUIDES: Record<string, GuideContent> = {
   "palm-jebel-ali-vs-palm-jumeirah": vsPalmJumeirah,
   "nakheel-palm-jebel-ali-developer": developer,
   "palm-jebel-ali-beaches": beaches,
+  "palm-jebel-ali-construction-progress": constructionProgress,
   "palm-jebel-ali-dining": dining,
   "palm-jebel-ali-floor-plans": floorPlans,
   "palm-jebel-ali-for-uk-buyers": forUkBuyers,
@@ -73,6 +76,7 @@ export const GUIDES: Record<string, GuideContent> = {
   "palm-jebel-ali-marinas": marinas,
   "palm-jebel-ali-masterplan": masterplan,
   "palm-jebel-ali-mortgage": mortgage,
+  "palm-jebel-ali-project-status": projectStatus,
   "palm-jebel-ali-rental-yield": rentalYield,
   "palm-jebel-ali-resale": resale,
   "palm-jebel-ali-schools": schools,

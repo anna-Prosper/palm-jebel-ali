@@ -681,15 +681,15 @@ const RESIDENCES = [
     meta: "5 & 6 bedroom villas · 7,500-8,500 sqft",
     price: "18.5M",
     href: "/residences/beach-collection",
-    facts: ["Frond-front plots with private beach access", "Eight architectural signatures across the collection"],
+    facts: ["Frond-front plots with private beach access", "Six villa designs by SAOTA, NAGA, LOCI, WATG & LW Design"],
   },
   {
     img: CORAL_IMG,
     tag: "The Coral Collection",
-    meta: "7 bedroom signature villas · outer fronds",
+    meta: "6 & 7 bedroom mansions · 11,500-12,500 sqft",
     price: "30M",
     href: "/residences/coral-collection",
-    facts: ["Ultra-premium mansions designed by SAOTA & Naga Architects", "The rarest addresses on the island"],
+    facts: ["Ultra-premium mansions by SAOTA, LOCI, LW Design & Naga Architects", "The rarest addresses on the island"],
   },
   {
     img: PALM_CENTRAL_IMG,

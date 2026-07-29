@@ -6,7 +6,7 @@ export const villas: GuideContent = {
     slug: "pulse/guides/palm-jebel-ali-villas",
     title: "Palm Jebel Ali Villas | The Beach & Coral Collections In Depth",
     description:
-      "A close read of the villas on Palm Jebel Ali: the Beach Collection's eight architectural signatures from AED 18.5M, the Coral Collection's SAOTA-designed signature mansions from AED 30M, how they differ, and where Palm Central fits for apartment buyers.",
+      "A close read of the villas on Palm Jebel Ali: the Beach Collection's six villa designs from AED 18.5M, the Coral Collection's SAOTA-designed signature mansions from AED 30M, how they differ, and where Palm Central fits for apartment buyers.",
     keywords: [
       "Palm Jebel Ali villas",
       "Palm Jebel Ali Beach Collection",
@@ -55,7 +55,7 @@ export const villas: GuideContent = {
       heading: "The Beach Collection",
       body: [
         "The Beach Collection is the heart of the island's villa offering: five and six-bedroom homes of roughly 7,500 to 8,500 square feet, each on a frond-front plot with private beach access. Pricing starts from around AED 18.5 million, which places it firmly in Dubai's prime villa tier while stopping short of the ultra-prime ceiling the Coral Collection occupies.",
-        "What distinguishes the collection is its range. Rather than a single repeated house type, Nakheel has drawn eight architectural signatures across the collection — a spread of façades and interior languages so that a frond doesn't read as a row of identical roofs. For a buyer, that means the collection can flex between a cleaner contemporary line and a warmer, more textured expression without leaving the same price band or the same beachfront position. You are choosing a character, not just a bedroom count.",
+        "What distinguishes the collection is its range. Rather than a single repeated house type, Nakheel has drawn six villa designs across the collection — a spread of façades and interior languages so that a frond doesn't read as a row of identical roofs. For a buyer, that means the collection can flex between a cleaner contemporary line and a warmer, more textured expression without leaving the same price band or the same beachfront position. You are choosing a character, not just a bedroom count.",
         "Practically, this is the collection most families gravitate toward. The footprint is generous enough for staff, guests and multi-generational living, the plots put the sea at the end of the garden, and the entry price — while substantial — is the accessible door into villa ownership on the island.",
       ],
     },
@@ -96,7 +96,7 @@ export const villas: GuideContent = {
         },
         {
           title: "Design authorship",
-          body: "The Beach Collection offers eight architectural signatures to choose between. The Coral mansions are bespoke works by SAOTA & Naga Architects.",
+          body: "The Beach Collection offers six villa designs to choose between. The Coral mansions are bespoke works by SAOTA & Naga Architects.",
           meta: "Architecture",
         },
         {
@@ -133,7 +133,7 @@ export const villas: GuideContent = {
         },
         {
           title: "Does design authorship matter to you?",
-          body: "If choosing among eight architectural signatures is enough, the Beach Collection delivers range within a price band. If you want a residence authored by SAOTA and Naga Architects, that pedigree lives in the Coral Collection.",
+          body: "If choosing among six villa designs is enough, the Beach Collection delivers range within a price band. If you want a residence authored by SAOTA and Naga Architects, that pedigree lives in the Coral Collection.",
         },
         {
           title: "How much do you value rarity and position?",
@@ -151,12 +151,12 @@ export const villas: GuideContent = {
     {
       question: "What villa collections are available on Palm Jebel Ali?",
       answer:
-        "There are two frond-front villa collections. The Beach Collection offers 5 and 6-bedroom villas of 7,500–8,500 sqft from about AED 18.5 million, with eight architectural signatures to choose between. The Coral Collection is 7-bedroom signature mansions on the outer fronds, designed by SAOTA and Naga Architects, from about AED 30 million.",
+        "There are two frond-front villa collections. The Beach Collection offers 5 and 6-bedroom villas of 7,500–8,500 sqft from about AED 18.5 million, with six villa designs to choose between. The Coral Collection is 7-bedroom signature mansions on the outer fronds, designed by SAOTA and Naga Architects, from about AED 30 million.",
     },
     {
       question: "How big are the Beach Collection villas?",
       answer:
-        "Beach Collection villas are 5 and 6-bedroom homes of roughly 7,500 to 8,500 square feet, each on a frond-front plot with private beach access. Across the collection there are eight distinct architectural signatures, so homes vary in character rather than repeating a single design.",
+        "Beach Collection villas are 5 and 6-bedroom homes of roughly 7,500 to 8,500 square feet, each on a frond-front plot with private beach access. Across the collection there are six distinct villa designs, so homes vary in character rather than repeating a single design.",
     },
     {
       question: "What makes the Coral Collection different?",

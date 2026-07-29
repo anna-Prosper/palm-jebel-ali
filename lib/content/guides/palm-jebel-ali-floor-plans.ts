@@ -36,7 +36,7 @@ export const floorPlans: GuideContent = {
     { k: "Coral Collection", v: "7-bed signature mansions" },
     { k: "Palm Central", v: "1–5-bed · apartments to penthouses" },
     { k: "Palm Central scale", v: "212 residences, three buildings" },
-    { k: "Villa signatures", v: "Eight architectural styles (Beach)" },
+    { k: "Villa signatures", v: "Six villa designs (Beach)" },
     { k: "Tenure", v: "Freehold, all nationalities" },
     { k: "Actual drawings", v: "Released to reserving buyers" },
   ],
@@ -61,12 +61,12 @@ export const floorPlans: GuideContent = {
       heading: "The Beach Collection — 5 and 6-bedroom villas",
       body: [
         "The Beach Collection is the island's core villa product: five and six-bedroom homes on frond-front plots, sized roughly between 7,500 and 8,500 sqft. That is a substantial footprint, and it's worth being concrete about what it tends to unlock rather than guessing at measurements. At this scale a villa is almost always arranged over multiple levels, with the ground floor given to open, connected living-dining-kitchen space that opens toward the water, and the upper floor to bedroom suites. The extra bedroom in a six-bed configuration usually reflects either a larger family brief or a home that dedicates rooms to guests, staff or a study without borrowing from the main living areas.",
-        "The more interesting variable here isn't the number, it's the styling. The Beach Collection is delivered in eight architectural signatures — eight distinct design treatments across the collection — so two villas with the same bedroom count and similar footage can present very differently in their massing, roofline, materials and the way the plan meets the beach. When you compare Beach villas, you're really comparing signatures and orientation as much as raw square footage. Which frond, which way the plot faces, and how far it sits along the frond all change the feel of an otherwise similar plan.",
+        "The more interesting variable here isn't the number, it's the styling. The Beach Collection is delivered in six villa designs — six distinct design treatments — so two villas with the same bedroom count and similar footage can present very differently in their massing, roofline, materials and the way the plan meets the beach. When you compare Beach villas, you're really comparing signatures and orientation as much as raw square footage. Which frond, which way the plot faces, and how far it sits along the frond all change the feel of an otherwise similar plan.",
       ],
     },
     {
       kind: "pullquote",
-      text: "Two Beach villas with the same bedroom count can live entirely differently — the eight signatures, the frond, and the orientation do as much work as the square footage.",
+      text: "Two Beach villas with the same bedroom count can live entirely differently — the six designs, the frond, and the orientation do as much work as the square footage.",
     },
     {
       kind: "prose",
@@ -136,7 +136,7 @@ export const floorPlans: GuideContent = {
     {
       question: "How big are the Beach Collection villas?",
       answer:
-        "The Beach Collection is made up of 5 and 6-bedroom villas sized roughly between 7,500 and 8,500 sqft, delivered in eight distinct architectural signatures. Exact areas vary by villa, signature and plot, which is why we point you to the actual drawings rather than quote a single figure.",
+        "The Beach Collection is made up of 5 and 6-bedroom villas sized roughly between 7,500 and 8,500 sqft, delivered in six distinct villa designs. Exact areas vary by villa, signature and plot, which is why we point you to the actual drawings rather than quote a single figure.",
     },
     {
       question: "How many bedrooms do the Coral Collection mansions have?",

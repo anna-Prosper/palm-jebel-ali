@@ -33,6 +33,8 @@ export const FACTS = {
   hotels: "80+",
   goldenVisaThresholdAed: "AED 2 million",
   paymentPlan: "80/20 — 20% on booking, 60% across construction milestones, 20% on handover",
+  // Palm Central apartments have followed a 70/30 construction-linked plan, distinct from the villa 80/20.
+  paymentPlanCentral: "70/30 — 70% across construction, 30% on handover",
   freehold: true,
   geo: { latitude: 24.9928, longitude: 55.0203 },
   connectivity: [
@@ -47,10 +49,11 @@ export interface Collection {
   key: string;
   name: string;
   meta: string;
-  priceFromAed: string;   // e.g. "18.5M"
+  priceFromAed: string;   // e.g. "18.5M" — indicative starting price, confirm live
   image: string;
   facts: string[];
   href?: string;          // dedicated collection landing page
+  designs?: string[];     // Nakheel villa-design names in this collection
 }
 
 export const COLLECTIONS: Collection[] = [
@@ -60,17 +63,19 @@ export const COLLECTIONS: Collection[] = [
     meta: "5 & 6 bedroom villas · 7,500–8,500 sqft",
     priceFromAed: "18.5M",
     image: IMG.beach,
-    facts: ["Frond-front plots with private beach access", "Eight architectural signatures across the collection"],
+    facts: ["Frond-front plots with private beach access", "Six villa designs by SAOTA, NAGA, LOCI, WATG & LW Design"],
     href: "/residences/beach-collection",
+    designs: ["Cyan Sky", "Cobalt Beach", "Baia Luna", "Wave Crest", "Ocean Whisper", "Bluejay"],
   },
   {
     key: "coral",
     name: "The Coral Collection",
-    meta: "7 bedroom signature mansions · outer fronds",
+    meta: "6 & 7 bedroom mansions · 11,500–12,500 sqft",
     priceFromAed: "30M",
     image: IMG.coral,
-    facts: ["Ultra-premium mansions designed by SAOTA & Naga Architects", "The rarest addresses on the island"],
+    facts: ["Ultra-premium mansions by SAOTA, LOCI, LW Design & Naga Architects", "The rarest addresses on the island, on the outer fronds"],
     href: "/residences/coral-collection",
+    designs: ["Red Aurora", "Porcelain Roses", "Redwood", "Coral Dune", "Sunset Mirage"],
   },
   {
     key: "central",
@@ -82,6 +87,23 @@ export const COLLECTIONS: Collection[] = [
     href: "/residences/palm-central",
   },
 ];
+
+// Dated construction snapshot — the single source for the project-status and
+// construction-progress pages. UPDATE this as new inspections/press land.
+export const CONSTRUCTION = {
+  asOf: "10 March 2026",
+  frondProgress: [
+    { frond: "K", pct: 27.71 },
+    { frond: "L", pct: 24.71 },
+    { frond: "M", pct: 22.1 },
+    { frond: "N", pct: 29.2 },
+    { frond: "O", pct: 37.44 },
+    { frond: "P", pct: 20.5 },
+  ],
+  infrastructure: "Around AED 750 million of major infrastructure (roads, utilities, power distribution, telecom) targeted for completion by the end of 2026, alongside marine works and the Sheikh Zayed Road bridge connection.",
+  contracts: "Nakheel awarded more than AED 3.5 billion in villa construction contracts across Fronds A–F in April 2026.",
+  handover: "Phased, with the first villa handovers beginning in 2026, earlier fronds targeting around Q3–Q4 2027 and completion targeted toward Q4 2028.",
+} as const;
 
 // Handover timeline (phased) — keep vague-but-honest, matches home FAQ.
 export const HANDOVER = {
