@@ -3,7 +3,10 @@
 import type { HubContent, GuideContent } from "@/lib/content/types";
 import { communityPalmJebelAli } from "@/lib/content/communities/palm-jebel-ali";
 import { beachCollection } from "@/lib/content/residences/beach-collection";
+import { cobaltBeach } from "@/lib/content/residences/cobalt-beach";
 import { coralCollection } from "@/lib/content/residences/coral-collection";
+import { cyanSky } from "@/lib/content/residences/cyan-sky";
+import { oceanWhisper } from "@/lib/content/residences/ocean-whisper";
 import { palmCentral } from "@/lib/content/residences/palm-central";
 import { buyPalmJebelAli } from "@/lib/content/intent/buy-palm-jebel-ali";
 import { rentPalmJebelAli } from "@/lib/content/intent/rent-palm-jebel-ali";
@@ -48,7 +51,10 @@ export const COMMUNITIES: Record<string, HubContent> = {
 };
 export const RESIDENCES: Record<string, HubContent> = {
   "beach-collection": beachCollection,
+  "cobalt-beach": cobaltBeach,
   "coral-collection": coralCollection,
+  "cyan-sky": cyanSky,
+  "ocean-whisper": oceanWhisper,
   "palm-central": palmCentral,
 };
 export const INTENT_BUY: Record<string, HubContent> = {

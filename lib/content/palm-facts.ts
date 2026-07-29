@@ -88,6 +88,25 @@ export const COLLECTIONS: Collection[] = [
   },
 ];
 
+// Individual Beach Collection villa designs with web-validated specs (Oct 2025
+// Nakheel launch + portal data). Only models with confirmed specs are listed —
+// per the publication rule, a villa page needs real data, not just a name.
+export interface VillaDesign {
+  name: string;
+  slug: string;        // -> /residences/<slug>
+  collection: "beach" | "coral";
+  sqft: string;        // built-up, validated
+  beds: string;        // hedged where the source is not explicit
+  architect: string;
+  frond?: string;      // confirmed frond, where known
+}
+
+export const BEACH_DESIGNS: VillaDesign[] = [
+  { name: "Ocean Whisper", slug: "ocean-whisper", collection: "beach", sqft: "8,314", beds: "6 bedroom", architect: "SAOTA", frond: "Frond B" },
+  { name: "Cyan Sky", slug: "cyan-sky", collection: "beach", sqft: "7,722", beds: "5 & 6 bedroom", architect: "NAGA Architects" },
+  { name: "Cobalt Beach", slug: "cobalt-beach", collection: "beach", sqft: "7,633", beds: "5 & 6 bedroom", architect: "LOCI" },
+];
+
 // Dated construction snapshot — the single source for the project-status and
 // construction-progress pages. UPDATE this as new inspections/press land.
 export const CONSTRUCTION = {
