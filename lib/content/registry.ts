@@ -2,7 +2,9 @@
 // Run `node scripts/gen-registry.mjs` after adding content files.
 import type { HubContent, GuideContent } from "@/lib/content/types";
 import { communityPalmJebelAli } from "@/lib/content/communities/palm-jebel-ali";
+import { baiaLuna } from "@/lib/content/residences/baia-luna";
 import { beachCollection } from "@/lib/content/residences/beach-collection";
+import { bluejay } from "@/lib/content/residences/bluejay";
 import { cobaltBeach } from "@/lib/content/residences/cobalt-beach";
 import { coralCollection } from "@/lib/content/residences/coral-collection";
 import { coralDune } from "@/lib/content/residences/coral-dune";
@@ -13,6 +15,7 @@ import { porcelainRoses } from "@/lib/content/residences/porcelain-roses";
 import { redAurora } from "@/lib/content/residences/red-aurora";
 import { redwood } from "@/lib/content/residences/redwood";
 import { sunsetMirage } from "@/lib/content/residences/sunset-mirage";
+import { waveCrest } from "@/lib/content/residences/wave-crest";
 import { buyPalmJebelAli } from "@/lib/content/intent/buy-palm-jebel-ali";
 import { rentPalmJebelAli } from "@/lib/content/intent/rent-palm-jebel-ali";
 import { offplanPalmJebelAli } from "@/lib/content/intent/offplan-palm-jebel-ali";
@@ -55,7 +58,9 @@ export const COMMUNITIES: Record<string, HubContent> = {
   "palm-jebel-ali": communityPalmJebelAli,
 };
 export const RESIDENCES: Record<string, HubContent> = {
+  "baia-luna": baiaLuna,
   "beach-collection": beachCollection,
+  "bluejay": bluejay,
   "cobalt-beach": cobaltBeach,
   "coral-collection": coralCollection,
   "coral-dune": coralDune,
@@ -66,6 +71,7 @@ export const RESIDENCES: Record<string, HubContent> = {
   "red-aurora": redAurora,
   "redwood": redwood,
   "sunset-mirage": sunsetMirage,
+  "wave-crest": waveCrest,
 };
 export const INTENT_BUY: Record<string, HubContent> = {
   "palm-jebel-ali": buyPalmJebelAli,

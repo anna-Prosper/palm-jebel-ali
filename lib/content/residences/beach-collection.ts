@@ -88,10 +88,12 @@ export const beachCollection: HubContent = {
       intro: "Six architectural signatures make up the Beach Collection, by SAOTA, NAGA, LOCI, WATG and LW Design Group. Explore the individual designs — ask us for live availability and current asking prices on any of them.",
       columns: 3,
       items: [
-        { title: "Ocean Whisper", meta: "8,314 sqft · SAOTA · Frond B", body: "A 6-bedroom SAOTA design with an indoor-outdoor plan oriented to the open Gulf.", href: "/residences/ocean-whisper" },
-        { title: "Cyan Sky", meta: "7,722 sqft · NAGA Architects", body: "Light-filled and sea-facing, with generous balconies and terraces by NAGA.", href: "/residences/cyan-sky" },
-        { title: "Cobalt Beach", meta: "7,633 sqft · LOCI", body: "A space-optimised, privacy-led plan by LOCI within the Beach Collection.", href: "/residences/cobalt-beach" },
-        { title: "Baia Luna · Wave Crest · Bluejay", meta: "By WATG, LW Design & SAOTA", body: "The remaining Beach signatures — ask us for plans, specs and availability." },
+        { title: "Ocean Whisper", meta: "6 bed · 8,314 sqft · SAOTA · Frond B", body: "A 6-bedroom SAOTA design with an indoor-outdoor plan oriented to the open Gulf.", href: "/residences/ocean-whisper" },
+        { title: "Cyan Sky", meta: "5–6 bed · 7,722 sqft · NAGA", body: "Light-filled and sea-facing, with generous balconies and terraces by NAGA.", href: "/residences/cyan-sky" },
+        { title: "Cobalt Beach", meta: "5–6 bed · 7,633 sqft · LOCI", body: "A space-optimised, privacy-led plan by LOCI within the Beach Collection.", href: "/residences/cobalt-beach" },
+        { title: "Bluejay", meta: "6 bed + family · SAOTA", body: "A three-floor SAOTA villa with a roof lounge and terrace, oriented to the sea.", href: "/residences/bluejay" },
+        { title: "Baia Luna", meta: "5 bed + family · WATG", body: "A Mediterranean-inflected, three-floor beachfront home by WATG.", href: "/residences/baia-luna" },
+        { title: "Wave Crest", meta: "5 bed + family · LW Design", body: "A fluid, efficiently-zoned three-floor villa by LW Design.", href: "/residences/wave-crest" },
       ],
     },
     {

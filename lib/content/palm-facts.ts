@@ -105,6 +105,11 @@ export const BEACH_DESIGNS: VillaDesign[] = [
   { name: "Ocean Whisper", slug: "ocean-whisper", collection: "beach", sqft: "8,314", beds: "6 bedroom", architect: "SAOTA", frond: "Frond B" },
   { name: "Cyan Sky", slug: "cyan-sky", collection: "beach", sqft: "7,722", beds: "5 & 6 bedroom", architect: "NAGA Architects" },
   { name: "Cobalt Beach", slug: "cobalt-beach", collection: "beach", sqft: "7,633", beds: "5 & 6 bedroom", architect: "LOCI" },
+  // sqft below = internal floor area across three floors (terraces additional);
+  // reconciles with the collection's 7,500–8,500 sqft BUA (which includes terraces).
+  { name: "Bluejay", slug: "bluejay", collection: "beach", sqft: "7,003", beds: "6 bedroom + family room", architect: "SAOTA" },
+  { name: "Baia Luna", slug: "baia-luna", collection: "beach", sqft: "6,551", beds: "5 bedroom + family room", architect: "WATG" },
+  { name: "Wave Crest", slug: "wave-crest", collection: "beach", sqft: "5,977", beds: "5 bedroom + family room", architect: "LW Design" },
 ];
 
 // Coral Collection designs (G+2 mansions on the outer fronds). Per-design beds
