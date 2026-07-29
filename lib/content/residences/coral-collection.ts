@@ -84,6 +84,19 @@ export const coralCollection: HubContent = {
       text: "You can build another villa on the fronds. You cannot build another outer frond. That is the whole case for Coral.",
     },
     {
+      kind: "cards",
+      heading: "The Coral villa designs",
+      intro: "Five bespoke G+2 mansions make up the Coral Collection, by SAOTA, LOCI, LW Design Group and NAGA. Explore each design — ask us for live availability and current asking prices.",
+      columns: 3,
+      items: [
+        { title: "Red Aurora", meta: "7 bed · 11,670 sqft · G+2", body: "A bold-geometry seven-bedroom mansion on the outer fronds.", href: "/residences/red-aurora" },
+        { title: "Redwood", meta: "7 bed · 12,010 sqft · G+2", body: "The largest Coral floor plate — warm timber-toned, seven bedrooms.", href: "/residences/redwood" },
+        { title: "Porcelain Roses", meta: "7 bed · 11,519 sqft · G+2", body: "A refined, sculptural seven-bedroom design on the outer fronds.", href: "/residences/porcelain-roses" },
+        { title: "Coral Dune", meta: "6 bed · 11,635 sqft · G+2", body: "A more intimate six-bedroom mansion with a sand-toned palette.", href: "/residences/coral-dune" },
+        { title: "Sunset Mirage", meta: "6 bed · 11,701 sqft · G+2", body: "West-facing, dusk-toned — a six-bedroom outer-frond mansion.", href: "/residences/sunset-mirage" },
+      ],
+    },
+    {
       kind: "collections",
       heading: "Where Coral sits in the island",
       intro:

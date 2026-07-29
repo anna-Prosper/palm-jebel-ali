@@ -107,6 +107,18 @@ export const BEACH_DESIGNS: VillaDesign[] = [
   { name: "Cobalt Beach", slug: "cobalt-beach", collection: "beach", sqft: "7,633", beds: "5 & 6 bedroom", architect: "LOCI" },
 ];
 
+// Coral Collection designs (G+2 mansions on the outer fronds). Per-design beds
+// and built-up sqft validated via palmjebelali.ae / portal data; the four
+// studios (SAOTA, LOCI, LW Design Group, NAGA) are credited collectively.
+const CORAL_ARCH = "SAOTA · LOCI · LW Design · NAGA";
+export const CORAL_DESIGNS: VillaDesign[] = [
+  { name: "Red Aurora", slug: "red-aurora", collection: "coral", sqft: "11,670", beds: "7 bedroom", architect: CORAL_ARCH },
+  { name: "Redwood", slug: "redwood", collection: "coral", sqft: "12,010", beds: "7 bedroom", architect: CORAL_ARCH },
+  { name: "Porcelain Roses", slug: "porcelain-roses", collection: "coral", sqft: "11,519", beds: "7 bedroom", architect: CORAL_ARCH },
+  { name: "Coral Dune", slug: "coral-dune", collection: "coral", sqft: "11,635", beds: "6 bedroom", architect: CORAL_ARCH },
+  { name: "Sunset Mirage", slug: "sunset-mirage", collection: "coral", sqft: "11,701", beds: "6 bedroom", architect: CORAL_ARCH },
+];
+
 // Dated construction snapshot — the single source for the project-status and
 // construction-progress pages. UPDATE this as new inspections/press land.
 export const CONSTRUCTION = {

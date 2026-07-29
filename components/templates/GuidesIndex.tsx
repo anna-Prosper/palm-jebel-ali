@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { SiteHeader, SiteFooter } from "@/components/site/Chrome";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Eyebrow, Reveal } from "@/components/ui/kit";
+import { LeadCtaBand } from "@/components/site/LeadCtaBand";
 import { waHref } from "@/lib/whatsapp";
 import { GUIDES, GUIDE_SLUGS } from "@/lib/content/registry";
 import { IMG } from "@/lib/content/palm-facts";
@@ -59,6 +60,13 @@ export function GuidesIndex() {
           })}
         </div>
       </section>
+
+      <LeadCtaBand
+        heading="Still have questions?"
+        body="Our Palm Jebel Ali team can send the current release schedule, pricing and floor plans — and answer anything the guides didn't."
+        interest="General enquiry"
+        location="guides_index"
+      />
 
       <SiteFooter waLink={waLink} />
       <FloatingWhatsApp waLink={waLink} />

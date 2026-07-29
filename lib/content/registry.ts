@@ -5,9 +5,14 @@ import { communityPalmJebelAli } from "@/lib/content/communities/palm-jebel-ali"
 import { beachCollection } from "@/lib/content/residences/beach-collection";
 import { cobaltBeach } from "@/lib/content/residences/cobalt-beach";
 import { coralCollection } from "@/lib/content/residences/coral-collection";
+import { coralDune } from "@/lib/content/residences/coral-dune";
 import { cyanSky } from "@/lib/content/residences/cyan-sky";
 import { oceanWhisper } from "@/lib/content/residences/ocean-whisper";
 import { palmCentral } from "@/lib/content/residences/palm-central";
+import { porcelainRoses } from "@/lib/content/residences/porcelain-roses";
+import { redAurora } from "@/lib/content/residences/red-aurora";
+import { redwood } from "@/lib/content/residences/redwood";
+import { sunsetMirage } from "@/lib/content/residences/sunset-mirage";
 import { buyPalmJebelAli } from "@/lib/content/intent/buy-palm-jebel-ali";
 import { rentPalmJebelAli } from "@/lib/content/intent/rent-palm-jebel-ali";
 import { offplanPalmJebelAli } from "@/lib/content/intent/offplan-palm-jebel-ali";
@@ -53,9 +58,14 @@ export const RESIDENCES: Record<string, HubContent> = {
   "beach-collection": beachCollection,
   "cobalt-beach": cobaltBeach,
   "coral-collection": coralCollection,
+  "coral-dune": coralDune,
   "cyan-sky": cyanSky,
   "ocean-whisper": oceanWhisper,
   "palm-central": palmCentral,
+  "porcelain-roses": porcelainRoses,
+  "red-aurora": redAurora,
+  "redwood": redwood,
+  "sunset-mirage": sunsetMirage,
 };
 export const INTENT_BUY: Record<string, HubContent> = {
   "palm-jebel-ali": buyPalmJebelAli,

@@ -5,8 +5,9 @@ import { ChevronRight } from "lucide-react";
 import { SiteHeader, SiteFooter } from "@/components/site/Chrome";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Eyebrow, Reveal } from "@/components/ui/kit";
+import { LeadCtaBand } from "@/components/site/LeadCtaBand";
 import { waHref } from "@/lib/whatsapp";
-import { COLLECTIONS, BEACH_DESIGNS, IMG } from "@/lib/content/palm-facts";
+import { COLLECTIONS, BEACH_DESIGNS, CORAL_DESIGNS, IMG } from "@/lib/content/palm-facts";
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -83,6 +84,31 @@ export function ResidencesIndex() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[#F4EEE2] border-t border-[#0C2E35]/8 py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Eyebrow dark>Coral Collection designs</Eyebrow>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#0C2E35] leading-tight mb-8 max-w-2xl">The five outer-frond mansions</h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {CORAL_DESIGNS.map((d) => (
+              <a key={d.slug} href={`/residences/${d.slug}`} className="group rounded-xl bg-white border border-[#0C2E35]/8 p-6 hover:border-[#C9A26A]/50 transition-colors">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-[#A8814A] mb-1.5">{d.beds} · {d.sqft} sqft · G+2</p>
+                <p className="font-serif text-xl text-[#0C2E35] leading-snug flex items-center justify-between gap-2">
+                  {d.name}
+                  <ChevronRight className="h-4 w-4 text-[#C9A26A] flex-shrink-0 transition-transform group-hover:translate-x-1" />
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <LeadCtaBand
+        heading="Find your address on the island"
+        body="Tell us which collection you're drawn to and we'll send live availability, floor plans and current pricing."
+        interest="General enquiry"
+        location="residences_index"
+      />
 
       <SiteFooter waLink={waLink} />
       <FloatingWhatsApp waLink={waLink} />
