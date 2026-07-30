@@ -11,9 +11,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE, lastModified: now, changeFrequency: "weekly", priority: 1, alternates: { languages: homeLangs } },
     { url: `${SITE}/ar`, lastModified: now, changeFrequency: "weekly", priority: 0.9, alternates: { languages: homeLangs } },
     { url: `${SITE}/ru`, lastModified: now, changeFrequency: "weekly", priority: 0.9, alternates: { languages: homeLangs } },
-    { url: `${SITE}/residences`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE}/pulse/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
   ];
+
+  // Index pages that exist in all three locales.
+  for (const [path, priority] of [["residences", 0.8], ["pulse/guides", 0.7]] as const) {
+    const langs = { "x-default": `${SITE}/${path}`, en: `${SITE}/${path}`, ar: `${SITE}/ar/${path}`, ru: `${SITE}/ru/${path}` };
+    entries.push({ url: `${SITE}/${path}`, lastModified: now, changeFrequency: "weekly", priority, alternates: { languages: langs } });
+    entries.push({ url: `${SITE}/ar/${path}`, lastModified: now, changeFrequency: "weekly", priority: priority - 0.1, alternates: { languages: langs } });
+    entries.push({ url: `${SITE}/ru/${path}`, lastModified: now, changeFrequency: "weekly", priority: priority - 0.1, alternates: { languages: langs } });
+  }
 
   // Emit one <url> per locale for a slug group, each annotated with the full
   // hreflang cluster (x-default + every locale it exists in) so Google links

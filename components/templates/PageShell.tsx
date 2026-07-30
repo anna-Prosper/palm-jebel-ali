@@ -158,7 +158,7 @@ export function PageShell(props: PageShellProps) {
       </section>
 
       <SiteFooter waLink={waLink} locale={locale} />
-      <FloatingWhatsApp waLink={waLink} />
+      <FloatingWhatsApp waLink={waLink} locale={locale} />
       <LeadFormModal open={formOpen} onClose={closeForm} waLink={waLink} defaultInterest={formInterest} />
     </div>
   );

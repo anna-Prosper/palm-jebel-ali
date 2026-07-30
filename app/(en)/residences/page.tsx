@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ResidencesIndex } from "@/components/templates/ResidencesIndex";
-import { buildMetadata, safeJsonLd, SITE, urlFor } from "@/lib/seo";
+import { buildMetadata, safeJsonLd, SITE, urlFor, localizedAlternates } from "@/lib/seo";
 import { COLLECTIONS } from "@/lib/content/palm-facts";
 
 const META = {
@@ -12,7 +12,7 @@ const META = {
   ogImage: COLLECTIONS[0].image,
 };
 
-export const metadata: Metadata = buildMetadata(META);
+export const metadata: Metadata = { ...buildMetadata(META), alternates: localizedAlternates(META.slug, "en", ["en", "ar", "ru"]) };
 
 const SCHEMA = {
   "@context": "https://schema.org",
@@ -47,7 +47,7 @@ export default function ResidencesIndexPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(SCHEMA) }} />
-      <ResidencesIndex />
+      <ResidencesIndex availableLocales={["en", "ar", "ru"]} />
     </>
   );
 }

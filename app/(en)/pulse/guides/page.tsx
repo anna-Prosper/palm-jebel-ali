@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GuidesIndex } from "@/components/templates/GuidesIndex";
-import { buildMetadata, safeJsonLd, SITE, urlFor } from "@/lib/seo";
+import { buildMetadata, safeJsonLd, SITE, urlFor, localizedAlternates } from "@/lib/seo";
 import { GUIDES, GUIDE_SLUGS } from "@/lib/content/registry";
 
 const META = {
@@ -11,7 +11,7 @@ const META = {
   keywords: ["Palm Jebel Ali guides", "Palm Jebel Ali pricing", "Palm Jebel Ali payment plans", "Palm Jebel Ali villas", "Palm Jebel Ali investment"],
 };
 
-export const metadata: Metadata = buildMetadata(META);
+export const metadata: Metadata = { ...buildMetadata(META), alternates: localizedAlternates(META.slug, "en", ["en", "ar", "ru"]) };
 
 const SCHEMA = {
   "@context": "https://schema.org",
@@ -47,7 +47,7 @@ export default function GuidesIndexPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(SCHEMA) }} />
-      <GuidesIndex />
+      <GuidesIndex availableLocales={["en", "ar", "ru"]} />
     </>
   );
 }

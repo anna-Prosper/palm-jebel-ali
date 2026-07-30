@@ -7,6 +7,7 @@ import { LeadFormModal } from "@/components/LeadFormModal";
 import { useLeadForm } from "@/components/site/useLeadForm";
 import { waHref } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
+import { UI, type Locale } from "@/lib/i18n";
 
 const WA_MESSAGE = "Hi! I'd like the current release schedule and pricing for Palm Jebel Ali.";
 
@@ -17,15 +18,18 @@ export function LeadCtaBand({
   body,
   interest = "General enquiry",
   location,
+  locale = "en",
 }: {
   heading: string;
   body?: string;
   interest?: string;
   location: string;
+  locale?: Locale;
 }) {
   const { formOpen, formInterest, openForm, closeForm } = useLeadForm(interest);
   const [waLink, setWaLink] = useState(() => waHref(WA_MESSAGE));
   useEffect(() => setWaLink(waHref(WA_MESSAGE, window.location.href)), []);
+  const ui = UI[locale];
 
   return (
     <section className="relative overflow-hidden bg-[#06232E] py-20 sm:py-28">
@@ -34,9 +38,9 @@ export function LeadCtaBand({
         <h2 className="font-serif text-3xl sm:text-5xl text-white leading-tight mb-5">{heading}</h2>
         {body && <p className="text-white/75 text-base sm:text-lg leading-relaxed mb-9 max-w-xl mx-auto">{body}</p>}
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <GoldButton onClick={() => openForm(interest, `${location}_cta`)} size="lg">Register your interest</GoldButton>
+          <GoldButton onClick={() => openForm(interest, `${location}_cta`)} size="lg">{ui.registerInterest}</GoldButton>
           <GhostButton href={waLink} tone="light" size="lg" onClick={() => trackEvent("whatsapp_click", { location: `${location}_cta` })}>
-            <MessageCircle className="h-4 w-4" /> WhatsApp us
+            <MessageCircle className="h-4 w-4" /> {ui.whatsappUs}
           </GhostButton>
         </div>
       </div>
