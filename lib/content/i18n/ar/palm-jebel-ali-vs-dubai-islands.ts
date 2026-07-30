@@ -16,7 +16,7 @@ export const vsDubaiIslandsAr: GuideContent = {
       "الاستثمار في الواجهة البحرية بدبي",
       "أين تشتري في دبي",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsDubaiIslands,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const vsDubaiIslandsAr: GuideContent = {
     titleItalic: "Dubai Islands",
     subtitle:
       "واجهتان بحريتان من Nakheel على طرفي الساحل — إحداهما نخلة أيقونية في الجنوب، والأخرى مجموعة جزر قبالة ديرة في الشمال. هما أقرب إلى إجابتين مختلفتين لسؤالين مختلفين منهما إلى منافستين. إليك كيف تعرف أيّهما لك.",
-    image: IMG.heroAerial,
+    image: IMG.gVsDubaiIslands,
     imagePosition: "center 50%",
   },
 

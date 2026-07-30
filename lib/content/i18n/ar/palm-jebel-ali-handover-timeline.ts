@@ -16,7 +16,7 @@ export const handoverTimelineAr: GuideContent = {
       "متى تجهز Palm Jebel Ali",
       "تسليم Nakheel Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHandover,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const handoverTimelineAr: GuideContent = {
     titleItalic: "تُسلَّم على مراحل، لا دفعةً واحدة",
     subtitle:
       "جزيرة كاملة لا تكتمل في تاريخ واحد. إليك ما يُبنى الآن، ومتى تقريباً يُتوقّع أن تُسلَّم كل مجموعة، وكيف تتابع الجدول الزمني لوحدتك — بتحفّظٍ صادق، لأنه في بناءٍ بهذا الحجم تلك هي الطريقة المسؤولة الوحيدة للحديث عن التواريخ.",
-    image: IMG.heroAerial,
+    image: IMG.gHandover,
     imagePosition: "center 50%",
   },
 

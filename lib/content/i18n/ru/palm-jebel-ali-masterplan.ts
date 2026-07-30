@@ -16,7 +16,7 @@ export const masterplanRu: GuideContent = {
       "дизайн Palm Jebel Ali",
       "Nakheel Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gMasterplan,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const masterplanRu: GuideContent = {
     titleItalic: "остров, прочитанный сверху",
     subtitle:
       "Шестнадцать фронд, семь островов и полумесяц, что перекраивает южный берег Дубая. Прогулка по тому, как начерчен остров, — его геометрия, его районы и проектная мысль под песком.",
-    image: IMG.heroAerial,
+    image: IMG.gMasterplan,
     imagePosition: "center 50%",
   },
 

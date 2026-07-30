@@ -17,7 +17,7 @@ export const developer: GuideContent = {
       "Dubai master developer",
       "Nakheel off-plan",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gDeveloper,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -28,7 +28,7 @@ export const developer: GuideContent = {
     titleItalic: "the name behind the island",
     subtitle:
       "When you buy off-plan, you are buying the developer as much as the drawings. Here is who Nakheel is, what it has already delivered, and how honestly that record should shape your confidence in Palm Jebel Ali.",
-    image: IMG.heroAerial,
+    image: IMG.gDeveloper,
     imagePosition: "center 50%",
   },
 

@@ -16,7 +16,7 @@ export const vsPalmJumeirah: GuideContent = {
       "Dubai Palm islands compared",
       "Palm Jebel Ali price vs Palm Jumeirah",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsPalmJumeirah,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const vsPalmJumeirah: GuideContent = {
     titleItalic: "two islands, two very different bets",
     subtitle:
       "One is finished, famous and liquid. The other is twice the size and still being built. Choosing between them is really a choice about timing — here's how the two compare on the things that decide a purchase.",
-    image: IMG.heroAerial,
+    image: IMG.gVsPalmJumeirah,
     imagePosition: "center 50%",
   },
 

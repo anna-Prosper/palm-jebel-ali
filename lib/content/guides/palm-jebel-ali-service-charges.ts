@@ -16,7 +16,7 @@ export const serviceCharges: GuideContent = {
       "Mollak service charges",
       "cost of owning Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gServiceCharges,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const serviceCharges: GuideContent = {
     titleItalic: "and the real cost of owning here",
     subtitle:
       "The purchase price is only half the picture. Here's how running costs work on a Dubai island community — and an honest account of what is, and isn't, known yet for Palm Jebel Ali.",
-    image: IMG.heroAerial,
+    image: IMG.gServiceCharges,
     imagePosition: "center 55%",
   },
 

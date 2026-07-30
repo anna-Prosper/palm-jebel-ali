@@ -16,7 +16,7 @@ export const serviceChargesRu: GuideContent = {
       "сервисные сборы Mollak",
       "стоимость владения Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gServiceCharges,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const serviceChargesRu: GuideContent = {
     titleItalic: "и реальная стоимость владения здесь",
     subtitle:
       "Цена покупки — лишь половина картины. Вот как работают эксплуатационные расходы в островном сообществе Дубая — и честный отчёт о том, что известно, а что нет, о Palm Jebel Ali.",
-    image: IMG.heroAerial,
+    image: IMG.gServiceCharges,
     imagePosition: "center 55%",
   },
 

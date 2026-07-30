@@ -13,7 +13,7 @@ export const howToBuyOffPlanRu: GuideContent = {
       "покупка на стадии строительства в Дубае",
       "сборы DLD на Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHowToBuy,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const howToBuyOffPlanRu: GuideContent = {
     titleItalic: "на Palm Jebel Ali, от начала до конца",
     subtitle:
       "От выбора объекта до получения свидетельства о собственности покупка проходит по чёткой последовательности. Вот весь путь — каждый шаг, каждая подпись и каждый сбор — изложенный по порядку.",
-    image: IMG.heroAerial,
+    image: IMG.gHowToBuy,
     imagePosition: "center 50%",
   },
 

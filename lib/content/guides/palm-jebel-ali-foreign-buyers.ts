@@ -13,7 +13,7 @@ export const foreignBuyers: GuideContent = {
       "Palm Jebel Ali freehold",
       "Palm Jebel Ali golden visa",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gForeignBuyers,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const foreignBuyers: GuideContent = {
     titleItalic: "open to buyers of any nationality",
     subtitle:
       "One of the questions we hear most from overseas is the simplest: can I actually own here? The answer is yes — outright, freehold, in your own name. Here is what that means, and what buying from abroad looks like in practice.",
-    image: IMG.heroAerial,
+    image: IMG.gForeignBuyers,
     imagePosition: "center 50%",
   },
 

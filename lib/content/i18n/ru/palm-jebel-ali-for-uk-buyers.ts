@@ -12,7 +12,7 @@ export const forUkBuyersRu: GuideContent = {
       "купить недвижимость в Дубае из Великобритании",
       "британские покупатели Дубай",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gForUkBuyers,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const forUkBuyersRu: GuideContent = {
     titleItalic: "из Британии на первую линию моря",
     subtitle:
       "Британские покупатели незаметно стали одной из крупнейших групп иностранных инвесторов в Дубае. Вот как покупатель из Великобритании подходит к острову на стадии строительства — фрихолд, валютный аспект, дистанционная покупка и где здесь Золотая виза.",
-    image: IMG.heroAerial,
+    image: IMG.gForUkBuyers,
     imagePosition: "center 50%",
   },
 

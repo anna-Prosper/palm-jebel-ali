@@ -20,6 +20,26 @@ export const IMG = {
   bedroom: `${IMG_BASE}/bedroom-suite.png?v=2`,
   ctaBg: `${IMG_BASE}/cta-bg.png?v=2`,
   beachFoam: `${IMG_BASE}/beach-foam.jpg`,
+  // Per-guide hero/card images — unique AI-generated renders (Commons/base + nano-banana).
+  gDeveloper: `${IMG_BASE}/guide-developer.jpg`,
+  gForUkBuyers: `${IMG_BASE}/guide-for-uk-buyers.jpg`,
+  gForeignBuyers: `${IMG_BASE}/guide-foreign-buyers.jpg`,
+  gFronds: `${IMG_BASE}/guide-fronds.jpg`,
+  gGoldenVisa: `${IMG_BASE}/guide-golden-visa.jpg`,
+  gHandover: `${IMG_BASE}/guide-handover-timeline.jpg`,
+  gHistory: `${IMG_BASE}/guide-history.jpg`,
+  gHowToBuy: `${IMG_BASE}/guide-how-to-buy-off-plan.jpg`,
+  gInvestor: `${IMG_BASE}/guide-investor-guide.jpg`,
+  gMasterplan: `${IMG_BASE}/guide-masterplan.jpg`,
+  gMortgage: `${IMG_BASE}/guide-mortgage.jpg`,
+  gPaymentPlans: `${IMG_BASE}/guide-payment-plans.jpg`,
+  gRentalYield: `${IMG_BASE}/guide-rental-yield.jpg`,
+  gResale: `${IMG_BASE}/guide-resale.jpg`,
+  gServiceCharges: `${IMG_BASE}/guide-service-charges.jpg`,
+  gVsBluewaters: `${IMG_BASE}/guide-vs-bluewaters.jpg`,
+  gVsDubaiIslands: `${IMG_BASE}/guide-vs-dubai-islands.jpg`,
+  gVsEmaar: `${IMG_BASE}/guide-vs-emaar-beachfront.jpg`,
+  gVsPalmJumeirah: `${IMG_BASE}/guide-vs-palm-jumeirah.jpg`,
 } as const;
 
 export const FACTS = {

@@ -13,7 +13,7 @@ export const frondsAr: GuideContent = {
       "أيّ سعفة Palm Jebel Ali",
       "السعف المُطلَقة في Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gFronds,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const frondsAr: GuideContent = {
     titleItalic: "أيّها مُطلَق، وأيّها تشتري",
     subtitle:
       "ست عشرة سعفة، وسبع جزر، وهلال — لكن ليس كل حرفٍ في اللعبة، ولا موضعان يحملان القيمة ذاتها. قراءةٌ سعفةً سعفة لما يُبنى الآن وأين تقع العناوين فعلاً.",
-    image: IMG.heroAerial,
+    image: IMG.gFronds,
     imagePosition: "center 50%",
   },
 

@@ -12,7 +12,7 @@ export const vsBluewaters: GuideContent = {
       "Bluewaters Island",
       "Dubai island comparison",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsBluewaters,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsBluewaters: GuideContent = {
     titleItalic: "a private-beach island against a completed cityscape",
     subtitle:
       "Both are man-made islands off Dubai's coast — but they sell almost opposite things. One is a low-density villa island still being built; the other is a finished, high-rise entertainment destination you can move into today. Here's how they actually compare.",
-    image: IMG.heroAerial,
+    image: IMG.gVsBluewaters,
     imagePosition: "center 50%",
   },
 

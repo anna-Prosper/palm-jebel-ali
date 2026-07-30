@@ -16,7 +16,7 @@ export const paymentPlans: GuideContent = {
       "Dubai off-plan payment plan",
       "Oqood registration Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gPaymentPlans,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const paymentPlans: GuideContent = {
     titleItalic: "explained without the jargon",
     subtitle:
       "Off-plan buying is really a schedule, not a single cheque. Here's how the 80/20 plan is staged, what you pay when, and the fees that sit outside the headline price.",
-    image: IMG.heroAerial,
+    image: IMG.gPaymentPlans,
     imagePosition: "center 50%",
   },
 

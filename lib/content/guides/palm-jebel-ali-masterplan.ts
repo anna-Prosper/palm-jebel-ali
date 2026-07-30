@@ -16,7 +16,7 @@ export const masterplan: GuideContent = {
       "Palm Jebel Ali design",
       "Nakheel Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gMasterplan,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const masterplan: GuideContent = {
     titleItalic: "an island read from above",
     subtitle:
       "Sixteen fronds, seven islands and a crescent that reshapes Dubai's southern shore. A walk through how the island is drawn — its geometry, its districts, and the design thinking beneath the sand.",
-    image: IMG.heroAerial,
+    image: IMG.gMasterplan,
     imagePosition: "center 50%",
   },
 

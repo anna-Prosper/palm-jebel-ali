@@ -16,7 +16,7 @@ export const resale: GuideContent = {
       "Palm Jebel Ali NOC transfer",
       "buy Palm Jebel Ali at launch",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gResale,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const resale: GuideContent = {
     titleItalic: "and the secondary market",
     subtitle:
       "The island is still being built, so its resale market is young and thin. Here's what 'resale' really means for an off-plan address, how assignment works in Dubai, and when it pays to wait.",
-    image: IMG.heroAerial,
+    image: IMG.gResale,
     imagePosition: "center 50%",
   },
 

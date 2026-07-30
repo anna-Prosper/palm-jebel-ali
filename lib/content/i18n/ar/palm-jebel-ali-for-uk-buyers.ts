@@ -12,7 +12,7 @@ export const forUkBuyersAr: GuideContent = {
       "شراء عقار في دبي من بريطانيا",
       "المشترون البريطانيون في دبي",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gForUkBuyers,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const forUkBuyersAr: GuideContent = {
     titleItalic: "من بريطانيا إلى الواجهة البحرية",
     subtitle:
       "أصبح المشترون البريطانيون، بهدوء، إحدى أكبر مجموعات المستثمرين الأجانب في دبي. إليك كيف يتعامل المشتري المقيم في بريطانيا مع جزيرة تُباع على الخارطة — التملّك الحر، وزاوية العملة، والشراء عن بُعد، وأين تقع الإقامة الذهبية.",
-    image: IMG.heroAerial,
+    image: IMG.gForUkBuyers,
     imagePosition: "center 50%",
   },
 

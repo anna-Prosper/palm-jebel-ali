@@ -16,7 +16,7 @@ export const rentalYieldRu: GuideContent = {
       "доходность от аренды на стадии строительства в Дубае",
       "долгосрочная аренда Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gRentalYield,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const rentalYieldRu: GuideContent = {
     titleItalic: "пока нет доходности, которую можно назвать",
     subtitle:
       "Ничего не сдано, поэтому нет живого рынка аренды и нет честной цифры доходности, которую можно напечатать. Что мы можем — это изложить силы, которые сформируют доход, когда остров будет завершён, и быть прямыми насчёт сроков.",
-    image: IMG.heroAerial,
+    image: IMG.gRentalYield,
     imagePosition: "center 50%",
   },
 

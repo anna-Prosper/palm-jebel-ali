@@ -12,7 +12,7 @@ export const vsBluewatersRu: GuideContent = {
       "Bluewaters Island",
       "сравнение островов Дубая",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsBluewaters,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsBluewatersRu: GuideContent = {
     titleItalic: "остров с частным пляжем против готового городского пейзажа",
     subtitle:
       "Оба — искусственные острова у побережья Дубая, но продают они почти противоположные вещи. Один — малоэтажный вилловый остров, который ещё строится; другой — готовое высотное развлекательное направление, куда можно въехать уже сегодня. Вот как они сравниваются на самом деле.",
-    image: IMG.heroAerial,
+    image: IMG.gVsBluewaters,
     imagePosition: "center 50%",
   },
 

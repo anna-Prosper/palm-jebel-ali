@@ -12,7 +12,7 @@ export const vsBluewatersAr: GuideContent = {
       "جزيرة Bluewaters",
       "مقارنة جزر دبي",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsBluewaters,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsBluewatersAr: GuideContent = {
     titleItalic: "جزيرة بشاطئ خاص في مواجهة مشهد مدينيّ مكتمل",
     subtitle:
       "كلتاهما جزيرة اصطناعية قبالة ساحل دبي — لكنّهما تبيعان شيئين شبه متعاكسين. إحداهما جزيرة فلل منخفضة الكثافة لا تزال قيد البناء؛ والأخرى وجهة ترفيهية مكتملة من الأبراج الشاهقة يمكنك السكن فيها اليوم. إليك كيف تُقارنان فعلاً.",
-    image: IMG.heroAerial,
+    image: IMG.gVsBluewaters,
     imagePosition: "center 50%",
   },
 

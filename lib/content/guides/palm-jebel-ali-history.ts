@@ -16,7 +16,7 @@ export const history: GuideContent = {
       "Nakheel Palm Jebel Ali",
       "second palm island Dubai",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHistory,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const history: GuideContent = {
     titleItalic: "Dubai's most patient landmark",
     subtitle:
       "Announced in the early 2000s, paused after the global crisis, and redrawn for its 2023 relaunch — this is the long arc behind the second, larger palm, and why the wait is part of what makes it worth watching.",
-    image: IMG.heroAerial,
+    image: IMG.gHistory,
     imagePosition: "center 50%",
   },
 

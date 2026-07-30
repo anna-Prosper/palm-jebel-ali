@@ -16,7 +16,7 @@ export const mortgageAr: GuideContent = {
       "كيف تموّل شراءً على الخارطة في دبي",
       "الدفعة الأولى في Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gMortgage,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const mortgageAr: GuideContent = {
     titleItalic: "النقد والرهن والخطة بينهما",
     subtitle:
       "يُموَّل معظم الشراء على الخارطة هنا على مراحل، قبل أن يدخل الرهن العقاري الصورة بوقت طويل. إليك كيف يدفع المشترون ثمنه فعلاً — ومتى يكون الاقتراض منطقياً، ومتى لا يكون.",
-    image: IMG.heroAerial,
+    image: IMG.gMortgage,
     imagePosition: "center 50%",
   },
 

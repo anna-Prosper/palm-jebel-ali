@@ -16,7 +16,7 @@ export const resaleRu: GuideContent = {
       "передача NOC Palm Jebel Ali",
       "купить Palm Jebel Ali на старте",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gResale,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const resaleRu: GuideContent = {
     titleItalic: "и вторичный рынок",
     subtitle:
       "Остров всё ещё строится, поэтому его рынок перепродажи молод и тонок. Вот что «перепродажа» на самом деле означает для адреса на стадии строительства, как работает уступка в Дубае и когда выгодно подождать.",
-    image: IMG.heroAerial,
+    image: IMG.gResale,
     imagePosition: "center 50%",
   },
 

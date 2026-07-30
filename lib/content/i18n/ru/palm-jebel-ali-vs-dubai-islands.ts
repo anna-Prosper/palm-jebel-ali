@@ -16,7 +16,7 @@ export const vsDubaiIslandsRu: GuideContent = {
       "инвестиции в набережную Дубая",
       "где купить недвижимость в Дубае",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsDubaiIslands,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const vsDubaiIslandsRu: GuideContent = {
     titleItalic: "Dubai Islands",
     subtitle:
       "Две набережные Nakheel на противоположных концах побережья — одна знаковая пальма на юге, другая кластер островов у Дейры на севере. Это скорее не соперники, а разные ответы на разные вопросы. Вот как понять, какой из них ваш.",
-    image: IMG.heroAerial,
+    image: IMG.gVsDubaiIslands,
     imagePosition: "center 50%",
   },
 

@@ -16,7 +16,7 @@ export const investorGuide: GuideContent = {
       "Palm Jebel Ali vs Palm Jumeirah",
       "Dubai off-plan investment",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gInvestor,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const investorGuide: GuideContent = {
     titleItalic: "the investment case, honestly",
     subtitle:
       "An early-stage, off-plan landmark asks for judgement, not just a spreadsheet. Here's the growth thesis, the pricing, and the risks worth weighing before you commit.",
-    image: IMG.heroAerial,
+    image: IMG.gInvestor,
     imagePosition: "center 50%",
   },
 

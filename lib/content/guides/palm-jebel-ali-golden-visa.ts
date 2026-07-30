@@ -16,7 +16,7 @@ export const goldenVisa: GuideContent = {
       "10 year UAE residence visa",
       "Palm Jebel Ali residency",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gGoldenVisa,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const goldenVisa: GuideContent = {
     titleItalic: "and a decade of residency",
     subtitle:
       "For many buyers, the villa and the visa arrive together. Here's how a home on Palm Jebel Ali can put you over the property threshold for the UAE's 10-year Golden Visa — and what the route actually looks like.",
-    image: IMG.heroAerial,
+    image: IMG.gGoldenVisa,
     imagePosition: "center 50%",
   },
 

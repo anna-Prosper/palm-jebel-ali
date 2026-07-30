@@ -16,7 +16,7 @@ export const historyRu: GuideContent = {
       "Nakheel Palm Jebel Ali",
       "второй остров-пальма в Дубае",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHistory,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const historyRu: GuideContent = {
     titleItalic: "самая терпеливая достопримечательность Дубая",
     subtitle:
       "Объявлен в начале 2000-х, приостановлен после мирового кризиса и перечерчен к перезапуску 2023 года — это долгая дуга второй, более крупной пальмы и того, почему ожидание — часть того, что делает её достойной внимания.",
-    image: IMG.heroAerial,
+    image: IMG.gHistory,
     imagePosition: "center 50%",
   },
 

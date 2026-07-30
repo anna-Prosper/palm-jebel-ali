@@ -16,7 +16,7 @@ export const mortgage: GuideContent = {
       "how to finance off-plan Dubai",
       "Palm Jebel Ali down payment",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gMortgage,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const mortgage: GuideContent = {
     titleItalic: "cash, mortgage, and the plan in between",
     subtitle:
       "Most of an off-plan purchase here is funded in stages, long before a mortgage ever enters the picture. Here's how buyers actually pay for it — and when borrowing does, and doesn't, make sense.",
-    image: IMG.heroAerial,
+    image: IMG.gMortgage,
     imagePosition: "center 50%",
   },
 

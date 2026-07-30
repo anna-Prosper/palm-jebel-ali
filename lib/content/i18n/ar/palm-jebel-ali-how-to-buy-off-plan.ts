@@ -13,7 +13,7 @@ export const howToBuyOffPlanAr: GuideContent = {
       "الشراء على الخارطة في دبي",
       "رسوم DLD في Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHowToBuy,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const howToBuyOffPlanAr: GuideContent = {
     titleItalic: "في Palm Jebel Ali، من البداية إلى النهاية",
     subtitle:
       "من اختيار الوحدة إلى امتلاك سند الملكية، يسير الشراء وفق تسلسل محدَّد. إليك المسار كاملاً — كل خطوة، وكل توقيع، وكل رسم — مرتَّباً بالترتيب.",
-    image: IMG.heroAerial,
+    image: IMG.gHowToBuy,
     imagePosition: "center 50%",
   },
 

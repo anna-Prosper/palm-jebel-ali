@@ -17,7 +17,7 @@ export const developerAr: GuideContent = {
       "المطوّر الرئيسي في دبي",
       "Nakheel على الخارطة",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gDeveloper,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -28,7 +28,7 @@ export const developerAr: GuideContent = {
     titleItalic: "الاسم وراء الجزيرة",
     subtitle:
       "حين تشتري على الخارطة، فأنت تشتري المطوّر بقدر ما تشتري المخططات. إليك من هي Nakheel، وما الذي سلّمته فعلاً، وكيف ينبغي لهذا السجل أن يشكّل ثقتك في Palm Jebel Ali بكل صراحة.",
-    image: IMG.heroAerial,
+    image: IMG.gDeveloper,
     imagePosition: "center 50%",
   },
 

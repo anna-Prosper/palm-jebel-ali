@@ -16,7 +16,7 @@ export const rentalYield: GuideContent = {
       "Dubai off-plan rental yield",
       "Palm Jebel Ali long term rental",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gRentalYield,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const rentalYield: GuideContent = {
     titleItalic: "before there's a yield to quote",
     subtitle:
       "Nothing has handed over, so there is no live rental market and no honest yield figure to print. What we can do is set out the forces that will shape income once the island completes — and be straight about the timeline.",
-    image: IMG.heroAerial,
+    image: IMG.gRentalYield,
     imagePosition: "center 50%",
   },
 

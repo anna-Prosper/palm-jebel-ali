@@ -16,7 +16,7 @@ export const vsDubaiIslands: GuideContent = {
       "Dubai waterfront investment",
       "where to buy in Dubai",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsDubaiIslands,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const vsDubaiIslands: GuideContent = {
     titleItalic: "Dubai Islands",
     subtitle:
       "Two Nakheel waterfronts at opposite ends of the coastline — one an iconic palm in the south, one a cluster of islands off Deira in the north. They are less rivals than different answers to different questions. Here's how to tell which one is yours.",
-    image: IMG.heroAerial,
+    image: IMG.gVsDubaiIslands,
     imagePosition: "center 50%",
   },
 

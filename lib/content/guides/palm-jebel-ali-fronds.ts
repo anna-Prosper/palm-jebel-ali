@@ -13,7 +13,7 @@ export const fronds: GuideContent = {
       "which frond Palm Jebel Ali",
       "Palm Jebel Ali released fronds",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gFronds,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const fronds: GuideContent = {
     titleItalic: "which are released, and which to buy",
     subtitle:
       "Sixteen fronds, seven islands and a crescent — but not every letter is in play, and no two positions carry the same value. A frond-by-frond read of what's building now and where the addresses actually sit.",
-    image: IMG.heroAerial,
+    image: IMG.gFronds,
     imagePosition: "center 50%",
   },
 

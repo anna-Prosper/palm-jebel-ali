@@ -16,7 +16,7 @@ export const rentalYieldAr: GuideContent = {
       "العائد الإيجاري على الخارطة في دبي",
       "الإيجار طويل الأجل في Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gRentalYield,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const rentalYieldAr: GuideContent = {
     titleItalic: "قبل أن يوجد عائد يُذكَر",
     subtitle:
       "لم يُسلَّم شيء، فلا سوق إيجاري حيّ ولا رقم عائد صادق يُطبَع. ما يمكننا فعله هو عرض القوى التي ستصوغ الدخل حالما تكتمل الجزيرة — وأن نكون صريحين بشأن الجدول الزمني.",
-    image: IMG.heroAerial,
+    image: IMG.gRentalYield,
     imagePosition: "center 50%",
   },
 

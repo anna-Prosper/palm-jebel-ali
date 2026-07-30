@@ -17,7 +17,7 @@ export const developerRu: GuideContent = {
       "мастер-девелопер Дубая",
       "Nakheel на стадии строительства",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gDeveloper,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -28,7 +28,7 @@ export const developerRu: GuideContent = {
     titleItalic: "имя, стоящее за островом",
     subtitle:
       "Покупая на стадии строительства, вы покупаете застройщика не в меньшей мере, чем чертежи. Вот кто такой Nakheel, что он уже сдал и насколько честно этот послужной список должен определять вашу уверенность в Palm Jebel Ali.",
-    image: IMG.heroAerial,
+    image: IMG.gDeveloper,
     imagePosition: "center 50%",
   },
 

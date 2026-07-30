@@ -16,7 +16,7 @@ export const resaleAr: GuideContent = {
       "نقل شهادة عدم الممانعة في Palm Jebel Ali",
       "الشراء في Palm Jebel Ali عند الإطلاق",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gResale,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const resaleAr: GuideContent = {
     titleItalic: "والسوق الثانوي",
     subtitle:
       "لا تزال الجزيرة قيد البناء، فسوق إعادة بيعها فتيّ وضعيف. إليك ما تعنيه «إعادة البيع» فعلاً لعنوان على الخارطة، وكيف تعمل الإحالة في دبي، ومتى يجدي الانتظار.",
-    image: IMG.heroAerial,
+    image: IMG.gResale,
     imagePosition: "center 50%",
   },
 

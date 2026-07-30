@@ -16,7 +16,7 @@ export const vsEmaarBeachfront: GuideContent = {
       "beachfront villa vs beachfront apartment Dubai",
       "Emaar Beachfront investment",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsEmaar,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const vsEmaarBeachfront: GuideContent = {
     titleItalic: "an island of villas or a district of towers",
     subtitle:
       "Both put you on the water in Dubai, but they are almost opposite propositions — a private beachfront villa on a launch-phase island, or a ready high-rise apartment in an established harbour district. Here's how the two compare on the things that decide a purchase.",
-    image: IMG.heroAerial,
+    image: IMG.gVsEmaar,
     imagePosition: "center 50%",
   },
 

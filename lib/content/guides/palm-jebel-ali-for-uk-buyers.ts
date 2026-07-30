@@ -12,7 +12,7 @@ export const forUkBuyers: GuideContent = {
       "buy Dubai property from UK",
       "British buyers Dubai",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gForUkBuyers,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const forUkBuyers: GuideContent = {
     titleItalic: "from Britain to the beachfront",
     subtitle:
       "British buyers have quietly become one of Dubai's largest foreign investor groups. Here's how a UK-based buyer approaches an off-plan island — freehold ownership, the currency angle, buying remotely, and where the Golden Visa fits.",
-    image: IMG.heroAerial,
+    image: IMG.gForUkBuyers,
     imagePosition: "center 50%",
   },
 

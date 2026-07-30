@@ -16,7 +16,7 @@ export const masterplanAr: GuideContent = {
       "تصميم Palm Jebel Ali",
       "Nakheel Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gMasterplan,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const masterplanAr: GuideContent = {
     titleItalic: "جزيرةٌ تُقرأ من الأعلى",
     subtitle:
       "ست عشرة سعفة، وسبع جزر، وهلالٌ يعيد تشكيل الساحل الجنوبي لدبي. جولةٌ في كيفية رسم الجزيرة — هندستها، وأحياؤها، والفكر التصميمي تحت الرمال.",
-    image: IMG.heroAerial,
+    image: IMG.gMasterplan,
     imagePosition: "center 50%",
   },
 

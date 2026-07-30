@@ -16,7 +16,7 @@ export const vsEmaarBeachfrontAr: GuideContent = {
       "فيلا واجهة بحرية مقابل شقة واجهة بحرية في دبي",
       "الاستثمار في Emaar Beachfront",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsEmaar,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const vsEmaarBeachfrontAr: GuideContent = {
     titleItalic: "جزيرة فلل أم حيّ أبراج",
     subtitle:
       "كلاهما يضعك على الماء في دبي، لكنهما طرحان يكادان يكونان متعاكسين — فيلا واجهة بحرية خاصة على جزيرة في مرحلة الإطلاق، أو شقة جاهزة في برجٍ ضمن حيّ مرفئي راسخ. إليك كيف يُقارَن الاثنان في الأمور التي تحسم قرار الشراء.",
-    image: IMG.heroAerial,
+    image: IMG.gVsEmaar,
     imagePosition: "center 50%",
   },
 

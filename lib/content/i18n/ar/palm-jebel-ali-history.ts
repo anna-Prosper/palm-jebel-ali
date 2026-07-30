@@ -16,7 +16,7 @@ export const historyAr: GuideContent = {
       "Nakheel Palm Jebel Ali",
       "الجزيرة النخلة الثانية في دبي",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHistory,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const historyAr: GuideContent = {
     titleItalic: "أكثر معالم دبي صبراً",
     subtitle:
       "أُعلنت في مطلع الألفية، وتوقّفت بعد الأزمة العالمية، وأُعيد رسمها لإطلاقها عام 2023 — هذا هو القوس الطويل خلف النخلة الثانية الأكبر، ولماذا يُعدّ الانتظار جزءاً مما يجعلها جديرة بالمتابعة.",
-    image: IMG.heroAerial,
+    image: IMG.gHistory,
     imagePosition: "center 50%",
   },
 

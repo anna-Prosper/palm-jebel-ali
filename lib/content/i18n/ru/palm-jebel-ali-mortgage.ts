@@ -16,7 +16,7 @@ export const mortgageRu: GuideContent = {
       "как профинансировать покупку на стадии строительства в Дубае",
       "первоначальный взнос Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gMortgage,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const mortgageRu: GuideContent = {
     titleItalic: "наличные, ипотека и план между ними",
     subtitle:
       "Бо́льшая часть покупки на стадии строительства здесь финансируется поэтапно, задолго до того, как в картину вообще войдёт ипотека. Вот как покупатели на самом деле за это платят — и когда заём имеет смысл, а когда нет.",
-    image: IMG.heroAerial,
+    image: IMG.gMortgage,
     imagePosition: "center 50%",
   },
 

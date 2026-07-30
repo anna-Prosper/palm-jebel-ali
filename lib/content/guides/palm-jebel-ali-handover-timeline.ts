@@ -16,7 +16,7 @@ export const handoverTimeline: GuideContent = {
       "when is Palm Jebel Ali ready",
       "Nakheel Palm Jebel Ali delivery",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHandover,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const handoverTimeline: GuideContent = {
     titleItalic: "delivered in phases, not all at once",
     subtitle:
       "A whole island doesn't finish on a single date. Here's what's being built now, roughly when each collection is expected to hand over, and how to track the timeline on your own unit — hedged honestly, because on a build this size that's the only responsible way to talk about dates.",
-    image: IMG.heroAerial,
+    image: IMG.gHandover,
     imagePosition: "center 50%",
   },
 

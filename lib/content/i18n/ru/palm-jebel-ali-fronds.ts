@@ -13,7 +13,7 @@ export const frondsRu: GuideContent = {
       "какая фронда Palm Jebel Ali",
       "фронды Palm Jebel Ali в продаже",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gFronds,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const frondsRu: GuideContent = {
     titleItalic: "какие в продаже и какие покупать",
     subtitle:
       "Шестнадцать фронд, семь островов и полумесяц — но не каждая буква в игре, и никакие две позиции не несут одинаковую ценность. Прочтение фронда за фрондой того, что строится сейчас и где на самом деле расположены адреса.",
-    image: IMG.heroAerial,
+    image: IMG.gFronds,
     imagePosition: "center 50%",
   },
 

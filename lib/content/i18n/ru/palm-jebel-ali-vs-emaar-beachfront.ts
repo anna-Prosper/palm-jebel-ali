@@ -16,7 +16,7 @@ export const vsEmaarBeachfrontRu: GuideContent = {
       "вилла на первой линии моря против апартаментов на первой линии моря в Дубае",
       "инвестиции в Emaar Beachfront",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gVsEmaar,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const vsEmaarBeachfrontRu: GuideContent = {
     titleItalic: "остров вилл или район башен",
     subtitle:
       "Оба размещают вас у воды в Дубае, но это почти противоположные предложения — частная вилла на первой линии моря на острове стартовой фазы или готовые апартаменты в высотке в устоявшемся портовом районе. Вот как эти два варианта сравниваются по тому, что решает покупку.",
-    image: IMG.heroAerial,
+    image: IMG.gVsEmaar,
     imagePosition: "center 50%",
   },
 

@@ -16,7 +16,7 @@ export const serviceChargesAr: GuideContent = {
       "رسوم الخدمة Mollak",
       "تكلفة تملّك Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gServiceCharges,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const serviceChargesAr: GuideContent = {
     titleItalic: "والتكلفة الحقيقية للتملّك هنا",
     subtitle:
       "سعر الشراء نصف الصورة فقط. إليك كيف تعمل تكاليف التشغيل في مجتمع جزيرة في دبي — وحساب صادق لما هو معروف، وما ليس معروفاً بعد، عن Palm Jebel Ali.",
-    image: IMG.heroAerial,
+    image: IMG.gServiceCharges,
     imagePosition: "center 55%",
   },
 

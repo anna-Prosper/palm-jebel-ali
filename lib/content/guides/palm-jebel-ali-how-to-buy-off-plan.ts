@@ -13,7 +13,7 @@ export const howToBuyOffPlan: GuideContent = {
       "buying off-plan Dubai",
       "Palm Jebel Ali DLD fees",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHowToBuy,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const howToBuyOffPlan: GuideContent = {
     titleItalic: "at Palm Jebel Ali, start to finish",
     subtitle:
       "From choosing a unit to holding the title deed, the purchase runs on a defined sequence. Here is the whole path — every step, every signature, and every fee — laid out in order.",
-    image: IMG.heroAerial,
+    image: IMG.gHowToBuy,
     imagePosition: "center 50%",
   },
 

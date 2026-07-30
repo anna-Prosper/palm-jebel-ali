@@ -16,7 +16,7 @@ export const handoverTimelineRu: GuideContent = {
       "когда готов Palm Jebel Ali",
       "сдача Nakheel Palm Jebel Ali",
     ],
-    ogImage: IMG.heroAerial,
+    ogImage: IMG.gHandover,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const handoverTimelineRu: GuideContent = {
     titleItalic: "сдаётся поэтапно, а не весь сразу",
     subtitle:
       "Целый остров не завершается в одну дату. Вот что строится сейчас, примерно когда ожидается передача каждой коллекции и как отслеживать сроки по вашему собственному объекту — честно с оговорками, потому что при стройке такого масштаба это единственный ответственный способ говорить о датах.",
-    image: IMG.heroAerial,
+    image: IMG.gHandover,
     imagePosition: "center 50%",
   },
 
