@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Anchor, Waves, UtensilsCrossed, ShoppingBag, HeartPulse, Trees, Building2, GraduationCap, Phone, MessageCircle, Leaf, Sun, Bike, Fish, Menu, X, ChevronRight } from "lucide-react";
+import { Anchor, Waves, UtensilsCrossed, ShoppingBag, HeartPulse, Trees, Building2, GraduationCap, Phone, MessageCircle, Leaf, Sun, Bike, Fish, ChevronRight } from "lucide-react";
 import { GalleryModal } from "@/components/GalleryModal";
 import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
 import { LeadFormModal } from "@/components/LeadFormModal";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { SiteHeader } from "@/components/site/Chrome";
 import { waHref } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
 
@@ -370,110 +371,12 @@ function FrondComparison() {
 
 // ── header / footer ─────────────────────────────────────────────────────────
 
-const NAV_LINKS = [
-  { href: "#residences", label: "Residences" },
-  { href: "#amenities", label: "Amenities" },
-  { href: "#location", label: "Location" },
-  { href: "/off-plan-in/palm-jebel-ali", label: "Off-plan" },
-  { href: "/pulse/guides", label: "Guides" },
-  { href: "/communities/palm-jebel-ali", label: "Community" },
-];
-
 function scrollToAnchor(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
   const target = document.querySelector(href);
   if (!target) return;
   e.preventDefault();
   const top = target.getBoundingClientRect().top + window.scrollY - 88;
   window.scrollTo({ top, behavior: "smooth" });
-}
-
-function SiteHeader({ waLink }: { waLink: string }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => {
-    let raf = 0;
-    const update = () => { raf = 0; setScrolled(window.scrollY > 60); };
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const solid = scrolled || menuOpen;
-  // On-page anchors scroll smoothly; cluster links (/...) navigate normally.
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#")) scrollToAnchor(e, href);
-    setMenuOpen(false);
-  };
-
-  return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${solid ? "bg-[#F4EEE2]/95 backdrop-blur-md border-b border-[#0C2E35]/10 py-3" : "py-5"}`}>
-      {/* Top scrim so the transparent-header links stay legible over a bright sky. */}
-      {!solid && (
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-28" style={{ background: "linear-gradient(180deg, rgba(5,24,32,0.55), transparent)" }} />
-      )}
-      <div className="relative max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between">
-        <a
-          href="#top"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="flex items-baseline gap-2"
-        >
-          <span className={`font-serif text-lg sm:text-xl leading-none transition-colors ${solid ? "text-[#0C2E35]" : "text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]"}`}>Palm Jebel Ali</span>
-        </a>
-        <nav className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => handleClick(e, l.href)}
-              className={`text-[11px] uppercase tracking-[0.15em] transition-colors ${scrolled ? "text-[#0C2E35]/70 hover:text-[#0C2E35]" : "text-white/90 hover:text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]"}`}
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2">
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackEvent("whatsapp_click", { location: "header" })}
-            className="group relative overflow-hidden inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.12em] text-[#06232E]"
-            style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}
-          >
-            <MessageCircle className="h-3.5 w-3.5" /> Enquire
-            <Shine />
-          </a>
-          <button
-            type="button"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((v) => !v)}
-            className={`lg:hidden inline-flex items-center justify-center h-9 w-9 rounded-full transition-colors ${solid ? "text-[#0C2E35] hover:bg-[#0C2E35]/5" : "text-white"}`}
-          >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      {menuOpen && (
-        <nav className="lg:hidden mt-3 border-t border-[#0C2E35]/10">
-          <div className="max-w-6xl mx-auto px-5 sm:px-8 py-3 flex flex-col">
-            {NAV_LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={(e) => handleClick(e, l.href)}
-                className="py-3 text-sm uppercase tracking-[0.14em] text-[#0C2E35]/80 hover:text-[#A8814A] border-b border-[#0C2E35]/5 last:border-0 transition-colors"
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </nav>
-      )}
-    </header>
-  );
 }
 
 const FOOTER_RESIDENCES = [
