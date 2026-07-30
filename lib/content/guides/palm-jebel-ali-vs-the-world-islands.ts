@@ -12,7 +12,7 @@ export const vsWorldIslands: GuideContent = {
       "The World Islands Dubai",
       "Nakheel islands",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gVsWorldIslands,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsWorldIslands: GuideContent = {
     titleItalic: "two Nakheel ideas, two very different lives",
     subtitle:
       "Both were reclaimed from the same Gulf by the same developer. One connects to the mainland by road and is being built in phases; the other is an offshore archipelago reached by boat. Here is how they differ on the things that decide a purchase.",
-    image: IMG.galleryAerial,
+    image: IMG.gVsWorldIslands,
     imagePosition: "center 50%",
   },
 

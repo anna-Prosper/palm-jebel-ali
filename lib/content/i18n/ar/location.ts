@@ -16,7 +16,7 @@ export const locationAr: GuideContent = {
       "Palm Jebel Ali وشارع الشيخ زايد",
       "المسافة بين Palm Jebel Ali ودبي مارينا",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gLocation,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const locationAr: GuideContent = {
     titleItalic: "وكيف تصل إليها فعلاً؟",
     subtitle:
       "إجابة صريحة على أول سؤال يطرحه كل مشترٍ — أين تقع الجزيرة، وما الطرق التي تصل إليها، ولماذا تقول عبارة «أقصى الجنوب» عن دبي الأمس أكثر مما تقول عن دبي الغد.",
-    image: IMG.oceanAerial,
+    image: IMG.gLocation,
     imagePosition: "center 55%",
   },
 

@@ -40,6 +40,16 @@ export const IMG = {
   gVsDubaiIslands: `${IMG_BASE}/guide-vs-dubai-islands.jpg`,
   gVsEmaar: `${IMG_BASE}/guide-vs-emaar-beachfront.jpg`,
   gVsPalmJumeirah: `${IMG_BASE}/guide-vs-palm-jumeirah.jpg`,
+  gPrices: `${IMG_BASE}/guide-prices.jpg`,
+  gVsDistrictOne: `${IMG_BASE}/guide-vs-district-one.jpg`,
+  gDining: `${IMG_BASE}/guide-dining.jpg`,
+  gProjectStatus: `${IMG_BASE}/guide-project-status.jpg`,
+  gVsWorldIslands: `${IMG_BASE}/guide-vs-the-world-islands.jpg`,
+  gConstruction: `${IMG_BASE}/guide-construction-progress.jpg`,
+  gLocation: `${IMG_BASE}/guide-location.jpg`,
+  gMarinas: `${IMG_BASE}/guide-marinas.jpg`,
+  gFloorPlans: `${IMG_BASE}/guide-floor-plans.jpg`,
+  gSchools: `${IMG_BASE}/guide-schools.jpg`,
 } as const;
 
 export const FACTS = {

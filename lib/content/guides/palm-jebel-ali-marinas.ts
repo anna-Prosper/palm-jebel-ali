@@ -16,7 +16,7 @@ export const marinas: GuideContent = {
       "Palm Jebel Ali boat access",
       "Nakheel marina Dubai",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gMarinas,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const marinas: GuideContent = {
     titleItalic: "an island built for the water",
     subtitle:
       "Palm Jebel Ali was drawn around the sea, not set back from it. Here's how the marinas, the berthing and the waterfront work — and what a life lived off your own dock actually feels like.",
-    image: IMG.oceanAerial,
+    image: IMG.gMarinas,
     imagePosition: "center 55%",
   },
 

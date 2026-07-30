@@ -24,7 +24,7 @@ export function localePath(locale: Locale, path: string): string {
 }
 
 export interface UIStrings {
-  nav: { home: string; residences: string; offplan: string; community: string; guides: string };
+  nav: { home: string; residences: string; offplan: string; community: string; guides: string; buy: string };
   enquire: string;
   registerInterest: string;
   talkToTeam: string;
@@ -41,7 +41,7 @@ export interface UIStrings {
 
 export const UI: Record<Locale, UIStrings> = {
   en: {
-    nav: { home: "Home", residences: "Residences", offplan: "Off-plan", community: "Community", guides: "Guides" },
+    nav: { home: "Home", residences: "Residences", offplan: "Off-plan", community: "Community", guides: "Guides", buy: "Buy" },
     enquire: "Enquire",
     registerInterest: "Register your interest",
     talkToTeam: "Talk to our team",
@@ -62,7 +62,7 @@ export const UI: Record<Locale, UIStrings> = {
     },
   },
   ar: {
-    nav: { home: "الرئيسية", residences: "المساكن", offplan: "على الخارطة", community: "المجتمع", guides: "الأدلة" },
+    nav: { home: "الرئيسية", residences: "المساكن", offplan: "على الخارطة", community: "المجتمع", guides: "الأدلة", buy: "شراء" },
     enquire: "استفسر",
     registerInterest: "سجّل اهتمامك",
     talkToTeam: "تحدث مع فريقنا",
@@ -83,7 +83,7 @@ export const UI: Record<Locale, UIStrings> = {
     },
   },
   ru: {
-    nav: { home: "Главная", residences: "Резиденции", offplan: "Офф-план", community: "Сообщество", guides: "Гиды" },
+    nav: { home: "Главная", residences: "Резиденции", offplan: "Офф-план", community: "Сообщество", guides: "Гиды", buy: "Купить" },
     enquire: "Запрос",
     registerInterest: "Оставить заявку",
     talkToTeam: "Связаться с командой",

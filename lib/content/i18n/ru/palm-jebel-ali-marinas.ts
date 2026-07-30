@@ -16,7 +16,7 @@ export const marinasRu: GuideContent = {
       "доступ к воде на Palm Jebel Ali",
       "марина Nakheel в Дубае",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gMarinas,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const marinasRu: GuideContent = {
     titleItalic: "остров, созданный для воды",
     subtitle:
       "Palm Jebel Ali начертан вокруг моря, а не отодвинут от него. Вот как устроены марины, причалы и набережная — и каково это на самом деле, жить с собственным причалом у порога.",
-    image: IMG.oceanAerial,
+    image: IMG.gMarinas,
     imagePosition: "center 55%",
   },
 

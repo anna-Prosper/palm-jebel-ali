@@ -14,7 +14,7 @@ export const projectStatus: GuideContent = {
       "Palm Jebel Ali 2026",
       "Palm Jebel Ali update",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gProjectStatus,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -25,7 +25,7 @@ export const projectStatus: GuideContent = {
     titleItalic: "abandoned, sinking, or on track?",
     subtitle:
       "The doubt is fair — the original island stalled for years after the 2008-09 crisis. Here is the honest 2026 picture: relaunched, under active construction, with the first villa handovers now underway.",
-    image: IMG.galleryAerial,
+    image: IMG.gProjectStatus,
     imagePosition: "center 50%",
   },
 

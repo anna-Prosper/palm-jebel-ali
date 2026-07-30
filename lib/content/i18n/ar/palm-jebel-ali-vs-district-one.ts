@@ -12,7 +12,7 @@ export const vsDistrictOneAr: GuideContent = {
       "District One MBR City",
       "مقارنة فلل دبي",
     ],
-    ogImage: IMG.beach,
+    ogImage: IMG.gVsDistrictOne,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsDistrictOneAr: GuideContent = {
     titleItalic: "البحر في مواجهة البحيرة",
     subtitle:
       "عنوانان من أكثر عناوين الفلل حديثاً عنها في دبي يلبّيان الرغبة ذاتها — المساحة والماء ومنزل مميّز — بطريقتين شبه متعاكستين. أحدهما يواجه الخليج المفتوح على جزيرة اصطناعية؛ والآخر يلتفّ حول بحيرة كريستالية داخلية على بُعد دقائق من وسط المدينة. إليك كيف يُقارنان فعلاً.",
-    image: IMG.beach,
+    image: IMG.gVsDistrictOne,
     imagePosition: "center 55%",
   },
 

@@ -12,7 +12,7 @@ export const vsWorldIslandsAr: GuideContent = {
       "The World Islands Dubai",
       "جزر Nakheel",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gVsWorldIslands,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsWorldIslandsAr: GuideContent = {
     titleItalic: "فكرتان من Nakheel، حياتان مختلفتان تماماً",
     subtitle:
       "استُصلحت كلتاهما من الخليج نفسه على يد المطوّر نفسه. إحداهما تتصل بالبرّ الرئيسي بالطريق وتُبنى على مراحل؛ والأخرى أرخبيل بحري يُوصَل إليه بالقارب. إليك كيف تختلفان في الأمور التي تحسم قرار الشراء.",
-    image: IMG.galleryAerial,
+    image: IMG.gVsWorldIslands,
     imagePosition: "center 50%",
   },
 

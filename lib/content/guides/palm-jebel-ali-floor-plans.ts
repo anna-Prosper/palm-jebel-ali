@@ -16,7 +16,7 @@ export const floorPlans: GuideContent = {
       "Palm Jebel Ali villa sizes",
       "how to read an off-plan floor plan",
     ],
-    ogImage: IMG.villaInterior,
+    ogImage: IMG.gFloorPlans,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const floorPlans: GuideContent = {
     titleItalic: "how the layouts actually differ",
     subtitle:
       "Three collections, three very different ways of living on the island. Here's how the layouts are organised across Beach, Coral and Palm Central — and how to read an off-plan plan before you reserve.",
-    image: IMG.villaInterior,
+    image: IMG.gFloorPlans,
     imagePosition: "center 55%",
   },
 

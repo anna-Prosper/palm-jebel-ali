@@ -14,7 +14,7 @@ export const projectStatusRu: GuideContent = {
       "Palm Jebel Ali 2026",
       "обновление Palm Jebel Ali",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gProjectStatus,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -25,7 +25,7 @@ export const projectStatusRu: GuideContent = {
     titleItalic: "заброшен, тонет или в графике?",
     subtitle:
       "Сомнения справедливы — исходный остров простоял без движения годами после кризиса 2008–09. Вот честная картина 2026 года: перезапущен, в активном строительстве, при этом первые передачи вилл уже идут.",
-    image: IMG.galleryAerial,
+    image: IMG.gProjectStatus,
     imagePosition: "center 50%",
   },
 

@@ -16,7 +16,7 @@ export const prices: GuideContent = {
       "Palm Jebel Ali apartment price",
       "how much does Palm Jebel Ali cost",
     ],
-    ogImage: IMG.beach,
+    ogImage: IMG.gPrices,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const prices: GuideContent = {
     titleItalic: "what it costs, honestly",
     subtitle:
       "The starting prices across all three collections — and a straight explanation of why 'from' is the only honest number until you see a live release.",
-    image: IMG.beach,
+    image: IMG.gPrices,
     imagePosition: "center 55%",
   },
 

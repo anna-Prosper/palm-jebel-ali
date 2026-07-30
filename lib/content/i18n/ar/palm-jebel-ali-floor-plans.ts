@@ -16,7 +16,7 @@ export const floorPlansAr: GuideContent = {
       "مساحات فلل Palm Jebel Ali",
       "كيف تقرأ مخطط طابق على الخارطة",
     ],
-    ogImage: IMG.villaInterior,
+    ogImage: IMG.gFloorPlans,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const floorPlansAr: GuideContent = {
     titleItalic: "كيف تختلف المخططات فعلاً",
     subtitle:
       "ثلاث مجموعات، وثلاث طرق مختلفة تماماً للعيش على الجزيرة. إليك كيف تُنظَّم المخططات عبر Beach وCoral وPalm Central — وكيف تقرأ مخطط ما على الخارطة قبل أن تحجز.",
-    image: IMG.villaInterior,
+    image: IMG.gFloorPlans,
     imagePosition: "center 55%",
   },
 

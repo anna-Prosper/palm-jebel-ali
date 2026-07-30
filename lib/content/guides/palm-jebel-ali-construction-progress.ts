@@ -13,7 +13,7 @@ export const constructionProgress: GuideContent = {
       "Palm Jebel Ali progress",
       "Palm Jebel Ali 2026 update",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gConstruction,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const constructionProgress: GuideContent = {
     titleItalic: "how far along it really is",
     subtitle:
       "A dated, factual snapshot of construction on the island — frond-by-frond progress, infrastructure spend, contract awards and the handover runway — as of March 2026, refreshed as new figures land.",
-    image: IMG.oceanAerial,
+    image: IMG.gConstruction,
     imagePosition: "center 55%",
   },
 

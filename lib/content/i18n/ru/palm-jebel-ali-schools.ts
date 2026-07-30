@@ -16,7 +16,7 @@ export const schoolsRu: GuideContent = {
       "жизнь на Palm Jebel Ali",
       "сообщество Palm Jebel Ali",
     ],
-    ogImage: IMG.villaInterior,
+    ogImage: IMG.gSchools,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const schoolsRu: GuideContent = {
     titleItalic: "созданная для семей, а не только для отпуска",
     subtitle:
       "Школы, клиники, мечети и районная торговля заложены с самого начала — а парки, тенистые игровые площадки и пешеходные улицы с минимумом машин протянуты между фрондами. Вот какой задумана семейная жизнь.",
-    image: IMG.villaInterior,
+    image: IMG.gSchools,
     imagePosition: "center 50%",
   },
 

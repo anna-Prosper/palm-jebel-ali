@@ -16,7 +16,7 @@ export const diningAr: GuideContent = {
       "مرافق Palm Jebel Ali",
       "مطاعم الواجهة البحرية في دبي",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gDining,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const diningAr: GuideContent = {
     titleItalic: "جزيرة الأمسيات الطويلة",
     subtitle:
       "مقياس المكان الصالح للعيش ليس إطلالة البطاقة البريدية — إنه يوم الثلاثاء الاعتيادي. إليك كيف تخطّط Palm Jebel Ali مطاعمها ومتاجرها وأحياء أسلوب حياتها حول من يعيشون فيها فعلاً.",
-    image: IMG.galleryAerial,
+    image: IMG.gDining,
     imagePosition: "center 55%",
   },
 

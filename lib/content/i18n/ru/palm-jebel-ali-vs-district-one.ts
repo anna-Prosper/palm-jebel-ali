@@ -12,7 +12,7 @@ export const vsDistrictOneRu: GuideContent = {
       "District One MBR City",
       "сравнение вилл Дубая",
     ],
-    ogImage: IMG.beach,
+    ogImage: IMG.gVsDistrictOne,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsDistrictOneRu: GuideContent = {
     titleItalic: "море против лагуны",
     subtitle:
       "Два самых обсуждаемых вилловых адреса Дубая отвечают на одно и то же желание — пространство, вода и именной дом — почти противоположными способами. Один обращён к открытому Заливу на искусственном острове; другой обнимает кристальную лагуну вглубь суши в минутах от Downtown. Вот как они сравниваются на самом деле.",
-    image: IMG.beach,
+    image: IMG.gVsDistrictOne,
     imagePosition: "center 55%",
   },
 

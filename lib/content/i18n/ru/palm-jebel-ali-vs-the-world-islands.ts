@@ -12,7 +12,7 @@ export const vsWorldIslandsRu: GuideContent = {
       "The World Islands Дубай",
       "острова Nakheel",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gVsWorldIslands,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsWorldIslandsRu: GuideContent = {
     titleItalic: "две идеи Nakheel, две очень разные жизни",
     subtitle:
       "Оба были намыты из одного и того же залива одним и тем же застройщиком. Один соединён с материком дорогой и возводится поэтапно; другой — прибрежный архипелаг, до которого добираются на лодке. Вот как они различаются по тому, что решает покупку.",
-    image: IMG.galleryAerial,
+    image: IMG.gVsWorldIslands,
     imagePosition: "center 50%",
   },
 

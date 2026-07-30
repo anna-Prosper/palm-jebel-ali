@@ -16,7 +16,7 @@ export const location: GuideContent = {
       "Palm Jebel Ali Sheikh Zayed Road",
       "Palm Jebel Ali distance from Dubai Marina",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gLocation,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const location: GuideContent = {
     titleItalic: "and how do you actually get there?",
     subtitle:
       "A straight answer to the first question every buyer asks — where the island sits, the roads that reach it, and why 'far south' says more about yesterday's Dubai than tomorrow's.",
-    image: IMG.oceanAerial,
+    image: IMG.gLocation,
     imagePosition: "center 55%",
   },
 

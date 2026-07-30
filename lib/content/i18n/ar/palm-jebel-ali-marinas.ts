@@ -16,7 +16,7 @@ export const marinasAr: GuideContent = {
       "الوصول بالقوارب في Palm Jebel Ali",
       "مرسى Nakheel دبي",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gMarinas,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const marinasAr: GuideContent = {
     titleItalic: "جزيرة بُنيت من أجل الماء",
     subtitle:
       "رُسمت Palm Jebel Ali حول البحر، لا بعيداً عنه. إليك كيف تعمل المراسي وأرصفة الرسو والواجهة البحرية — وما الذي تعنيه فعلاً حياةٌ تُعاش انطلاقاً من رصيفك الخاص.",
-    image: IMG.oceanAerial,
+    image: IMG.gMarinas,
     imagePosition: "center 55%",
   },
 

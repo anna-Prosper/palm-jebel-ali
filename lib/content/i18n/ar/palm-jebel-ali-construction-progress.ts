@@ -13,7 +13,7 @@ export const constructionProgressAr: GuideContent = {
       "تقدّم Palm Jebel Ali",
       "تحديث Palm Jebel Ali 2026",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gConstruction,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const constructionProgressAr: GuideContent = {
     titleItalic: "إلى أي مدى بلغ فعلاً",
     subtitle:
       "لمحة مؤرَّخة ووقائعية عن الإنشاءات على الجزيرة — التقدّم سعفةً بسعفة، والإنفاق على البنية التحتية، وإرساء العقود، ومدرج التسليم — اعتباراً من مارس 2026، تُحدَّث كلما وردت أرقام جديدة.",
-    image: IMG.oceanAerial,
+    image: IMG.gConstruction,
     imagePosition: "center 55%",
   },
 

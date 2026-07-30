@@ -16,7 +16,7 @@ export const diningRu: GuideContent = {
       "удобства Palm Jebel Ali",
       "рестораны на воде в Дубае",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gDining,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const diningRu: GuideContent = {
     titleItalic: "остров долгих вечеров",
     subtitle:
       "Мерило места для жизни — не открыточный вид, а обычный вторник. Вот как Palm Jebel Ali планирует свои рестораны, магазины и лайфстайл-районы вокруг людей, которые действительно там живут.",
-    image: IMG.galleryAerial,
+    image: IMG.gDining,
     imagePosition: "center 55%",
   },
 

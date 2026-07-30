@@ -16,7 +16,7 @@ export const pricesAr: GuideContent = {
       "سعر شقق Palm Jebel Ali",
       "كم تكلّف Palm Jebel Ali",
     ],
-    ogImage: IMG.beach,
+    ogImage: IMG.gPrices,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const pricesAr: GuideContent = {
     titleItalic: "كم تكلّف، بكل صراحة",
     subtitle:
       "أسعار البدء عبر المجموعات الثلاث جميعها — وشرحٌ صريح لماذا يبقى «ابتداءً من» هو الرقم الصادق الوحيد إلى أن تطّلع على إطلاق فعلي.",
-    image: IMG.beach,
+    image: IMG.gPrices,
     imagePosition: "center 55%",
   },
 

@@ -16,7 +16,7 @@ export const floorPlansRu: GuideContent = {
       "площади вилл Palm Jebel Ali",
       "как читать планировку на стадии строительства",
     ],
-    ogImage: IMG.villaInterior,
+    ogImage: IMG.gFloorPlans,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const floorPlansRu: GuideContent = {
     titleItalic: "чем они на самом деле различаются",
     subtitle:
       "Три коллекции — три очень разных способа жить на острове. Вот как организованы планировки в Beach, Coral и Palm Central — и как читать планировку на стадии строительства, прежде чем бронировать.",
-    image: IMG.villaInterior,
+    image: IMG.gFloorPlans,
     imagePosition: "center 55%",
   },
 

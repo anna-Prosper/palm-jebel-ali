@@ -16,7 +16,7 @@ export const dining: GuideContent = {
       "Palm Jebel Ali amenities",
       "waterfront dining Dubai",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gDining,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const dining: GuideContent = {
     titleItalic: "long-evening island",
     subtitle:
       "The measure of a place to live isn't the postcard view — it's the ordinary Tuesday. Here's how Palm Jebel Ali is planning its restaurants, shops and lifestyle districts around the people who actually live there.",
-    image: IMG.galleryAerial,
+    image: IMG.gDining,
     imagePosition: "center 55%",
   },
 

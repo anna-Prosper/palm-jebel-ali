@@ -14,7 +14,7 @@ export const projectStatusAr: GuideContent = {
       "Palm Jebel Ali 2026",
       "تحديث Palm Jebel Ali",
     ],
-    ogImage: IMG.galleryAerial,
+    ogImage: IMG.gProjectStatus,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -25,7 +25,7 @@ export const projectStatusAr: GuideContent = {
     titleItalic: "مهجورة، أم تغرق، أم على المسار؟",
     subtitle:
       "الشكّ مشروع — فالجزيرة الأصلية تعثّرت سنوات بعد أزمة 2008-09. إليك الصورة الصادقة لعام 2026: أُعيد إطلاقها، وهي قيد الإنشاء الفعلي، مع بدء أولى عمليات تسليم الفلل الآن.",
-    image: IMG.galleryAerial,
+    image: IMG.gProjectStatus,
     imagePosition: "center 50%",
   },
 

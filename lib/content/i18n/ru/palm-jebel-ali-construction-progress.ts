@@ -13,7 +13,7 @@ export const constructionProgressRu: GuideContent = {
       "прогресс Palm Jebel Ali",
       "обновление Palm Jebel Ali 2026",
     ],
-    ogImage: IMG.oceanAerial,
+    ogImage: IMG.gConstruction,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -24,7 +24,7 @@ export const constructionProgressRu: GuideContent = {
     titleItalic: "насколько всё на самом деле продвинулось",
     subtitle:
       "Датированный, фактический снимок строительства на острове — прогресс по каждой фронде, расходы на инфраструктуру, заключённые контракты и график передач — по состоянию на март 2026 года, обновляется по мере появления новых данных.",
-    image: IMG.oceanAerial,
+    image: IMG.gConstruction,
     imagePosition: "center 55%",
   },
 

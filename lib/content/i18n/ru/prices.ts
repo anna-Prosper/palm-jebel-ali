@@ -16,7 +16,7 @@ export const pricesRu: GuideContent = {
       "цена апартаментов Palm Jebel Ali",
       "сколько стоит Palm Jebel Ali",
     ],
-    ogImage: IMG.beach,
+    ogImage: IMG.gPrices,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const pricesRu: GuideContent = {
     titleItalic: "сколько это стоит — честно",
     subtitle:
       "Стартовые цены по всем трём коллекциям — и прямое объяснение, почему «от» остаётся единственной честной цифрой, пока вы не увидите актуальный релиз.",
-    image: IMG.beach,
+    image: IMG.gPrices,
     imagePosition: "center 55%",
   },
 

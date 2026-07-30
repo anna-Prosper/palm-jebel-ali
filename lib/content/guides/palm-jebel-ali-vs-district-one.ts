@@ -12,7 +12,7 @@ export const vsDistrictOne: GuideContent = {
       "District One MBR City",
       "Dubai villa comparison",
     ],
-    ogImage: IMG.beach,
+    ogImage: IMG.gVsDistrictOne,
     datePublished: "2026-07-29",
     dateModified: "2026-07-29",
   },
@@ -23,7 +23,7 @@ export const vsDistrictOne: GuideContent = {
     titleItalic: "the sea against the lagoon",
     subtitle:
       "Two of Dubai's most talked-about villa addresses answer the same wish — space, water and a signature home — in almost opposite ways. One faces the open Gulf on a man-made island; the other wraps an inland crystal lagoon minutes from Downtown. Here's how they actually compare.",
-    image: IMG.beach,
+    image: IMG.gVsDistrictOne,
     imagePosition: "center 55%",
   },
 

@@ -16,7 +16,7 @@ export const schoolsAr: GuideContent = {
       "العيش في Palm Jebel Ali",
       "مجتمع Palm Jebel Ali",
     ],
-    ogImage: IMG.villaInterior,
+    ogImage: IMG.gSchools,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const schoolsAr: GuideContent = {
     titleItalic: "مبنيّة للعائلات، لا للعطلات فحسب",
     subtitle:
       "المدارس والعيادات والمساجد والمتاجر المحلية مخطَّطة منذ البداية — مع حدائق وملاعب مظلَّلة وشوارع قابلة للسير قليلة الاعتماد على السيارة، منسوجة بين السعف. إليك كيف صُمِّمت الحياة العائلية لتكون.",
-    image: IMG.villaInterior,
+    image: IMG.gSchools,
     imagePosition: "center 50%",
   },
 

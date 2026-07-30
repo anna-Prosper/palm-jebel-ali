@@ -16,7 +16,7 @@ export const schools: GuideContent = {
       "living at Palm Jebel Ali",
       "Palm Jebel Ali community",
     ],
-    ogImage: IMG.villaInterior,
+    ogImage: IMG.gSchools,
     datePublished: "2026-07-27",
     dateModified: "2026-07-27",
   },
@@ -27,7 +27,7 @@ export const schools: GuideContent = {
     titleItalic: "built for families, not just holidays",
     subtitle:
       "Schools, clinics, mosques and neighbourhood retail are planned in from the start — with parks, shaded playgrounds and walkable, car-light streets threaded between the fronds. Here's what family life is designed to feel like.",
-    image: IMG.villaInterior,
+    image: IMG.gSchools,
     imagePosition: "center 50%",
   },
 
