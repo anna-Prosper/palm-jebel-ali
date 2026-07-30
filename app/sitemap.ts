@@ -6,8 +6,11 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.jebelalipalmdubai.
 const now = new Date("2026-07-29");
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const homeLangs = { "x-default": SITE, en: SITE, ar: `${SITE}/ar`, ru: `${SITE}/ru` };
   const entries: MetadataRoute.Sitemap = [
-    { url: SITE, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: SITE, lastModified: now, changeFrequency: "weekly", priority: 1, alternates: { languages: homeLangs } },
+    { url: `${SITE}/ar`, lastModified: now, changeFrequency: "weekly", priority: 0.9, alternates: { languages: homeLangs } },
+    { url: `${SITE}/ru`, lastModified: now, changeFrequency: "weekly", priority: 0.9, alternates: { languages: homeLangs } },
     { url: `${SITE}/residences`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE}/pulse/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
   ];

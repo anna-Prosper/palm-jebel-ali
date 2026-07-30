@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Anchor, Waves, UtensilsCrossed, ShoppingBag, HeartPulse, Trees, Building2, GraduationCap, Phone, MessageCircle, Leaf, Sun, Bike, Fish, ChevronRight } from "lucide-react";
 import { GalleryModal } from "@/components/GalleryModal";
-import { FaqAccordion, type FaqItem } from "@/components/FaqAccordion";
+import { FaqAccordion } from "@/components/FaqAccordion";
 import { LeadFormModal } from "@/components/LeadFormModal";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { SiteHeader } from "@/components/site/Chrome";
 import { waHref } from "@/lib/whatsapp";
 import { trackEvent } from "@/lib/analytics";
+import type { Locale } from "@/lib/i18n";
+import { HOME, HOME_EN } from "@/lib/content/home";
 
 const IMG_BASE = "https://binayah-media-456051253184-us-east-1-an.s3.us-east-1.amazonaws.com/showcase-images/palm-jebel-ali";
 // 2× AI-upscaled hero (2688×1536), crisp on large displays.
@@ -379,24 +381,30 @@ function scrollToAnchor(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
   window.scrollTo({ top, behavior: "smooth" });
 }
 
-const FOOTER_RESIDENCES = [
-  { href: "/residences/beach-collection", label: "The Beach Collection" },
-  { href: "/residences/coral-collection", label: "The Coral Collection" },
-  { href: "/residences/palm-central", label: "Palm Central Residences" },
-  { href: "/residences", label: "All residences →" },
+// hrefs stay here as structural data; labels come from the copy module by index.
+const FOOTER_RESIDENCES_HREFS = [
+  "/residences/beach-collection",
+  "/residences/coral-collection",
+  "/residences/palm-central",
+  "/residences",
 ];
-const FOOTER_EXPLORE = [
-  { href: "/communities/palm-jebel-ali", label: "Community overview" },
-  { href: "/off-plan-in/palm-jebel-ali", label: "Off-plan & payment plans" },
-  { href: "/buy-property-in/palm-jebel-ali", label: "Buy" },
-  { href: "/rent-property-in/palm-jebel-ali", label: "Rent" },
+const FOOTER_EXPLORE_HREFS = [
+  "/communities/palm-jebel-ali",
+  "/off-plan-in/palm-jebel-ali",
+  "/buy-property-in/palm-jebel-ali",
+  "/rent-property-in/palm-jebel-ali",
 ];
-const FOOTER_GUIDES = [
-  { href: "/pulse/guides/palm-jebel-ali-investor-guide", label: "Investor guide" },
-  { href: "/pulse/guides/palm-jebel-ali-prices", label: "Prices 2026" },
-  { href: "/pulse/guides/palm-jebel-ali-payment-plans", label: "Payment plans" },
-  { href: "/pulse/guides", label: "All guides →" },
+const FOOTER_GUIDES_HREFS = [
+  "/pulse/guides/palm-jebel-ali-investor-guide",
+  "/pulse/guides/palm-jebel-ali-prices",
+  "/pulse/guides/palm-jebel-ali-payment-plans",
+  "/pulse/guides",
 ];
+
+// Zip hrefs with localized labels (same order) into the shape FooterCol expects.
+function footerLinks(hrefs: string[], labels: string[]) {
+  return hrefs.map((href, i) => ({ href, label: labels[i] }));
+}
 
 function FooterCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
   return (
@@ -411,34 +419,35 @@ function FooterCol({ title, links }: { title: string; links: { href: string; lab
   );
 }
 
-function SiteFooter({ waLink }: { waLink: string }) {
+function SiteFooter({ waLink, locale = "en" }: { waLink: string; locale?: Locale }) {
+  const f = (HOME[locale] ?? HOME_EN).footer;
   return (
     <footer className="bg-[#EAE1D0] border-t border-[#0C2E35]/10 py-14 sm:py-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr] mb-12">
           <div>
-            <p className="font-serif text-2xl text-[#0C2E35] mb-3">Palm Jebel Ali</p>
+            <p className="font-serif text-2xl text-[#0C2E35] mb-3">{f.brand}</p>
             <p className="text-[#0C2E35]/60 text-sm max-w-sm leading-relaxed mb-5">
-              An independent showcase for Nakheel&apos;s Palm Jebel Ali, curated by a Dubai brokerage tracking release phases directly.
+              {f.blurb}
             </p>
             <div className="flex gap-3">
               <a href={waLink} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent("whatsapp_click", { location: "footer" })} className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#06232E]" style={{ background: "linear-gradient(to right, #E7C989, #C9A26A 55%, #A8814A)" }}>
-                <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
+                <MessageCircle className="h-3.5 w-3.5" /> {f.whatsapp}
               </a>
               <a href="tel:+971549988811" onClick={() => trackEvent("call_click", { location: "footer" })} className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.12em] text-[#0C2E35] border border-[#0C2E35]/25 hover:border-[#0C2E35]/50 transition-colors">
-                <Phone className="h-3.5 w-3.5" /> Call
+                <Phone className="h-3.5 w-3.5" /> {f.call}
               </a>
             </div>
           </div>
-          <FooterCol title="Residences" links={FOOTER_RESIDENCES} />
-          <FooterCol title="Explore" links={FOOTER_EXPLORE} />
-          <FooterCol title="Guides" links={FOOTER_GUIDES} />
+          <FooterCol title={f.columns.residences} links={footerLinks(FOOTER_RESIDENCES_HREFS, f.links.residences)} />
+          <FooterCol title={f.columns.explore} links={footerLinks(FOOTER_EXPLORE_HREFS, f.links.explore)} />
+          <FooterCol title={f.columns.guides} links={footerLinks(FOOTER_GUIDES_HREFS, f.links.guides)} />
         </div>
         <div className="pt-8 border-t border-[#0C2E35]/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
           <p className="text-[#0C2E35]/45 text-xs leading-relaxed max-w-2xl">
-            Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery and subject to change. This is an independent showcase, not affiliated with or endorsed by Nakheel.
+            {f.disclaimer}
           </p>
-          <p className="text-[#0C2E35]/45 text-xs whitespace-nowrap">© 2026 Palm Jebel Ali Showcase</p>
+          <p className="text-[#0C2E35]/45 text-xs whitespace-nowrap">{f.copyright}</p>
         </div>
       </div>
     </footer>
@@ -446,64 +455,6 @@ function SiteFooter({ waLink }: { waLink: string }) {
 }
 
 // ── content data ────────────────────────────────────────────────────────────
-
-const FAQS: FaqItem[] = [
-  {
-    question: "What is Palm Jebel Ali?",
-    answer:
-      "Palm Jebel Ali is Nakheel's second palm-shaped island, rising off Dubai's southern coast beside Jebel Ali. The master plan spans over 10.5 million square metres across 16 fronds and seven islands, about twice the footprint of Palm Jumeirah, and is designed to add around 110km of new coastline to the city.",
-  },
-  {
-    question: "What types of homes are available at Palm Jebel Ali?",
-    answer:
-      "Three collections. The Beach Collection offers 5 and 6-bedroom beachfront villas of roughly 7,500-8,500 sqft across eight architectural signatures. The Coral Collection is the ultra-premium tier, 7-bedroom signature mansions on the outer fronds, designed with SAOTA and Naga Architects. Palm Central Private Residences brings 1-5 bedroom apartments, townhouses and penthouses in a connected beachfront district between Fronds M and N.",
-  },
-  {
-    question: "How much does it cost to buy at Palm Jebel Ali?",
-    answer:
-      "Beach Collection villas start from around AED 18.5 million and Coral Collection mansions from roughly AED 30 million. Palm Central Private Residences start from about AED 2.5 million. Pricing moves with each release phase, unit type and frond position.",
-  },
-  {
-    question: "What is the payment plan at Palm Jebel Ali?",
-    answer:
-      "Launch inventory has typically followed an 80/20 structure: 20% on booking, 60% spread across construction milestones, and the final 20% on handover. Exact terms vary by collection and release, so confirm against the current release schedule before reserving.",
-  },
-  {
-    question: "When is handover at Palm Jebel Ali?",
-    answer:
-      "Handover is phased. Villa fronds are already under construction with deliveries staged from around 2027 for earlier Coral phases and toward 2029 for Beach Collection phases. Palm Central Private Residences are scheduled from 2028, with later phases running toward 2030.",
-  },
-  {
-    question: "Is Palm Jebel Ali bigger than Palm Jumeirah?",
-    answer:
-      "Yes, substantially. The master plan is roughly double Palm Jumeirah's footprint, with 16 fronds instead of Palm Jumeirah's tighter frond layout, and capacity planned for a far larger resident population.",
-  },
-  {
-    question: "Can foreigners buy property at Palm Jebel Ali?",
-    answer:
-      "Yes. Palm Jebel Ali sits within Dubai's designated freehold zone, so buyers of any nationality can own outright, with title registered at the Dubai Land Department, the same ownership basis as Palm Jumeirah.",
-  },
-  {
-    question: "Does buying at Palm Jebel Ali qualify for the UAE Golden Visa?",
-    answer:
-      "Property purchases at or above AED 2 million meet the current investment threshold for the UAE's 10-year renewable Golden Visa. Every Palm Jebel Ali collection clears that threshold, though eligibility is assessed on your individual application.",
-  },
-  {
-    question: "Where is Palm Jebel Ali and how do you get there?",
-    answer:
-      "It sits on Dubai's southern coastline beside Jebel Ali, connected by three mainland access points straight onto Sheikh Zayed Road (E11). Al Maktoum International (DWC) is roughly 20 minutes away, Expo City is minutes down the road, and Dubai Marina is about 25 minutes north.",
-  },
-  {
-    question: "What amenities will Palm Jebel Ali have?",
-    answer:
-      "The master plan includes private beaches and beach clubs, full-service marinas, more than 80 hotels and resorts, waterfront dining and retail districts, landscaped parks and promenades, wellness and fitness facilities, and everyday essentials such as schools, clinics and mosques, with island-wide cycling and pedestrian routes.",
-  },
-  {
-    question: "Is Palm Jebel Ali a good investment?",
-    answer:
-      "The case rests on scarcity and timing: freehold beachfront on a limited-supply island, bought at launch-phase pricing before the hotel, retail and marina phases mature, in the growth corridor Dubai is actively building around Al Maktoum International and Expo City. As with any off-plan purchase, returns depend on entry price, release phase and holding period.",
-  },
-];
 
 // All authentic: real palm aerials, real interiors, real amenity + villa renders.
 // 8 tiles → clean 3-row grid (i0 feature 2×2, i5 wide band).
@@ -520,93 +471,28 @@ const GALLERY_ALTS = [
   "Palm Jebel Ali, Dubai's second palm island, at golden hour",
 ];
 
-const AMENITIES = [
-  {
-    icon: Waves,
-    title: "Private beaches & beach clubs",
-    body: "Swimmable frontage on every frond, a dedicated family beach club, and a sunset promenade tracing the island's western edge.",
-  },
-  {
-    icon: Anchor,
-    title: "Marinas & yachting",
-    body: "Full-service marinas and berthing built into the crescent, the Gulf starts a few steps from the door, not a drive away.",
-  },
-  {
-    icon: Building2,
-    title: "80+ hotels & resorts",
-    body: "Beachfront five-stars, eco-retreats, serviced apartments and boutique stays, phased across the island's outer edges.",
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Waterfront dining",
-    body: "Restaurant and café precincts wrapped around the marinas, built for long evenings rather than quick meals.",
-  },
-  {
-    icon: ShoppingBag,
-    title: "Retail & lifestyle districts",
-    body: "Boutique retail clusters and lifestyle centres scaled for people who live here, not for tour buses.",
-  },
-  {
-    icon: Trees,
-    title: "Parks, play & promenades",
-    body: "Landscaped parks, water features and shaded playgrounds threaded between the fronds and along the shore.",
-  },
-  {
-    icon: HeartPulse,
-    title: "Wellness & fitness",
-    body: "Spas, wellness centres and open-air fitness zones, with cycling and pedestrian routes running the length of the island.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Everyday essentials",
-    body: "Schools, clinics, mosques and community retail planned in from day one, so the island works on a Tuesday, not just a Saturday.",
-  },
+// Icons stay here as data; titles/bodies come from the copy module by index.
+const AMENITY_ICONS = [Waves, Anchor, Building2, UtensilsCrossed, ShoppingBag, Trees, HeartPulse, GraduationCap];
+
+// icon + stat are data; title/body come from the copy module by index.
+const SUSTAINABILITY_META = [
+  { icon: Sun, stat: "30%" },
+  { icon: Bike, stat: "Island-wide" },
+  { icon: Fish, stat: "Protected" },
+  { icon: Leaf, stat: "Native" },
 ];
 
-const SUSTAINABILITY = [
-  { icon: Sun, stat: "30%", title: "Renewable energy", body: "Public facilities across the island are targeted to run on renewable power." },
-  { icon: Bike, stat: "Island-wide", title: "Car-light by design", body: "Continuous cycling and pedestrian routes make short journeys walkable rather than drivable." },
-  { icon: Fish, stat: "Protected", title: "Marine habitat", body: "Breakwaters and shallows designed to support marine life rather than simply hold back the sea." },
-  { icon: Leaf, stat: "Native", title: "Low-water landscaping", body: "Planting chosen for the Gulf climate, cutting irrigation demand across parks and promenades." },
-];
-
-const INVESTMENT = [
-  { title: "Freehold for all nationalities", body: "Palm Jebel Ali sits inside Dubai's designated freehold zone, full ownership, registered with the Dubai Land Department." },
-  { title: "Golden Visa eligible", body: "Property purchases at or above AED 2 million meet the threshold for the UAE's 10-year renewable Golden Visa." },
-  { title: "Launch-phase pricing", body: "Early releases are priced ahead of the island's amenity and hotel phases coming online, the classic off-plan entry window." },
-  { title: "Dubai's southern corridor", body: "Anchored beside Al Maktoum International and Expo City, the growth axis the city is actively building toward." },
-];
-
+// img / price / href are data; tag / meta / facts come from the copy module by index.
 const RESIDENCES = [
-  {
-    img: BEACH_IMG,
-    tag: "The Beach Collection",
-    meta: "5 & 6 bedroom villas · 7,500-8,500 sqft",
-    price: "18.5M",
-    href: "/residences/beach-collection",
-    facts: ["Frond-front plots with private beach access", "Six villa designs by SAOTA, NAGA, LOCI, WATG & LW Design"],
-  },
-  {
-    img: CORAL_IMG,
-    tag: "The Coral Collection",
-    meta: "6 & 7 bedroom mansions · 11,500-12,500 sqft",
-    price: "30M",
-    href: "/residences/coral-collection",
-    facts: ["Ultra-premium mansions by SAOTA, LOCI, LW Design & Naga Architects", "The rarest addresses on the island"],
-  },
-  {
-    img: PALM_CENTRAL_IMG,
-    tag: "Palm Central Private Residences",
-    meta: "1-5 bed apartments · townhouses · penthouses",
-    price: "2.5M",
-    href: "/residences/palm-central",
-    facts: ["Beachfront resort living between Fronds M & N", "212 connected residences across three buildings"],
-  },
+  { img: BEACH_IMG, price: "18.5M", href: "/residences/beach-collection" },
+  { img: CORAL_IMG, price: "30M", href: "/residences/coral-collection" },
+  { img: PALM_CENTRAL_IMG, price: "2.5M", href: "/residences/palm-central" },
 ];
 
 // ── page ─────────────────────────────────────────────────────────────────────
 
-export default function PalmJebelAliClient() {
+export default function PalmJebelAliClient({ locale = "en", availableLocales = ["en"] }: { locale?: Locale; availableLocales?: Locale[] } = {}) {
+  const c = HOME[locale] ?? HOME_EN;
   const heroRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
   const heroTextRef = useRef<HTMLDivElement>(null);
@@ -686,7 +572,7 @@ export default function PalmJebelAliClient() {
 
   return (
     <div id="top" className="bg-[#F4EEE2]">
-      <SiteHeader waLink={waLink} />
+      <SiteHeader waLink={waLink} locale={locale} availableLocales={availableLocales} />
 
       {/* ── HERO ── */}
       <section ref={heroRef} className="relative min-h-[100vh] flex items-end overflow-hidden">
@@ -703,27 +589,27 @@ export default function PalmJebelAliClient() {
         <div ref={heroTextRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 pb-[17vh] sm:pb-[12vh] w-full will-change-transform">
           <div className="max-w-3xl">
             <div className="hero-rise" style={{ animationDelay: "0.15s" }}>
-              <Eyebrow strong>By Nakheel</Eyebrow>
+              <Eyebrow strong>{c.hero.eyebrow}</Eyebrow>
             </div>
             <h1
               className="hero-rise font-serif font-medium text-[#F0E6D2] tracking-[-0.02em] leading-[0.98] mb-7"
               style={{ fontSize: "clamp(2.9rem, 7vw, 6.4rem)", animationDelay: "0.27s" }}
             >
               <span className="sr-only">Palm Jebel Ali by Nakheel — </span>
-              <span className="block" style={{ fontSize: "0.62em" }}>The new palm.</span>
-              Twice the <em className="italic text-[#E7C989]">shoreline</em>.
+              <span className="block" style={{ fontSize: "0.62em" }}>{c.hero.headline.line1}</span>
+              {c.hero.headline.lead}<em className="italic text-[#E7C989]">{c.hero.headline.em}</em>{c.hero.headline.tail}
             </h1>
             <p className="hero-rise text-white/75 text-base sm:text-xl max-w-xl mb-10 leading-relaxed" style={{ animationDelay: "0.39s" }}>
-              16 fronds. 110 kilometres of new coastline. A private island city rising off Dubai&apos;s southern shore, and the first villas are already under construction.
+              {c.hero.subcopy}
             </p>
             <div className="hero-rise flex flex-wrap items-center gap-4 sm:gap-5" style={{ animationDelay: "0.51s" }}>
-              <GoldButton onClick={() => openForm("General enquiry", "hero")} size="lg">Register your interest</GoldButton>
+              <GoldButton onClick={() => openForm("General enquiry", "hero")} size="lg">{c.hero.cta.register}</GoldButton>
               <GhostButton href={waLink} tone="light" size="lg" onClick={() => trackEvent("whatsapp_click", { location: "hero" })}>
-                <MessageCircle className="h-4 w-4" /> WhatsApp
+                <MessageCircle className="h-4 w-4" /> {c.hero.cta.whatsapp}
               </GhostButton>
               <span className="hidden sm:block h-10 w-px bg-white/20" />
               <a href="#residences" onClick={(e) => scrollToAnchor(e, "#residences")} className="group inline-flex flex-col text-white text-sm font-medium">
-                <span className="uppercase tracking-[0.12em]">View the residences</span>
+                <span className="uppercase tracking-[0.12em]">{c.hero.cta.viewResidences}</span>
                 <span className="mt-1 h-px w-0 bg-[#C9A26A] transition-all duration-500 group-hover:w-full" />
               </a>
             </div>
@@ -736,16 +622,16 @@ export default function PalmJebelAliClient() {
       <section className="border-b border-[#0C2E35]/10 bg-[#EAE1D0]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16 grid grid-cols-2 sm:grid-cols-4 gap-y-10 sm:gap-4 sm:divide-x sm:divide-[#0C2E35]/10">
           {[
-            { value: 110, suffix: "km", label: "New coastline" },
-            { value: 2, suffix: "×", label: "Size of Palm Jumeirah" },
-            { value: 16, suffix: "", label: "Fronds · 7 islands" },
-            { value: 80, suffix: "/20", label: "Launch payment plan" },
-          ].map((s) => (
-            <div key={s.label} className="text-center sm:px-4">
+            { value: 110, suffix: "km" },
+            { value: 2, suffix: "×" },
+            { value: 16, suffix: "" },
+            { value: 80, suffix: "/20" },
+          ].map((s, i) => (
+            <div key={i} className="text-center sm:px-4">
               <div className="font-serif text-4xl sm:text-6xl text-[#0C2E35] mb-2 leading-none">
                 <CountUp target={s.value} suffix={s.suffix} />
               </div>
-              <p className="text-[#0C2E35]/50 text-[11px] sm:text-xs uppercase tracking-[0.18em]">{s.label}</p>
+              <p className="text-[#0C2E35]/50 text-[11px] sm:text-xs uppercase tracking-[0.18em]">{c.stats.labels[i]}</p>
             </div>
           ))}
         </div>
@@ -756,7 +642,7 @@ export default function PalmJebelAliClient() {
         <div className="max-w-4xl mx-auto px-5 sm:px-8 py-24 sm:py-36 text-center">
           <Reveal>
             <p className="font-serif text-2xl sm:text-4xl leading-[1.28] text-[#0C2E35]">
-              Nakheel built Palm Jumeirah once. Palm Jebel Ali is what happens when they get to do it again, with two more decades of lessons, twice the land, and room for a community of <span className="italic text-[#A8814A]">240,000 residents</span>.
+              {c.positioning.lead}<span className="italic text-[#A8814A]">{c.positioning.em}</span>{c.positioning.tail}
             </p>
           </Reveal>
         </div>
@@ -768,9 +654,9 @@ export default function PalmJebelAliClient() {
       <section className="relative bg-[#E4EDEB] py-20 sm:py-28 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-10 sm:mb-14 max-w-2xl text-center mx-auto">
-            <div className="flex justify-center"><Eyebrow dark>One trunk, sixteen fronds</Eyebrow></div>
+            <div className="flex justify-center"><Eyebrow dark>{c.fronds.eyebrow}</Eyebrow></div>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
-              A coastline, <em className="italic text-[#A8814A]">drawn</em> from the sea.
+              {c.fronds.heading.lead}<em className="italic text-[#A8814A]">{c.fronds.heading.em}</em>{c.fronds.heading.tail}
             </h2>
           </Reveal>
 
@@ -778,7 +664,7 @@ export default function PalmJebelAliClient() {
 
           <Reveal className="mt-14 sm:mt-20 max-w-2xl mx-auto text-center" delay={120}>
             <p className="text-[#0C2E35]/70 text-base sm:text-lg leading-relaxed">
-              Seven islands, sixteen fronds, and more shoreline than most countries add in a decade, all connected by three mainland access points straight onto Sheikh Zayed Road.
+              {c.fronds.body}
             </p>
           </Reveal>
         </div>
@@ -788,19 +674,21 @@ export default function PalmJebelAliClient() {
       <section id="residences" className="bg-[#F4EEE2] py-24 sm:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-16 sm:mb-20 max-w-2xl">
-            <Eyebrow dark>The residences</Eyebrow>
+            <Eyebrow dark>{c.residences.eyebrow}</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
-              Three collections. One <em className="italic text-[#A8814A]">coastline</em>.
+              {c.residences.heading.lead}<em className="italic text-[#A8814A]">{c.residences.heading.em}</em>{c.residences.heading.tail}
             </h2>
           </Reveal>
 
           <div className="space-y-20 sm:space-y-28">
-            {RESIDENCES.map((r, idx) => (
-              <Reveal key={r.tag}>
+            {RESIDENCES.map((r, idx) => {
+              const item = c.residences.items[idx];
+              return (
+              <Reveal key={item.tag}>
                 <div className={`grid lg:grid-cols-5 gap-8 lg:gap-14 items-center ${idx % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
                   <div className="lg:col-span-3 relative overflow-hidden rounded-2xl group">
                     {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN */}
-                    <img src={r.img} alt={r.tag} className="w-full h-[46vh] lg:h-[64vh] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]" loading="lazy" />
+                    <img src={r.img} alt={item.tag} className="w-full h-[46vh] lg:h-[64vh] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
                     <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
                     {/* big index watermark on the image */}
@@ -810,24 +698,24 @@ export default function PalmJebelAliClient() {
                   <div className="lg:col-span-2">
                     <div className="flex items-center gap-3 mb-4">
                       <span className="h-px w-7 bg-[#A8814A]" />
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#A8814A]">Collection 0{idx + 1}</span>
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#A8814A]">{c.residences.collection} 0{idx + 1}</span>
                     </div>
 
                     {/* the collection TITLE, now a prominent serif display heading */}
                     <h3 className="font-serif font-medium text-[#0C2E35] text-4xl sm:text-[46px] leading-[1.02] tracking-[-0.01em] mb-6">
-                      {r.tag}
+                      {item.tag}
                     </h3>
 
                     <div className="flex items-baseline gap-2.5 mb-6">
-                      <span className="text-[#0C2E35]/50 text-sm uppercase tracking-[0.16em]">From AED</span>
+                      <span className="text-[#0C2E35]/50 text-sm uppercase tracking-[0.16em]">{c.residences.fromAed}</span>
                       <span className="font-serif text-4xl sm:text-5xl leading-none bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">{r.price}</span>
                     </div>
 
                     <div className="h-px w-full bg-[#0C2E35]/12 mb-6" />
-                    <p className="text-[#0C2E35]/60 text-sm uppercase tracking-[0.14em] mb-6">{r.meta}</p>
+                    <p className="text-[#0C2E35]/60 text-sm uppercase tracking-[0.14em] mb-6">{item.meta}</p>
 
                     <ul className="space-y-3">
-                      {r.facts.map((f) => (
+                      {item.facts.map((f) => (
                         <li key={f} className="flex gap-3 text-[#0C2E35]/70 text-sm sm:text-[15px] leading-relaxed">
                           <span className="mt-[9px] h-1 w-1 rounded-full bg-[#A8814A] flex-shrink-0" />
                           {f}
@@ -836,13 +724,14 @@ export default function PalmJebelAliClient() {
                     </ul>
 
                     <a href={r.href} className="group/link mt-8 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A8814A] hover:text-[#0C2E35] transition-colors">
-                      View the collection
+                      {c.residences.viewCollection}
                       <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
                     </a>
                   </div>
                 </div>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -850,9 +739,9 @@ export default function PalmJebelAliClient() {
       {/* ── GALLERY (editorial mosaic) ── */}
       <section id="gallery" className="max-w-6xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
         <Reveal className="mb-12 sm:mb-16">
-          <Eyebrow dark>Built for a life lived outdoors</Eyebrow>
+          <Eyebrow dark>{c.gallery.eyebrow}</Eyebrow>
           <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02] max-w-3xl">
-            Private beaches. A working marina. Everyday texture as considered as the <em className="italic text-[#A8814A]">villas</em>.
+            {c.gallery.heading.lead}<em className="italic text-[#A8814A]">{c.gallery.heading.em}</em>{c.gallery.heading.tail}
           </h2>
         </Reveal>
 
@@ -886,26 +775,26 @@ export default function PalmJebelAliClient() {
         <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(247,242,234,0.45), rgba(247,242,234,0.1))" }} />
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
-            <Eyebrow dark>Island lifestyle</Eyebrow>
+            <Eyebrow dark>{c.amenities.eyebrow}</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#06232E] tracking-[-0.02em] leading-[1.02]">
-              A whole city&apos;s worth of <em className="italic text-[#A8814A]">everyday</em>.
+              {c.amenities.heading.lead}<em className="italic text-[#A8814A]">{c.amenities.heading.em}</em>{c.amenities.heading.tail}
             </h2>
             <p className="mt-6 text-[#06232E]/65 text-base sm:text-lg leading-relaxed">
-              Islands fail when they are only beautiful. Palm Jebel Ali is planned as somewhere you can actually live, the marinas and beach clubs, yes, but also the schools, clinics and corner retail that make a Tuesday work.
+              {c.amenities.intro}
             </p>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-[#06232E]/10">
-            {AMENITIES.map(({ icon: Icon, title, body }, i) => (
-              <Reveal key={title} delay={(i % 2) * 60}>
+            {AMENITY_ICONS.map((Icon, i) => (
+              <Reveal key={c.amenities.items[i].title} delay={(i % 2) * 60}>
                 <div className="flex gap-5 py-7 sm:py-8 border-b border-[#06232E]/10 h-full">
                   <div className="flex-shrink-0 flex flex-col items-center gap-3 pt-1">
                     <span className="font-serif text-xl text-[#A8814A] tabular-nums leading-none">{String(i + 1).padStart(2, "0")}</span>
                     <Icon className="h-4 w-4 text-[#A8814A]" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl sm:text-[28px] text-[#06232E] leading-tight mb-2">{title}</h3>
-                    <p className="text-[#06232E]/60 text-sm sm:text-base leading-relaxed">{body}</p>
+                    <h3 className="font-serif text-2xl sm:text-[28px] text-[#06232E] leading-tight mb-2">{c.amenities.items[i].title}</h3>
+                    <p className="text-[#06232E]/60 text-sm sm:text-base leading-relaxed">{c.amenities.items[i].body}</p>
                   </div>
                 </div>
               </Reveal>
@@ -923,23 +812,23 @@ export default function PalmJebelAliClient() {
         />
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
-            <Eyebrow dark>Built to last</Eyebrow>
+            <Eyebrow dark>{c.sustainability.eyebrow}</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
-              An island engineered to <em className="italic text-[#A8814A]">age well</em>.
+              {c.sustainability.heading.lead}<em className="italic text-[#A8814A]">{c.sustainability.heading.em}</em>{c.sustainability.heading.tail}
             </h2>
             <p className="mt-6 text-[#0C2E35]/65 text-base sm:text-lg leading-relaxed">
-              Reclaiming land is the easy part. Making it liveable in forty years is the discipline, and it shows up in the energy plan, the movement plan and what happens under the waterline.
+              {c.sustainability.intro}
             </p>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
-            {SUSTAINABILITY.map(({ icon: Icon, stat, title, body }, i) => (
-              <Reveal key={title} delay={i * 60}>
+            {SUSTAINABILITY_META.map(({ icon: Icon, stat }, i) => (
+              <Reveal key={c.sustainability.items[i].title} delay={i * 60}>
                 <div className="group border-t border-[#0C2E35]/15 pt-6 h-full transition-colors">
                   <Icon className="h-6 w-6 text-[#A8814A] mb-5 transition-transform duration-500 group-hover:-translate-y-0.5" />
                   <p className="font-serif text-4xl sm:text-5xl leading-none mb-3 bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">{stat}</p>
-                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#0C2E35]/85 mb-3">{title}</h3>
-                  <p className="text-[#0C2E35]/60 text-sm leading-relaxed">{body}</p>
+                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#0C2E35]/85 mb-3">{c.sustainability.items[i].title}</h3>
+                  <p className="text-[#0C2E35]/60 text-sm leading-relaxed">{c.sustainability.items[i].body}</p>
                 </div>
               </Reveal>
             ))}
@@ -960,19 +849,14 @@ export default function PalmJebelAliClient() {
         />
         <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-16 max-w-xl">
-            <Eyebrow>Location &amp; connectivity</Eyebrow>
+            <Eyebrow>{c.location.eyebrow}</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-white tracking-[-0.02em] leading-[1.02]">
-              Minutes from the airport <em className="italic text-[#E7C989]">reshaping</em> Dubai.
+              {c.location.heading.lead}<em className="italic text-[#E7C989]">{c.location.heading.em}</em>{c.location.heading.tail}
             </h2>
           </Reveal>
 
           <div>
-            {[
-              ["Al Maktoum International (DWC)", "20 min"],
-              ["Dubai Marina", "25 min"],
-              ["Expo City Dubai", "Minutes"],
-              ["Sheikh Zayed Road (E11)", "Direct"],
-            ].map(([place, time], i) => (
+            {c.location.rows.map(({ place, time }, i) => (
               <Reveal key={place} delay={i * 50}>
                 <div className="group flex items-baseline gap-4 py-5 sm:py-7 border-b border-white/15 transition-colors hover:border-[#E7C989]/50">
                   <span className="text-white text-lg sm:text-2xl [text-shadow:0_1px_10px_rgba(4,20,26,0.6)]">{place}</span>
@@ -984,7 +868,7 @@ export default function PalmJebelAliClient() {
           </div>
           <Reveal>
             <a href="/pulse/guides/palm-jebel-ali-location" className="group/link mt-10 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#E7C989] hover:text-white transition-colors">
-              Read the location guide
+              {c.location.guideLink}
               <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
             </a>
           </Reveal>
@@ -999,9 +883,9 @@ export default function PalmJebelAliClient() {
         <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(244,238,226,0.72) 0%, rgba(244,238,226,0.5) 45%, rgba(244,238,226,0.68) 100%)" }} />
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-16 sm:mb-24 text-center">
-            <div className="flex justify-center"><Eyebrow dark>Payment plan</Eyebrow></div>
+            <div className="flex justify-center"><Eyebrow dark>{c.payment.eyebrow}</Eyebrow></div>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.04]">
-              Capital that isn&apos;t <em className="italic text-[#A8814A]">locked up</em> early.
+              {c.payment.heading.lead}<em className="italic text-[#A8814A]">{c.payment.heading.em}</em>{c.payment.heading.tail}
             </h2>
           </Reveal>
 
@@ -1014,11 +898,11 @@ export default function PalmJebelAliClient() {
               style={{ right: 0, transform: payment.visible ? "scaleX(1)" : "scaleX(0)" }}
             />
             {[
-              { pct: "20%", label: "On booking" },
-              { pct: "60%", label: "During construction" },
-              { pct: "20%", label: "On handover", emphasize: true },
+              { pct: "20%" },
+              { pct: "60%" },
+              { pct: "20%", emphasize: true },
             ].map((s, i) => (
-              <div key={s.label} className="relative z-10 flex flex-col items-center gap-4 flex-1">
+              <div key={i} className="relative z-10 flex flex-col items-center gap-4 flex-1">
                 <span
                   className="w-3 h-3 rounded-full transition-all duration-500"
                   style={{
@@ -1028,18 +912,18 @@ export default function PalmJebelAliClient() {
                   }}
                 />
                 <p className={`font-serif text-3xl sm:text-5xl ${s.emphasize ? "text-[#A8814A]" : "text-[#0C2E35]"}`}>{s.pct}</p>
-                <p className="text-[#0C2E35]/50 text-xs sm:text-sm uppercase tracking-[0.14em] text-center">{s.label}</p>
+                <p className="text-[#0C2E35]/50 text-xs sm:text-sm uppercase tracking-[0.14em] text-center">{c.payment.steps[i]}</p>
               </div>
             ))}
           </div>
 
           <Reveal>
             <p className="text-[#0C2E35]/60 text-sm sm:text-base text-center mt-16 sm:mt-24 max-w-xl mx-auto leading-relaxed">
-              An 80/20 plan spreads the bulk of your commitment across the build period rather than the day you sign, standard Nakheel structuring on launch-phase inventory, subject to unit and release.
+              {c.payment.note}
             </p>
             <div className="mt-8 text-center">
               <a href="/pulse/guides/palm-jebel-ali-payment-plans" className="group/link inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A8814A] hover:text-[#0C2E35] transition-colors">
-                How the payment plan works
+                {c.payment.howLink}
                 <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
               </a>
             </div>
@@ -1051,17 +935,17 @@ export default function PalmJebelAliClient() {
       <section id="investment" className="relative overflow-hidden bg-[#E7ECEC] py-24 sm:py-32">
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-14 sm:mb-20 max-w-2xl">
-            <Eyebrow dark>The investment case</Eyebrow>
+            <Eyebrow dark>{c.investment.eyebrow}</Eyebrow>
             <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">
-              Why buyers move <em className="italic text-[#A8814A]">early</em> here.
+              {c.investment.heading.lead}<em className="italic text-[#A8814A]">{c.investment.heading.em}</em>{c.investment.heading.tail}
             </h2>
             <p className="mt-6 text-[#0C2E35]/65 text-base sm:text-lg leading-relaxed">
-              Beachfront on a finite island is the one thing Dubai cannot produce more of on demand. The rest is timing.
+              {c.investment.intro}
             </p>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 gap-x-12 gap-y-0 border-t border-[#0C2E35]/12">
-            {INVESTMENT.map(({ title, body }, i) => (
+            {c.investment.items.map(({ title, body }, i) => (
               <Reveal key={title} delay={(i % 2) * 60}>
                 <div className="group flex gap-5 py-7 sm:py-9 border-b border-[#0C2E35]/12 h-full transition-colors hover:border-[#A8814A]/50">
                   <span className="font-serif text-2xl sm:text-3xl tabular-nums leading-none pt-1 flex-shrink-0 bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">
@@ -1078,15 +962,15 @@ export default function PalmJebelAliClient() {
 
           <Reveal className="mt-14 sm:mt-16 max-w-2xl">
             <p className="text-[#0C2E35]/55 text-sm sm:text-base leading-relaxed">
-              Early releases move fast and allocations are tightly held. We track Nakheel&apos;s release phases directly and can position serious buyers ahead of general public launches, with full DLD-registered transaction support from reservation through to handover.
+              {c.investment.outro}
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
               <a href="/pulse/guides/palm-jebel-ali-investor-guide" className="group/link inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A8814A] hover:text-[#0C2E35] transition-colors">
-                Read the investor guide
+                {c.investment.links.investorGuide}
                 <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
               </a>
               <a href="/off-plan-in/palm-jebel-ali" className="group/link inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A8814A] hover:text-[#0C2E35] transition-colors">
-                See off-plan launches
+                {c.investment.links.offPlan}
                 <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
               </a>
             </div>
@@ -1101,18 +985,18 @@ export default function PalmJebelAliClient() {
         <img aria-hidden src={FAQ_TEX} alt="" className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy" />
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8">
           <Reveal className="mb-12 sm:mb-14">
-            <Eyebrow dark>Common questions</Eyebrow>
-            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">Palm Jebel Ali, answered.</h2>
+            <Eyebrow dark>{c.faq.eyebrow}</Eyebrow>
+            <h2 className="font-serif font-medium text-4xl sm:text-6xl text-[#0C2E35] tracking-[-0.02em] leading-[1.02]">{c.faq.heading}</h2>
           </Reveal>
-          <FaqAccordion faqs={FAQS} emitJsonLd={false} />
+          <FaqAccordion faqs={c.faq.items} emitJsonLd={false} />
           <Reveal>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3">
               <a href="/pulse/guides" className="group/link inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A8814A] hover:text-[#0C2E35] transition-colors">
-                Explore all guides
+                {c.faq.links.allGuides}
                 <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
               </a>
               <a href="/communities/palm-jebel-ali" className="group/link inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#A8814A] hover:text-[#0C2E35] transition-colors">
-                The full community guide
+                {c.faq.links.communityGuide}
                 <ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
               </a>
             </div>
@@ -1130,25 +1014,25 @@ export default function PalmJebelAliClient() {
         <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 text-center">
           <Reveal>
             <p className="mb-8 flex items-center justify-center gap-3 text-[11px] uppercase tracking-[0.28em] text-[#C9A26A]">
-              <span className="h-px w-8 bg-[#C9A26A]" /> The invitation
+              <span className="h-px w-8 bg-[#C9A26A]" /> {c.finalCta.eyebrow}
             </p>
             <h2 className="font-serif font-medium text-white tracking-[-0.02em] leading-[1.05] mb-9" style={{ fontSize: "clamp(2.4rem, 6vw, 5rem)" }}>
-              Your address on the new <em className="italic text-[#E7C989]">coastline</em>.
+              {c.finalCta.heading.lead}<em className="italic text-[#E7C989]">{c.finalCta.heading.em}</em>{c.finalCta.heading.tail}
             </h2>
             <p className="text-white/70 text-base sm:text-lg mb-10 max-w-xl mx-auto">
-              Get the current release schedule, pricing by frond, and payment-plan breakdowns, sent directly, no obligation.
+              {c.finalCta.body}
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-5">
-              <GoldButton onClick={() => openForm("Investment / payment plans", "final_cta")} size="lg">Request Palm Jebel Ali pricing</GoldButton>
+              <GoldButton onClick={() => openForm("Investment / payment plans", "final_cta")} size="lg">{c.finalCta.cta.requestPricing}</GoldButton>
               <GhostButton href={waLink} tone="light" size="lg" onClick={() => trackEvent("whatsapp_click", { location: "final_cta" })}>
-                <MessageCircle className="h-4 w-4" /> WhatsApp
+                <MessageCircle className="h-4 w-4" /> {c.finalCta.cta.whatsapp}
               </GhostButton>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <SiteFooter waLink={waLink} />
+      <SiteFooter waLink={waLink} locale={locale} />
 
       <FloatingWhatsApp waLink={waLink} />
       <LeadFormModal open={formOpen} onClose={() => setFormOpen(false)} waLink={waLink} defaultInterest={formInterest} />

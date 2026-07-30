@@ -26,7 +26,10 @@ export const metadata: Metadata = {
     "Palm Jebel Ali vs Palm Jumeirah",
     "Dubai freehold island property",
   ],
-  alternates: { canonical: SITE },
+  alternates: {
+    canonical: SITE,
+    languages: { "x-default": SITE, en: SITE, ar: `${SITE}/ar`, ru: `${SITE}/ru` },
+  },
   openGraph: {
     title: META_TITLE,
     description: META_DESC,
@@ -34,6 +37,7 @@ export const metadata: Metadata = {
     url: SITE,
     siteName: "Palm Jebel Ali",
     locale: "en_AE",
+    alternateLocale: ["ar_AE", "ru_RU"],
     images: [{ url: OG_IMG, width: 2688, height: 1536, alt: "Aerial view of Palm Jebel Ali, Dubai's second palm island, at golden hour" }],
   },
   twitter: {
@@ -138,7 +142,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(SCHEMA) }} />
-      <PalmJebelAliClient />
+      <PalmJebelAliClient availableLocales={["en", "ar", "ru"]} />
     </>
   );
 }
