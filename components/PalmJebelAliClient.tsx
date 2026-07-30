@@ -246,9 +246,9 @@ function GhostButton({ href, onClick, children, tone = "dark", size = "md" }: { 
 
 // ── auto-scrolling fact marquee (edge-masked, slow) ─────────────────────────
 
-function Marquee() {
+function Marquee({ items = TICKER_ITEMS }: { items?: string[] }) {
   const reduceMotion = useReducedMotion();
-  const loop = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  const loop = [...items, ...items];
   return (
     <div
       className="overflow-hidden border-y border-[#C9A26A]/20 bg-[#0C2E35] py-5 sm:py-6"
@@ -648,7 +648,7 @@ export default function PalmJebelAliClient({ locale = "en", availableLocales = [
         </div>
       </section>
 
-      <Marquee />
+      <Marquee items={c.ticker} />
 
       {/* ── FRONDS / SIGNATURE COMPARISON ── */}
       <section className="relative bg-[#E4EDEB] py-20 sm:py-28 overflow-hidden">
@@ -822,11 +822,11 @@ export default function PalmJebelAliClient({ locale = "en", availableLocales = [
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
-            {SUSTAINABILITY_META.map(({ icon: Icon, stat }, i) => (
+            {SUSTAINABILITY_META.map(({ icon: Icon }, i) => (
               <Reveal key={c.sustainability.items[i].title} delay={i * 60}>
                 <div className="group border-t border-[#0C2E35]/15 pt-6 h-full transition-colors">
                   <Icon className="h-6 w-6 text-[#A8814A] mb-5 transition-transform duration-500 group-hover:-translate-y-0.5" />
-                  <p className="font-serif text-4xl sm:text-5xl leading-none mb-3 bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">{stat}</p>
+                  <p className="font-serif text-4xl sm:text-5xl leading-none mb-3 bg-gradient-to-b from-[#C9A26A] to-[#8A6A34] bg-clip-text text-transparent">{c.sustainability.stats[i]}</p>
                   <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#0C2E35]/85 mb-3">{c.sustainability.items[i].title}</h3>
                   <p className="text-[#0C2E35]/60 text-sm leading-relaxed">{c.sustainability.items[i].body}</p>
                 </div>

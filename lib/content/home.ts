@@ -39,8 +39,10 @@ export type HomeCopy = {
     eyebrow: string;
     heading: Emphasized;
     intro: string;
+    stats: string[];
     items: { title: string; body: string }[];
   };
+  ticker: string[];
   location: {
     eyebrow: string;
     heading: Emphasized;
@@ -186,6 +188,7 @@ export const HOME_EN: HomeCopy = {
     heading: { lead: "An island engineered to ", em: "age well", tail: "." },
     intro:
       "Reclaiming land is the easy part. Making it liveable in forty years is the discipline, and it shows up in the energy plan, the movement plan and what happens under the waterline.",
+    stats: ["30%", "Island-wide", "Protected", "Native"],
     items: [
       { title: "Renewable energy", body: "Public facilities across the island are targeted to run on renewable power." },
       { title: "Car-light by design", body: "Continuous cycling and pedestrian routes make short journeys walkable rather than drivable." },
@@ -193,6 +196,14 @@ export const HOME_EN: HomeCopy = {
       { title: "Low-water landscaping", body: "Planting chosen for the Gulf climate, cutting irrigation demand across parks and promenades." },
     ],
   },
+  ticker: [
+    "Dubai's Second Palm",
+    "16 Fronds",
+    "110km of New Coastline",
+    "Freehold for All Nationalities",
+    "Nakheel Master Developer",
+    "Villas from AED 18.5M",
+  ],
   location: {
     eyebrow: "Location & connectivity",
     heading: { lead: "Minutes from the airport ", em: "reshaping", tail: " Dubai." },
