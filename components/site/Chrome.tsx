@@ -145,7 +145,7 @@ export function SiteHeader({ waLink, locale = "en", availableLocales = ["en"] }:
           >
             <div className="pt-4">
               {active && (
-                <div className="w-[660px] max-w-[92vw] overflow-hidden rounded-2xl border border-[#0C2E35]/10 bg-[#F4EEE2]/98 backdrop-blur-xl shadow-[0_30px_70px_-24px_rgba(12,46,53,0.45)] grid grid-cols-[0.85fr_1.15fr]">
+                <div className="w-[660px] max-w-[92vw] overflow-hidden rounded-2xl border border-[#0C2E35]/10 bg-[#F4EEE2] shadow-[0_30px_70px_-24px_rgba(12,46,53,0.55)] grid grid-cols-[0.85fr_1.15fr]">
                   <a href={lp(active.featured.href)} className="relative hidden sm:block group overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element -- external S3 CDN image */}
                     <img src={active.featured.img} alt={active.featured.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
