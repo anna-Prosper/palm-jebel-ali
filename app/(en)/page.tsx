@@ -119,8 +119,8 @@ const SCHEMA = {
       dateModified: "2026-07-23",
       about: { "@id": `${SITE}/#place` },
       isPartOf: { "@id": `${SITE}/#website` },
-      author: { "@type": "Organization", name: "Palm Jebel Ali", url: SITE },
-      publisher: { "@type": "Organization", name: "Palm Jebel Ali", url: SITE },
+      author: { "@id": `${SITE}/#organization` },
+      publisher: { "@id": `${SITE}/#organization` },
     },
     {
       "@type": "FAQPage",
