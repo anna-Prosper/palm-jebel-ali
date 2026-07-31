@@ -1,5 +1,5 @@
 // Single source of truth for WhatsApp deep links.
-export const WHATSAPP_NUMBER = "971549988811";
+export const WHATSAPP_NUMBER = "971553582339";
 
 /**
  * Build a wa.me link with a pre-typed message.

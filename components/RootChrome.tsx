@@ -18,7 +18,7 @@ const SITE_SCHEMA = {
         "Independent showcase and buyer resource for Nakheel's Palm Jebel Ali — villas, apartments, prices, payment plans and release schedules.",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+971549988811",
+        telephone: "+971553582339",
         contactType: "sales",
         areaServed: "AE",
         availableLanguage: ["English", "Arabic", "Russian"],
