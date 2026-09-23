@@ -42,6 +42,9 @@ export type LeadDoc = {
   message: string;
   pageUrl: string;
   emailed: boolean;
+  /** Whether the lead reached the shared Binayah inquiries pipeline. A run of
+   *  false means this site is diverging from the main lead system again. */
+  forwardedToPipeline?: boolean;
   ip?: string;
   userAgent?: string;
   createdAt: Date;
