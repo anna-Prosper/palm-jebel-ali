@@ -23,6 +23,12 @@ const SITE_SCHEMA = {
         areaServed: "AE",
         availableLanguage: ["English", "Arabic", "Russian"],
       },
+      // The brokerage that operates this showcase and handles its enquiries.
+      parentOrganization: {
+        "@type": "RealEstateAgent",
+        name: "Binayah Real Estate",
+        url: "https://www.binayah.ae",
+      },
     },
     {
       "@type": "WebSite",

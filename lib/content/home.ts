@@ -84,6 +84,7 @@ export type HomeCopy = {
     columns: { residences: string; explore: string; guides: string };
     links: { residences: string[]; explore: string[]; guides: string[] };
     disclaimer: string;
+    operatedBy: { before: string; after: string };
     copyright: string;
   };
 };
@@ -333,6 +334,7 @@ export const HOME_EN: HomeCopy = {
     },
     disclaimer:
       "Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery and subject to change. This is an independent showcase, not affiliated with or endorsed by Nakheel.",
+    operatedBy: { before: "Operated by ", after: ", a Dubai real estate brokerage." },
     copyright: "© 2026 Palm Jebel Ali Showcase",
   },
 };

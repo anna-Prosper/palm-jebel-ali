@@ -36,7 +36,7 @@ export interface UIStrings {
   whatsapp: string;
   from: string;
   view: string;
-  footer: { residences: string; explore: string; guides: string; blurb: string; disclaimer: string };
+  footer: { residences: string; explore: string; guides: string; blurb: string; disclaimer: string; operatedBy: { before: string; after: string } };
 }
 
 export const UI: Record<Locale, UIStrings> = {
@@ -59,6 +59,7 @@ export const UI: Record<Locale, UIStrings> = {
       guides: "Guides",
       blurb: "An independent showcase for Nakheel’s Palm Jebel Ali, curated by a Dubai brokerage tracking release phases directly.",
       disclaimer: "Palm Jebel Ali is a master development by Nakheel. Renders shown are illustrative concept imagery and subject to change. This is an independent showcase, not affiliated with or endorsed by Nakheel.",
+      operatedBy: { before: "Operated by ", after: ", a Dubai real estate brokerage." },
     },
   },
   ar: {
@@ -80,6 +81,7 @@ export const UI: Record<Locale, UIStrings> = {
       guides: "الأدلة",
       blurb: "منصة عرض مستقلة لمشروع نخلة جبل علي من نخيل، من إعداد وسيط عقاري في دبي يتابع مراحل الإطلاق مباشرةً.",
       disclaimer: "نخلة جبل علي مشروع تطوير رئيسي من نخيل. الصور المعروضة تمثيلية وقابلة للتغيير. هذه منصة عرض مستقلة غير تابعة لنخيل ولا معتمدة منها.",
+      operatedBy: { before: "تُدار بواسطة ", after: "، شركة وساطة عقارية في دبي." },
     },
   },
   ru: {
@@ -101,6 +103,7 @@ export const UI: Record<Locale, UIStrings> = {
       guides: "Гиды",
       blurb: "Независимая витрина проекта Palm Jebel Ali от Nakheel, подготовленная дубайским брокером, который напрямую отслеживает этапы продаж.",
       disclaimer: "Palm Jebel Ali — мастер-проект компании Nakheel. Показанные рендеры являются концептуальными и могут измениться. Это независимая витрина, не аффилированная с Nakheel.",
+      operatedBy: { before: "Управляется компанией ", after: " — агентством недвижимости в Дубае." },
     },
   },
 };

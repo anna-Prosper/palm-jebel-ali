@@ -273,7 +273,14 @@ export function SiteFooter({ waLink, locale = "en" }: { waLink: string; locale?:
           <FooterCol title={t.footer.guides} links={FOOTER_GUIDES} />
         </div>
         <div className="pt-8 border-t border-[#0C2E35]/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-          <p className="text-[#0C2E35]/45 text-xs leading-relaxed max-w-2xl">{t.footer.disclaimer}</p>
+          <div className="max-w-2xl">
+            <p className="text-[#0C2E35]/45 text-xs leading-relaxed">{t.footer.disclaimer}</p>
+            <p className="text-[#0C2E35]/45 text-xs leading-relaxed mt-2">
+              {t.footer.operatedBy.before}
+              <a href="https://www.binayah.ae" target="_blank" rel="noopener" className="text-[#0C2E35]/70 underline underline-offset-2 hover:text-[#A8814A] transition-colors">Binayah.ae</a>
+              {t.footer.operatedBy.after}
+            </p>
+          </div>
           <p className="text-[#0C2E35]/45 text-xs whitespace-nowrap">© 2026 Palm Jebel Ali Showcase</p>
         </div>
       </div>

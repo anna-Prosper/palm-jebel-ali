@@ -245,6 +245,7 @@ export const HOME_AR: HomeCopy = {
     },
     disclaimer:
       "Palm Jebel Ali مشروع تطوير رئيسي من نخيل. الصور المعروضة هي تصوّرات مفاهيمية توضيحية وقابلة للتغيير. هذه منصّة عرض مستقلة، غير تابعة لنخيل ولا معتمدة منها.",
+    operatedBy: { before: "تُدار بواسطة ", after: "، شركة وساطة عقارية في دبي." },
     copyright: "© 2026 Palm Jebel Ali Showcase",
   },
 };

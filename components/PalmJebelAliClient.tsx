@@ -444,9 +444,16 @@ function SiteFooter({ waLink, locale = "en" }: { waLink: string; locale?: Locale
           <FooterCol title={f.columns.guides} links={footerLinks(FOOTER_GUIDES_HREFS, f.links.guides)} />
         </div>
         <div className="pt-8 border-t border-[#0C2E35]/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-          <p className="text-[#0C2E35]/45 text-xs leading-relaxed max-w-2xl">
-            {f.disclaimer}
-          </p>
+          <div className="max-w-2xl">
+            <p className="text-[#0C2E35]/45 text-xs leading-relaxed">
+              {f.disclaimer}
+            </p>
+            <p className="text-[#0C2E35]/45 text-xs leading-relaxed mt-2">
+              {f.operatedBy.before}
+              <a href="https://www.binayah.ae" target="_blank" rel="noopener" className="text-[#0C2E35]/70 underline underline-offset-2 hover:text-[#A8814A] transition-colors">Binayah.ae</a>
+              {f.operatedBy.after}
+            </p>
+          </div>
           <p className="text-[#0C2E35]/45 text-xs whitespace-nowrap">{f.copyright}</p>
         </div>
       </div>
