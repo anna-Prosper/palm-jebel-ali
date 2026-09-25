@@ -1,6 +1,6 @@
 # Palm Jebel Ali — Page Factory runbook
 
-Autonomous daily procedure that generates **up to 5 new content pages** from the
+Autonomous daily procedure that generates **1 new content page** from the
 curated backlog, wires them, builds, fact-checks, deploys, and verifies.
 **Stops cleanly when the backlog is exhausted.** Auto-publishes to production
 (no human review) — so the fact-discipline below is non-negotiable.
@@ -16,9 +16,9 @@ Project: `/Users/zoop/palm-jebel-ali` (Next.js, Vercel). Live: `https://www.jebe
 
 ## Steps
 
-1. **Scope.** Run `node scripts/pending.mjs 5`. If `exhausted` is true → do nothing, report "backlog exhausted", STOP. Otherwise take the `next` array (≤5 items).
+1. **Scope.** Run `node scripts/pending.mjs 1`. If `exhausted` is true → do nothing, report "backlog exhausted", STOP. Otherwise take the `next` array (1 item).
 
-2. **Draft (parallel).** For EACH item, spawn a `general-purpose` subagent (run them in parallel). Build the prompt from the item using the template below. All items in this backlog use the guide template unless a `template` field says otherwise.
+2. **Draft.** Spawn a `general-purpose` subagent for the item. Build the prompt from the item using the template below. All items in this backlog use the guide template unless a `template` field says otherwise.
 
 3. **Verify files exist.** Confirm each `lib/content/<file>.ts` was written and exports the named const.
 
